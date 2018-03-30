@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680514527106e475482d0da115d0b7ce, type: 3}
+  m_Name: RewardCardChar
+  m_EditorClassIdentifier: 
+  typeReward: 4
+  iconReward: {fileID: 21300000, guid: b319ecebe5ff24036b796217d3f48f0c, type: 3}
+  iconRewardClaim: {fileID: 21300000, guid: 26de69d55f0e349939aecc80fa7e24ad, type: 3}
+  effCur: {fileID: 21300000, guid: 7b750ed2363b74f6aa38b8a048a7d9ca, type: 3}
+  reward: 1

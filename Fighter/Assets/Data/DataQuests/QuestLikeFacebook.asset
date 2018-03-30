@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6503a272cae484c18be8b87dfb9556c4, type: 3}
+  m_Name: QuestLikeFacebook
+  m_EditorClassIdentifier: 
+  idQuest: 1
+  icon: {fileID: 21300000, guid: 609d7679f7a874e7e88b654a4adf2863, type: 3}
+  content: Like or visit facebook
+  requirement: 1
+  doing: 0
+  rewardGold: 20
+  rewardExp: 10
+  isDone: 0
