@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
+using UnityEngine.EventSystems;
 
 public class Purchaser : MonoBehaviour, IStoreListener {
+
+	Transform posAppearEff;
 
 	private static IStoreController m_StoreController;          // The Unity Purchasing system.
 	private static IExtensionProvider m_StoreExtensionProvider; // The store-specific Purchasing subsystems.
@@ -35,23 +38,21 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	int coinConsumable100;
 
 	[Header("Id product consumable")]
-	[HideInInspector]
 	public string kProductIDConsumable1 = "com.tranphuocnhan.TestFingerWar.pack1";
-	[HideInInspector]
+
 	public string kProductIDConsumable5 = "com.tranphuocnhan.TestFingerWar.pack2";
-	[HideInInspector]
+
 	public string kProductIDConsumable10 = "com.tranphuocnhan.TestFingerWar.pack3";
-	[HideInInspector]
+
 	public string kProductIDConsumable15 = "com.tranphuocnhan.TestFingerWar.pack4";
-	[HideInInspector]
+
 	public string kProductIDConsumable30 = "com.tranphuocnhan.TestFingerWar.pack5";
-	[HideInInspector]
+
 	public string kProductIDConsumable50 = "com.tranphuocnhan.TestFingerWar.pack6";
-	[HideInInspector]
+
 	public string kProductIDConsumable100 = "com.tranphuocnhan.TestFingerWar.pack7";
 
 	[Header("Id product non consumable")]
-	[HideInInspector]
 	public string kProductIDNonConsumable = "com.tranphuocnhan.TestFingerWar.removeads";
 	//public static string kProductIDSubscription =  "subscription"; 
 
@@ -127,6 +128,10 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	{
 		// Buy the consumable product using its general identifier. Expect a response either 
 		// through ProcessPurchase or OnPurchaseFailed asynchronously.
+		var go = EventSystem.current.currentSelectedGameObject;
+		posAppearEff = go.transform.parent.GetChild (0).transform;
+		posAppearEff.position = new Vector3 (posAppearEff.position.x, posAppearEff.position.y, 0);
+
 		BuyProductID(kProductIDConsumable1);
 	}
 
@@ -134,6 +139,10 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	{
 		// Buy the consumable product using its general identifier. Expect a response either 
 		// through ProcessPurchase or OnPurchaseFailed asynchronously.
+		var go = EventSystem.current.currentSelectedGameObject;
+		posAppearEff = go.transform.parent.GetChild (0).transform;
+		posAppearEff.position = new Vector3 (posAppearEff.position.x, posAppearEff.position.y, 0);
+
 		BuyProductID(kProductIDConsumable5);
 	}
 
@@ -141,6 +150,11 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	{
 		// Buy the consumable product using its general identifier. Expect a response either 
 		// through ProcessPurchase or OnPurchaseFailed asynchronously.
+		var go = EventSystem.current.currentSelectedGameObject;
+		posAppearEff = go.transform.parent.GetChild (0).transform;
+		posAppearEff.position = new Vector3 (posAppearEff.position.x, posAppearEff.position.y, 0);
+
+
 		BuyProductID(kProductIDConsumable10);
 	}
 
@@ -148,6 +162,10 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	{
 		// Buy the consumable product using its general identifier. Expect a response either 
 		// through ProcessPurchase or OnPurchaseFailed asynchronously.
+		var go = EventSystem.current.currentSelectedGameObject;
+		posAppearEff = go.transform.parent.GetChild (0).transform;
+		posAppearEff.position = new Vector3 (posAppearEff.position.x, posAppearEff.position.y, 0);
+
 		BuyProductID(kProductIDConsumable15);
 	}
 
@@ -155,6 +173,10 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	{
 		// Buy the consumable product using its general identifier. Expect a response either 
 		// through ProcessPurchase or OnPurchaseFailed asynchronously.
+		var go = EventSystem.current.currentSelectedGameObject;
+		posAppearEff = go.transform.parent.GetChild (0).transform;
+		posAppearEff.position = new Vector3 (posAppearEff.position.x, posAppearEff.position.y, 0);
+
 		BuyProductID(kProductIDConsumable30);
 	}
 
@@ -162,6 +184,10 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	{
 		// Buy the consumable product using its general identifier. Expect a response either 
 		// through ProcessPurchase or OnPurchaseFailed asynchronously.
+		var go = EventSystem.current.currentSelectedGameObject;
+		posAppearEff = go.transform.parent.GetChild (0).transform;
+		posAppearEff.position = new Vector3 (posAppearEff.position.x, posAppearEff.position.y, 0);
+
 		BuyProductID(kProductIDConsumable50);
 	}
 
@@ -169,6 +195,10 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	{
 		// Buy the consumable product using its general identifier. Expect a response either 
 		// through ProcessPurchase or OnPurchaseFailed asynchronously.
+		var go = EventSystem.current.currentSelectedGameObject;
+		posAppearEff = go.transform.parent.GetChild (0).transform;
+		posAppearEff.position = new Vector3 (posAppearEff.position.x, posAppearEff.position.y, 0);
+
 		BuyProductID(kProductIDConsumable100);
 	}
 
@@ -177,6 +207,10 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	{
 		// Buy the non-consumable product using its general identifier. Expect a response either 
 		// through ProcessPurchase or OnPurchaseFailed asynchronously.
+		var go = EventSystem.current.currentSelectedGameObject;
+		posAppearEff = go.transform.parent.GetChild (0).transform;
+		posAppearEff.position = new Vector3 (posAppearEff.position.x, posAppearEff.position.y, 0);
+
 		BuyProductID(kProductIDNonConsumable);
 	}
 
@@ -292,6 +326,7 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 				SaveManager.instance.state.TotalDiamond += coinConsumable1;
 				SaveManager.instance.Save ();
 			}
+			InappManager.Instance.EffDiamond (posAppearEff);
 			// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
 		}
 		// A consumable product has been purchased by this user.
@@ -306,7 +341,7 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 				SaveManager.instance.state.TotalDiamond += coinConsumable5;
 				SaveManager.instance.Save ();
 			}
-			SaveManager.instance.Save ();
+			InappManager.Instance.EffDiamond (posAppearEff);
 			// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
 		}
 		// A consumable product has been purchased by this user.
@@ -321,6 +356,7 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 				SaveManager.instance.state.TotalDiamond += coinConsumable10;
 				SaveManager.instance.Save ();
 			}
+			InappManager.Instance.EffDiamond (posAppearEff);
 			// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
 		}
 		// A consumable product has been purchased by this user.
@@ -335,6 +371,7 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 				SaveManager.instance.state.TotalDiamond += coinConsumable15;
 				SaveManager.instance.Save ();
 			}
+			InappManager.Instance.EffDiamond (posAppearEff);
 			// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
 		}
 		// A consumable product has been purchased by this user.
@@ -349,6 +386,7 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 				SaveManager.instance.state.TotalDiamond += coinConsumable30;
 				SaveManager.instance.Save ();
 			}
+			InappManager.Instance.EffDiamond (posAppearEff);
 			// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
 		}
 		// A consumable product has been purchased by this user.
@@ -363,6 +401,7 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 				SaveManager.instance.state.TotalDiamond += coinConsumable50;
 				SaveManager.instance.Save ();
 			}
+			InappManager.Instance.EffDiamond (posAppearEff);
 			// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
 		}
 		// A consumable product has been purchased by this user.
@@ -377,13 +416,14 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 				SaveManager.instance.state.TotalDiamond += coinConsumable100;
 				SaveManager.instance.Save ();
 			}
+			InappManager.Instance.EffDiamond (posAppearEff);
 			// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
 		}
 		// Or ... a non-consumable product has been purchased by this user.
 		if (String.Equals(args.purchasedProduct.definition.id, kProductIDNonConsumable, StringComparison.Ordinal))
 		{
 			SaveManager.instance.state.isPurchaseRemoveAds = true;
-			GoogleMobileAdsDemoScript.instance.HideBanner ();
+			//GoogleMobileAdsDemoScript.instance.HideBanner ();
 			SaveManager.instance.Save ();
 			Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
 			// TODO: The non-consumable item has been successfully purchased, grant this item to the player.

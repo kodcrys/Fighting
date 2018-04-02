@@ -924,8 +924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFactor: 5
   isMove: 0
-  effect: {fileID: 1569782648925978, guid: 2833b7a967a094060a9a9c37e99a6692, type: 2}
-  namePos: Pos
+  effect: {fileID: 1286592942996174, guid: 35325da27b82349d2b8ed8a87f2168b0, type: 2}
+  namePos: PosX
 --- !u!114 &114123784069162346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -939,8 +939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFactor: 5
   isMove: 0
-  effect: {fileID: 1569782648925978, guid: 2833b7a967a094060a9a9c37e99a6692, type: 2}
-  namePos: Pos
+  effect: {fileID: 1286592942996174, guid: 35325da27b82349d2b8ed8a87f2168b0, type: 2}
+  namePos: PosX
 --- !u!114 &114124025848047914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -981,8 +981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFactor: 5
   isMove: 0
-  effect: {fileID: 1569782648925978, guid: 2833b7a967a094060a9a9c37e99a6692, type: 2}
-  namePos: Pos
+  effect: {fileID: 1286592942996174, guid: 35325da27b82349d2b8ed8a87f2168b0, type: 2}
+  namePos: PosX
 --- !u!114 &114198117183590910
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1023,8 +1023,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFactor: 5
   isMove: 0
-  effect: {fileID: 1569782648925978, guid: 2833b7a967a094060a9a9c37e99a6692, type: 2}
-  namePos: Pos
+  effect: {fileID: 1286592942996174, guid: 35325da27b82349d2b8ed8a87f2168b0, type: 2}
+  namePos: PosX
 --- !u!114 &114211939704486366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1065,8 +1065,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFactor: 5
   isMove: 0
-  effect: {fileID: 1569782648925978, guid: 2833b7a967a094060a9a9c37e99a6692, type: 2}
-  namePos: Pos
+  effect: {fileID: 1286592942996174, guid: 35325da27b82349d2b8ed8a87f2168b0, type: 2}
+  namePos: PosX
 --- !u!114 &114326416700944340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1107,8 +1107,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFactor: 5
   isMove: 0
-  effect: {fileID: 1569782648925978, guid: 2833b7a967a094060a9a9c37e99a6692, type: 2}
-  namePos: Pos
+  effect: {fileID: 1286592942996174, guid: 35325da27b82349d2b8ed8a87f2168b0, type: 2}
+  namePos: PosX
 --- !u!114 &114369271895205908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1149,8 +1149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFactor: 5
   isMove: 0
-  effect: {fileID: 1569782648925978, guid: 2833b7a967a094060a9a9c37e99a6692, type: 2}
-  namePos: Pos
+  effect: {fileID: 1286592942996174, guid: 35325da27b82349d2b8ed8a87f2168b0, type: 2}
+  namePos: PosX
 --- !u!114 &114533581481964322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1191,8 +1191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFactor: 5
   isMove: 0
-  effect: {fileID: 1569782648925978, guid: 2833b7a967a094060a9a9c37e99a6692, type: 2}
-  namePos: Pos
+  effect: {fileID: 1286592942996174, guid: 35325da27b82349d2b8ed8a87f2168b0, type: 2}
+  namePos: PosX
 --- !u!114 &114625474975007302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1233,8 +1233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFactor: 5
   isMove: 0
-  effect: {fileID: 1569782648925978, guid: 2833b7a967a094060a9a9c37e99a6692, type: 2}
-  namePos: Pos
+  effect: {fileID: 1286592942996174, guid: 35325da27b82349d2b8ed8a87f2168b0, type: 2}
+  namePos: PosX
 --- !u!114 &114683242999978118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1275,8 +1275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceFactor: 5
   isMove: 0
-  effect: {fileID: 1569782648925978, guid: 2833b7a967a094060a9a9c37e99a6692, type: 2}
-  namePos: Pos
+  effect: {fileID: 1286592942996174, guid: 35325da27b82349d2b8ed8a87f2168b0, type: 2}
+  namePos: PosX
 --- !u!114 &114773084779474848
 MonoBehaviour:
   m_ObjectHideFlags: 1

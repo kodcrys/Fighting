@@ -35,7 +35,7 @@ public class MagnetField : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.name == "Pos") {
+		if (col.name == namePos) {
 			Instantiate (effect, col.transform.position, Quaternion.identity, effectParent.transform);
 			gameObject.SetActive (false);
 		}
