@@ -15,8 +15,10 @@ public class AnimationFadeManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (AnimationText.canPlay)
-			DoEmoji ();
+		if (AnimationText.canPlay) {
+			if (fadeOption.isUI == false)
+				DoEmoji ();
+		}
 
 		if (fadeOption.leftControl != null) {
 			if (fadeOption.leftControl.fingerAction == FingerBase.FingerState.Idel) {
