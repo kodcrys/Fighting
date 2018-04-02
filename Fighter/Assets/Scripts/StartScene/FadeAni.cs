@@ -70,6 +70,9 @@ public class FadeAni : MonoBehaviour {
 
 	bool isRunFadeHide;
 
+	[SerializeField]
+	bool isGameplay;
+
 	float timeDelay = 0;
 
 	// Use this for initialization
@@ -83,79 +86,91 @@ public class FadeAni : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		switch (stateFade) {
-			case State.none:
-				fade.enabled = false;
+		case State.none:
+			fade.enabled = false;
+			if (!isGameplay)
 				speed = 15;
-				break;
-			case State.Show:
-				fade.enabled = true;
+			else
+				speed = 500;
+			break;
+		case State.Show:
+			fade.enabled = true;
+			if (!isGameplay)
 				speed = 15;
-				fade1.position = Vector3.MoveTowards (fade1.position, showPosFade1.position, speed * Time.deltaTime);
-				fade2.position = Vector3.MoveTowards (fade2.position, showPosFade2.position, speed * Time.deltaTime);
-				if (fade1.position == showPosFade1.position && fade2.position == showPosFade2.position) {
-					timeDelay += Time.deltaTime;
-					if (timeDelay > 0.25f) {
-						stateFade = State.Show1;
-						timeDelay = 0;
-					}
+			else
+				speed = 500;
+			fade1.position = Vector3.MoveTowards (fade1.position, showPosFade1.position, speed * Time.deltaTime);
+			fade2.position = Vector3.MoveTowards (fade2.position, showPosFade2.position, speed * Time.deltaTime);
+			if (fade1.position == showPosFade1.position && fade2.position == showPosFade2.position) {
+				timeDelay += Time.deltaTime;
+				if (timeDelay > 0.25f) {
+					stateFade = State.Show1;
+					timeDelay = 0;
 				}
-				break;
-			case State.Show1:
-				fade1.position = Vector3.MoveTowards (fade1.position, showPos1Fade1.position, speed * Time.deltaTime);
-				fade2.position = Vector3.MoveTowards (fade2.position, showPos1Fade2.position, speed * Time.deltaTime);
-				if (fade1.position == showPos1Fade1.position && fade2.position == showPos1Fade2.position) {
-					timeDelay += Time.deltaTime;
-					if (timeDelay > 0.25f) {
-						stateFade = State.Show2;
-						timeDelay = 0;
-					}
+			}
+			break;
+		case State.Show1:
+			fade1.position = Vector3.MoveTowards (fade1.position, showPos1Fade1.position, speed * Time.deltaTime);
+			fade2.position = Vector3.MoveTowards (fade2.position, showPos1Fade2.position, speed * Time.deltaTime);
+			if (fade1.position == showPos1Fade1.position && fade2.position == showPos1Fade2.position) {
+				timeDelay += Time.deltaTime;
+				if (timeDelay > 0.25f) {
+					stateFade = State.Show2;
+					timeDelay = 0;
 				}
-				break;
+			}
+			break;
 		case State.Show2:
+			if (!isGameplay)
 				speed = 100;
-				fade1.position = Vector3.MoveTowards (fade1.position, showPos2Fade1.position, speed * Time.deltaTime);
-				fade2.position = Vector3.MoveTowards (fade2.position, showPos2Fade2.position, speed * Time.deltaTime);
-				if (fade1.position == showPos2Fade1.position && fade2.position == showPos2Fade2.position) {
-					if (isRunHide) {
-						HandleShop ();
-						timeDelay += Time.deltaTime;
-						if (timeDelay > 0.5f) {
-							stateFade = State.Hide;
-							timeDelay = 0;
-						}
+			else
+				speed = 800;
+			fade1.position = Vector3.MoveTowards (fade1.position, showPos2Fade1.position, speed * Time.deltaTime);
+			fade2.position = Vector3.MoveTowards (fade2.position, showPos2Fade2.position, speed * Time.deltaTime);
+			if (fade1.position == showPos2Fade1.position && fade2.position == showPos2Fade2.position) {
+				if (isRunHide) {
+					HandleShop ();
+					timeDelay += Time.deltaTime;
+					if (timeDelay > 0.5f) {
+						stateFade = State.Hide;
+						timeDelay = 0;
 					}
+				}
 					
-					if (isChangeMap)
-						UnityEngine.SceneManagement.SceneManager.LoadScene ("ChooseMap");
+				if (isChangeMap)
+					UnityEngine.SceneManagement.SceneManager.LoadScene ("ChooseMap");
 
-					if (isChangeChooseChar)
-						UnityEngine.SceneManagement.SceneManager.LoadScene ("StartScene");
+				if (isChangeChooseChar)
+					UnityEngine.SceneManagement.SceneManager.LoadScene ("StartScene");
 
-					if(isRunPlayGame)
-						UnityEngine.SceneManagement.SceneManager.LoadScene ("MainGameScene");
-				}
-				break;
-			case State.Hide:
-				if (isRunHideFirst) {
-					if (timeDelayHideFirst < 0.5f)
-						timeDelayHideFirst += Time.deltaTime;
-					if (timeDelayHideFirst >= 0.5f) {
-						timeDelayHideFirst = 0;
-						isRunFadeHide = true;
-					}
-				} else
+				if (isRunPlayGame)
+					UnityEngine.SceneManagement.SceneManager.LoadScene ("MainGameScene");
+			}
+			break;
+		case State.Hide:
+			if (isRunHideFirst) {
+				if (timeDelayHideFirst < 0.5f)
+					timeDelayHideFirst += Time.deltaTime;
+				if (timeDelayHideFirst >= 0.5f) {
+					timeDelayHideFirst = 0;
 					isRunFadeHide = true;
-
-				if (isRunFadeHide) {
-					speed = 15;
-					fade1.position = Vector3.MoveTowards (fade1.position, hidePosFade1.position, speed * Time.deltaTime);
-					fade2.position = Vector3.MoveTowards (fade2.position, hidePosFade2.position, speed * Time.deltaTime);
-					if (fade1.position == hidePosFade1.position && fade2.position == hidePosFade2.position) {
-						fade.enabled = false;
-						stateFade = State.none;
-					}
 				}
-				break;
+			} else
+				isRunFadeHide = true;
+
+			if (isRunFadeHide) {
+				if (!isGameplay)
+					speed = 15;
+				else
+					speed = 500;
+				fade1.position = Vector3.MoveTowards (fade1.position, hidePosFade1.position, speed * Time.deltaTime);
+				fade2.position = Vector3.MoveTowards (fade2.position, hidePosFade2.position, speed * Time.deltaTime);
+				if (fade1.position == hidePosFade1.position && fade2.position == hidePosFade2.position) {
+					fade.enabled = false;
+					stateFade = State.none;
+				}
+			}
+			break;
 		}
 	}
 

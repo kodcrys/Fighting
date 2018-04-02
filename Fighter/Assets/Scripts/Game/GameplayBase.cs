@@ -32,6 +32,9 @@ public class GameplayBase : MonoBehaviour {
 	[SerializeField]
 	GameObject player1, player2;
 
+	[SerializeField]
+	FadeAni aniFade;
+
 	public GameObject pausePanel, gameoverP1Panel, gameoverP2Panel;
 
 	public static DataCharacter dataPlayer1;
@@ -138,11 +141,19 @@ public class GameplayBase : MonoBehaviour {
 		pausePanel.SetActive (false);
 	}
 
+	public void Homecoming(){
+		aniFade.stateFade = FadeAni.State.Show;
+		aniFade.isChangeChooseChar = true;
+		FadeAni.isRunMapToChooseChar = true;
+		FadeAni.isRunMapToHome = true;
+		FadeAni.isRunPlayGame = false;
+	}
+
 	public void ReMatch(){
-		UnityEngine.SceneManagement.SceneManager.LoadScene ("MainGameScene");
 		SaveManager.instance.state.winCountLeft = 0;
 		SaveManager.instance.state.winCountRight = 0;
 		SaveManager.instance.state.roundCount = 1;
 		SaveManager.instance.Save ();
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("MainGameScene");
 	}
 }
