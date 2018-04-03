@@ -894,6 +894,7 @@ public class ChooseCharManager : MonoBehaviour {
 
 	void PlayModeAI() {
 		// neu file luu tru theo ID cua nhan zat hoac equipment dang != -1 (nghia la co luu tru thi thuc hien thay doi theo character player)
+		// neu player chon character thi random character cho AI
 		if (SaveManager.instance.state.idChar1 != -1) {
 			SaveManager.instance.state.idCharAI = Random.Range (0, lstCharacters.Length);
 			SaveManager.instance.Save ();
@@ -908,6 +909,7 @@ public class ChooseCharManager : MonoBehaviour {
 
 		}
 
+		// neu player chon equipment tuong ung thi AI se co equipment ung zs player
 		if (SaveManager.instance.state.idHat1 != -1) {
 			SaveManager.instance.state.idHatAI = Random.Range (44, 94);
 			SaveManager.instance.Save ();
