@@ -334,7 +334,7 @@ public class ChooseCharManager : MonoBehaviour {
 				else
 					GameplayBase.amorPlayer2 = null;
 
-				if (SaveManager.instance.state.idWp1 != -1)
+				if (SaveManager.instance.state.idWp2 != -1)
 					GameplayBase.wpPlayer2 = lstItems [SaveManager.instance.state.idWp2];
 				else
 					GameplayBase.wpPlayer2 = null;

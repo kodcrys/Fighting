@@ -471,7 +471,7 @@ public class FingerRightControl : FingerBase {
 
 			HideSkin ();
 		}
-
+			
 		if (GameplayBase.wpPlayer2 != null) {
 			FingerRightControl.instance.weapon.sprite = GameplayBase.wpPlayer2.avatar;
 			FingerRightControl.instance.weapon.gameObject.SetActive (true);
