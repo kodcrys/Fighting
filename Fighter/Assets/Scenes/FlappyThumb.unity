@@ -3159,6 +3159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 614380842}
+  fingerItemPre: {fileID: 605360435}
 --- !u!1 &1968766808
 GameObject:
   m_ObjectHideFlags: 0

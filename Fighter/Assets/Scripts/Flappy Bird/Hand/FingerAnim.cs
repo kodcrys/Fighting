@@ -98,7 +98,7 @@ public class FingerAnim : BaseFinger {
 
 	public void ChangeItemsAI() {
 
-		if (GameplayBase.hatAI != null) {
+		if (GamePlayController.hatAI != null) {
 			// hat idle
 			hat.sprite = GamePlayController.hatAI.avatar;
 			hat.gameObject.SetActive (true);
@@ -108,12 +108,12 @@ public class FingerAnim : BaseFinger {
 			hatAtkDownSpr.gameObject.SetActive (true);*/
 		}
 
-		if (GameplayBase.amorAI != null) {
+		if (GamePlayController.amorAI != null) {
 			amor.sprite = GamePlayController.amorAI.avatar;
 			amor.gameObject.SetActive (true);
 		}
 
-		if (GameplayBase.wpAI != null) {
+		if (GamePlayController.wpAI != null) {
 			weapon.sprite = GamePlayController.wpAI.avatar;
 			weapon.gameObject.SetActive (true);
 		}

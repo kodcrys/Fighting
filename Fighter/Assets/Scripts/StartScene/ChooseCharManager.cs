@@ -251,6 +251,8 @@ public class ChooseCharManager : MonoBehaviour {
 		if (contentBtn.text == playMode [3]) {
 			fadeAni.stateFade = FadeAni.State.Show;
 			FadeAni.isRunMiniGame = true;
+			RandomMinigame ();
+
 		}
 
 
@@ -895,6 +897,18 @@ public class ChooseCharManager : MonoBehaviour {
 			countModeAI = playMode.Length - 1;
 			modeAIText.text = modeAI [countModeAI].ToString ();
 		}
+	}
+
+	void RandomMinigame(){
+		SaveManager.instance.state.idHatAI = Random.Range (44, 94);
+		SaveManager.instance.state.idAmorAI = Random.Range (0, 44);
+		SaveManager.instance.state.idWpAI = Random.Range (94, lstItems.Length);
+
+		SaveManager.instance.Save ();
+
+		GamePlayController.hatAI = lstItems[SaveManager.instance.state.idHatAI];
+		GamePlayController.amorAI = lstItems[SaveManager.instance.state.idAmorAI];
+		GamePlayController.wpAI = lstItems[SaveManager.instance.state.idWpAI];
 	}
 
 	void PlayModeAI() {

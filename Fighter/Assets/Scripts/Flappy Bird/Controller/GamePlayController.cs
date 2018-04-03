@@ -12,6 +12,8 @@ public class GamePlayController : MonoBehaviour {
 
 	public static DataItems hatAI, amorAI, wpAI;
 
+	public FingerAnim fingerItemPre;
+
 	/// <summary>
 	/// Awake this instance.
 	/// </summary>
@@ -19,6 +21,10 @@ public class GamePlayController : MonoBehaviour {
 	{
 		Time.timeScale = 0;
 		_MakeInstance ();
+	}
+
+	void Start(){
+		fingerItemPre.ChangeItemsAI ();
 	}
 
 	/// <summary>
