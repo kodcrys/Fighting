@@ -676,7 +676,7 @@ public class ChooseCharManager : MonoBehaviour {
 
 				SaveManager.instance.state.idAmor2 = ctData.dataItem.id;
 
-				SaveManager.instance.state.idChar1 = -2;
+				SaveManager.instance.state.idChar1 = -1;
 
 				SaveManager.instance.Save ();
 			}
@@ -748,7 +748,7 @@ public class ChooseCharManager : MonoBehaviour {
 
 	public void ReadSave() {
 		if (SaveManager.instance.state.idChar1 != -1) {
-
+			Debug.Log(SaveManager.instance.state.idChar1);
 			hatSymbol2.gameObject.SetActive (false);
 
 			hatMainL.gameObject.SetActive (true);
@@ -930,7 +930,7 @@ public class ChooseCharManager : MonoBehaviour {
 
 		// neu player chon equipment tuong ung thi AI se co equipment ung zs player
 		if (SaveManager.instance.state.idHat1 != -1) {
-			SaveManager.instance.state.idHatAI = Random.Range (44, 94);
+			SaveManager.instance.state.idHatAI = Random.Range (55, 116);
 			SaveManager.instance.Save ();
 
 			// Close data char
@@ -941,7 +941,7 @@ public class ChooseCharManager : MonoBehaviour {
 		}
 
 		if (SaveManager.instance.state.idAmor1 != -1) {
-			SaveManager.instance.state.idAmorAI = Random.Range (0, 44);
+			SaveManager.instance.state.idAmorAI = Random.Range (0, 55);
 			SaveManager.instance.Save ();
 
 			// Close data char
@@ -952,7 +952,7 @@ public class ChooseCharManager : MonoBehaviour {
 		}
 
 		if (SaveManager.instance.state.idWp1 != -1) {
-			SaveManager.instance.state.idWpAI = Random.Range (94, lstItems.Length);
+			SaveManager.instance.state.idWpAI = Random.Range (116, lstItems.Length);
 			SaveManager.instance.Save ();
 
 			// Close data char
