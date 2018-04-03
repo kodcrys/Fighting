@@ -10,6 +10,12 @@ public class BaseFinger : MonoBehaviour {
 	[Header("Status Animation")]
 	public bool fingerLeft;
 
+	[Header("Skins & Items Idle")]
+	public SpriteRenderer skin;
+	public SpriteRenderer hat;
+	public SpriteRenderer amor;
+	public SpriteRenderer weapon;
+
 	public int changeScale = 0;
 
 	public float speedScale;

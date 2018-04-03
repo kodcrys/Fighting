@@ -401,7 +401,7 @@ public class FingerRightControl : FingerBase {
 			// skin Idle
 			skin.sprite = GameplayBase.dataPlayer2.equipmentOfChar;
 			skin.gameObject.SetActive (true);
-			Debug.Log (skin.gameObject);
+//			Debug.Log (skin.gameObject);
 
 			// skin AtkTop
 			skinAtkTopSpr.sprite = GameplayBase.dataPlayer2.equipmentOfChar;
