@@ -77,7 +77,7 @@ public class FindMatch : MonoBehaviour {
 	{
 		isMoveOut = true;
 		timeCount = 0f;
-		timeJoinGame = Random.Range (10, 20);
+		timeJoinGame = Random.Range (1, 3);
 		findMatchbtn.SetActive (false);
 		cancelbtn.SetActive (true);
 	}
@@ -130,6 +130,7 @@ public class FindMatch : MonoBehaviour {
 				characterPanel.SetActive (false);
 				findMatchPanel.SetActive (false);
 				MatchPanel.SetActive (true);
+				transform.gameObject.SetActive (false);
 			}
 		}
 			

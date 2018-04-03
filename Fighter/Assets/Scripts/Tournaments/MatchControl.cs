@@ -2,32 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MatchControl : MonoBehaviour {
+public class MatchControl : MonoBehaviour 
+{
+	[Header("------Panel------")]
 	[SerializeField]
 	private GameObject matchPanel;
+	[Header("------Buttons------")]
 	[SerializeField]
-	private GameObject viewBtn, Ready1btn, Ready2btn; 
+	private GameObject viewbtn;
 
-	private bool isMe;
-	private int timeAiReady;
-	private float timeCount;
+	[SerializeField]
+	private GameObject ready1btn;
+	[SerializeField]
+	private GameObject ready2btn;
+
+	[SerializeField]
+	private GameObject lock1btn;
+	[SerializeField]
+	private GameObject lock2btn;
+
+	private bool isMe, isReady, isView;
+	private float timeCount, timeAiReady;
 	// Use this for initialization
 	void OnEnable () 
 	{
-		isMe = true;
-		Ready1btn.SetActive (true);
-		Ready2btn.SetActive (true);
-		viewBtn.SetActive (true);
+		isMe = false;
+		isReady = false;
+		isView = false;
+
+		ready1btn.SetActive (true);
+		ready2btn.SetActive (true);
+		lock1btn.SetActive (true);
+		lock2btn.SetActive (true);
+		viewbtn.SetActive (true);
 
 		if (isMe) 
 		{
-			viewBtn.SetActive (false);
+			viewbtn.SetActive (false);
+			timeAiReady = Random.Range (3f, 5f);
 		}
 		else 
 		{
-			Ready1btn.SetActive (false);
-			Ready2btn.SetActive (false);
-			timeAiReady = Random.Range (2, 4);
+			ready1btn.SetActive (false);
+			ready2btn.SetActive (false);
+			lock1btn.SetActive (false);
+			lock2btn.SetActive (false);
 		}
 
 		timeCount = 0f;
@@ -36,16 +55,34 @@ public class MatchControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		timeCount += Time.deltaTime;
-		if (timeCount >= timeAiReady)
-			Ready2btn.SetActive (false);
+		if (matchPanel.activeInHierarchy) 
+		{
+			if (isMe) 
+			{
+				if (!ready2btn.activeInHierarchy && !ready2btn.activeInHierarchy && isReady)
+					matchPanel.SetActive (false);
 
-		if (!Ready2btn.activeInHierarchy && !Ready2btn.activeInHierarchy)
-			matchPanel.SetActive (false);
+				timeCount += Time.deltaTime;
+				if (timeCount >= timeAiReady)
+					ready2btn.SetActive (false);
+			} 
+			else 
+			{
+				if (!viewbtn.activeInHierarchy && isView)
+					matchPanel.SetActive (false);
+			}
+		}
 	}
 
 	public void OnReadyForMatch ()
 	{
-		Ready1btn.SetActive (false);
+		ready1btn.SetActive (false);
+		isReady = true;
+	}
+
+	public void OnViewForMatch ()
+	{
+		viewbtn.SetActive (false);
+		isView = true;
 	}
 }
