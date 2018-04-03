@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   name: 
-  typeItem: 0
-  avatar: {fileID: 0}
+  typeItem: 2
+  avatar: {fileID: 21300000, guid: bd2d255a6c7cc43de899daf946bcc801, type: 3}
   ATK: 0
   DEF: 0
   HP: 0

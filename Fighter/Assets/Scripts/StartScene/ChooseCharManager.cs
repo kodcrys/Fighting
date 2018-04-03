@@ -893,7 +893,7 @@ public class ChooseCharManager : MonoBehaviour {
 	}
 
 	void PlayModeAI() {
-
+		// neu file luu tru theo ID cua nhan zat hoac equipment dang != -1 (nghia la co luu tru thi thuc hien thay doi theo character player)
 		if (SaveManager.instance.state.idChar1 != -1) {
 			SaveManager.instance.state.idCharAI = Random.Range (0, lstCharacters.Length);
 			SaveManager.instance.Save ();
@@ -912,10 +912,10 @@ public class ChooseCharManager : MonoBehaviour {
 			SaveManager.instance.state.idHatAI = Random.Range (44, 94);
 			SaveManager.instance.Save ();
 
-			// Open data char
+			// Close data char
 			GameplayBase.dataAI = null;
 
-			// Close data items
+			// Open data items
 			GameplayBase.hatAI = lstItems[SaveManager.instance.state.idHatAI];
 		}
 
@@ -923,10 +923,10 @@ public class ChooseCharManager : MonoBehaviour {
 			SaveManager.instance.state.idAmorAI = Random.Range (0, 44);
 			SaveManager.instance.Save ();
 
-			// Open data char
+			// Close data char
 			GameplayBase.dataAI = null;
 
-			// Close data items
+			// Open data items
 			GameplayBase.amorAI = lstItems[SaveManager.instance.state.idAmorAI];
 		}
 
@@ -934,10 +934,10 @@ public class ChooseCharManager : MonoBehaviour {
 			SaveManager.instance.state.idWpAI = Random.Range (94, lstItems.Length);
 			SaveManager.instance.Save ();
 
-			// Open data char
+			// Close data char
 			GameplayBase.dataAI = null;
 
-			// Close data items
+			// Open data items
 			GameplayBase.wpAI = lstItems[SaveManager.instance.state.idWpAI];
 		}
 
