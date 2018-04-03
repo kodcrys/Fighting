@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: HatDoraemi
   m_EditorClassIdentifier: 
-  id: 61
+  id: 66
   name: Domi's Mask
   typeItem: 0
   avatar: {fileID: 21300000, guid: 45b2e7ba50cfe4f669b62a0ce50a6cd2, type: 3}

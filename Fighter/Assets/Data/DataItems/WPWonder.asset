@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: WPWonder
   m_EditorClassIdentifier: 
-  id: 111
+  id: 122
   name: Wonder's Shield
   typeItem: 1
   avatar: {fileID: 21300000, guid: f24e14a8578e14e06bffcd14b3993a08, type: 3}

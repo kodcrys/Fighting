@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: WPWukong
   m_EditorClassIdentifier: 
-  id: 112
+  id: 123
   name: Power Pole
   typeItem: 1
   avatar: {fileID: 21300000, guid: 135019d49635e474d8683ebd772b9e5f, type: 3}

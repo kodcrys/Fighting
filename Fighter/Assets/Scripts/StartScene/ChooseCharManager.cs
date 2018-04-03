@@ -124,6 +124,10 @@ public class ChooseCharManager : MonoBehaviour {
 	[SerializeField]
 	Color32 colorShow;
 
+	[Header("FadeAni")]
+	[SerializeField]
+	FadeAni fadeAni;
+
 	void Awake() {
 		if (instance == null)
 			instance = this;
@@ -245,7 +249,8 @@ public class ChooseCharManager : MonoBehaviour {
 		}
 		// minigame
 		if (contentBtn.text == playMode [3]) {
-			
+			fadeAni.stateFade = FadeAni.State.Show;
+			FadeAni.isRunMiniGame = true;
 		}
 
 

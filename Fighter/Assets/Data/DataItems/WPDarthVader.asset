@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: WPDarthVader
   m_EditorClassIdentifier: 
-  id: 106
+  id: 107
   name: Dart's Sword
   typeItem: 1
   avatar: {fileID: 21300000, guid: 39ee4f421379543578cb9bdd4989491b, type: 3}

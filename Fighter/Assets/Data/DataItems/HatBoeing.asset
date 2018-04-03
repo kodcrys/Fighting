@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
-  m_Name: New Equipment
+  m_Name: HatBoeing
   m_EditorClassIdentifier: 
-  id: 0
-  name: 
+  id: 58
+  name: Boeiing's Hat
   typeItem: 0
-  avatar: {fileID: 0}
+  avatar: {fileID: 21300000, guid: 7f9eed92ba8364fd19a9e42ce02a734e, type: 3}
   ATK: 0
   DEF: 0
   HP: 0

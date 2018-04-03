@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
-  m_Name: New Equipment
+  m_Name: HatRemoz
   m_EditorClassIdentifier: 
-  id: 0
-  name: 
+  id: 90
+  name: Remoz's Hat
   typeItem: 0
-  avatar: {fileID: 0}
+  avatar: {fileID: 21300000, guid: 5f8cf70163a354edc85994b736296ddb, type: 3}
   ATK: 0
   DEF: 0
   HP: 0

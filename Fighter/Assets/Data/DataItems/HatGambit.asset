@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: HatGambit
   m_EditorClassIdentifier: 
-  id: 65
+  id: 70
   name: Gambit's Hair
   typeItem: 0
   avatar: {fileID: 21300000, guid: 0f10f0e96a49c4d6b9c4127c7b868982, type: 3}

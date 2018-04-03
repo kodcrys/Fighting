@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: WPYasuo
   m_EditorClassIdentifier: 
-  id: 113
+  id: 124
   name: Yasuo's Sword
   typeItem: 1
   avatar: {fileID: 21300000, guid: 562ed984dc57a4a10a5d46f293635a60, type: 3}

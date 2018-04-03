@@ -22,7 +22,10 @@ EditorBuildSettings:
     guid: 924a562a9f61549a99a387991721c819
   - enabled: 0
     path: 
-    guid: 52a72469d54e64a0e95a0167a7504581
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
-    guid: ead7d0462429449109a1a44774b862f6
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/FlappyThumb.unity
+    guid: 18fc24df3f384e8418c41001f47a26da
