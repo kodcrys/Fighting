@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: WPDeadpool
   m_EditorClassIdentifier: 
-  id: 96
+  id: 107
   name: Dual Sword
   typeItem: 1
   avatar: {fileID: 21300000, guid: a8d31880bb700459fb227db00a6534a2, type: 3}

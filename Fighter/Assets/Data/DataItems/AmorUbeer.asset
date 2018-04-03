@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorUbeer
   m_EditorClassIdentifier: 
-  id: 0
-  name: 
+  id: 45
+  name: Ubeer's Amor
   typeItem: 0
   avatar: {fileID: 0}
   ATK: 0

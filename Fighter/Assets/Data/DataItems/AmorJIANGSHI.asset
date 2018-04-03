@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorJIANGSHI
   m_EditorClassIdentifier: 
-  id: 13
+  id: 19
   name: JIANGSHI's Amor
   typeItem: 2
   avatar: {fileID: 21300000, guid: 7a027269c37904562a0c1ece17d5abf3, type: 3}

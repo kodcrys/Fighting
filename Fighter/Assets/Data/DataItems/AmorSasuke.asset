@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorSasuke
   m_EditorClassIdentifier: 
-  id: 28
+  id: 38
   name: Sasuke's Amor
   typeItem: 2
   avatar: {fileID: 21300000, guid: 125a5be2ae96a4d11a9bd6d5a3127478, type: 3}

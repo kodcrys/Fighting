@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorFlash
   m_EditorClassIdentifier: 
-  id: 9
+  id: 14
   name: Flash's Amor
   typeItem: 2
   avatar: {fileID: 21300000, guid: 00e7f12ae673b46ca9365a91584e79b1, type: 3}

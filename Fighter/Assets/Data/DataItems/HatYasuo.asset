@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: HatYasuo
   m_EditorClassIdentifier: 
-  id: 88
+  id: 99
   name: Yasuo's Hair
   typeItem: 0
   avatar: {fileID: 21300000, guid: 3caba2f7d73904751a8d17bd49d911b6, type: 3}

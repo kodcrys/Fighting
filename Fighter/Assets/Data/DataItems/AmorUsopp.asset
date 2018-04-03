@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorUsopp
   m_EditorClassIdentifier: 
-  id: 35
+  id: 46
   name: Usopp's Glass
   typeItem: 2
   avatar: {fileID: 21300000, guid: 22a37f70fffd54de0bf81c40686c18cd, type: 3}

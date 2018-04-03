@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: HatKiller
   m_EditorClassIdentifier: 
-  id: 60
+  id: 71
   name: Killer's Mask
   typeItem: 0
   avatar: {fileID: 21300000, guid: a21da4f51d0324c4dbb1f62f6bb2902e, type: 3}

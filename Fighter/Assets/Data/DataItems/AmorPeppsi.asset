@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorPeppsi
   m_EditorClassIdentifier: 
-  id: 0
-  name: 
-  typeItem: 0
-  avatar: {fileID: 0}
+  id: 32
+  name: Peppsi's Amor
+  typeItem: 2
+  avatar: {fileID: 21300000, guid: 892ff39e251de4f34948d7327700e35b, type: 3}
   ATK: 0
   DEF: 0
   HP: 0
