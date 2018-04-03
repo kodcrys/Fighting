@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorGambit
   m_EditorClassIdentifier: 
-  id: 10
+  id: 15
   name: Gambit's Amor
   typeItem: 2
   avatar: {fileID: 21300000, guid: ce700160d9e7d45baa3c26165cff27ab, type: 3}

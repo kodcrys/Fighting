@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorShaWujing
   m_EditorClassIdentifier: 
-  id: 29
+  id: 39
   name: Wujing's Necklace
   typeItem: 2
   avatar: {fileID: 21300000, guid: b2ed7f89b069c45e1835dafe54bf3507, type: 3}

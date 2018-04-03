@@ -147,6 +147,7 @@ public class GameplayBase : MonoBehaviour {
 		FadeAni.isRunMapToChooseChar = true;
 		FadeAni.isRunMapToHome = true;
 		FadeAni.isRunPlayGame = false;
+		FadeAni.isRunMiniGame = false;
 	}
 
 	public void ReMatch(){

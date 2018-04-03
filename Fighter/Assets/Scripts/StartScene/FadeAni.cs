@@ -14,6 +14,7 @@ public class FadeAni : MonoBehaviour {
 	public static bool isRunMapToChooseChar;
 	public static bool isRunMapToHome;
 	public static bool isRunPlayGame;
+	public static bool isRunMiniGame;
 
 	public enum State {none, Show, Hide, Show1, Show2}
 	[Header("State machine")]
@@ -77,6 +78,8 @@ public class FadeAni : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		isRunMiniGame = false;
+		//isRunMapToHome = false;
 		isRunFadeHide = false;
 		isChangeMap = false;
 		isChangeChooseChar = false;
@@ -145,6 +148,8 @@ public class FadeAni : MonoBehaviour {
 
 				if (isRunPlayGame)
 					UnityEngine.SceneManagement.SceneManager.LoadScene ("MainGameScene");
+				if (isRunMiniGame)
+					UnityEngine.SceneManagement.SceneManager.LoadScene ("FlappyThumb");
 			}
 			break;
 		case State.Hide:

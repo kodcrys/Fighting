@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: AmorAdidas
   m_EditorClassIdentifier: 
   id: 0
-  name: 
+  name: Addidas's Amor
   typeItem: 2
   avatar: {fileID: 21300000, guid: bd2d255a6c7cc43de899daf946bcc801, type: 3}
   ATK: 0

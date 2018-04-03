@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: WPCaptain
   m_EditorClassIdentifier: 
-  id: 94
+  id: 106
   name: Cap's Shield
   typeItem: 1
   avatar: {fileID: 21300000, guid: 6a963ef691db1412e93b741f2d1782b0, type: 3}

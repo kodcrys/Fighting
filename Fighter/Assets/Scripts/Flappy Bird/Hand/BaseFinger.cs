@@ -5,16 +5,22 @@ using UnityEngine;
 public class BaseFinger : MonoBehaviour {
 
 	[Header("GameObject")]
-	public GameObject finger, fingerAtk, fingerDown;
+	public GameObject finger, fingerAtk;
 
 	[Header("Status Animation")]
 	public bool fingerLeft;
 
-	[Header("Skins & Items Idle")]
-	public SpriteRenderer skin;
+	[Header("Items Idle")]
 	public SpriteRenderer hat;
 	public SpriteRenderer amor;
 	public SpriteRenderer weapon;
+
+	[Header("Items AtkDown")]
+	public SpriteRenderer hatAtkDownSpr;
+
+	[Header("Type of skin")]
+	public GameObject skinIdle;
+	public GameObject skinAtkDown;
 
 	public int changeScale = 0;
 

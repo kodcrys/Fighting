@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorEzreal
   m_EditorClassIdentifier: 
-  id: 8
+  id: 13
   name: Ez's Necklace
   typeItem: 2
   avatar: {fileID: 21300000, guid: 642e801b347224bf782d6035e15401d5, type: 3}

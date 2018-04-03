@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: HatUsopp
   m_EditorClassIdentifier: 
-  id: 83
+  id: 95
   name: Usopp's Hat
   typeItem: 0
   avatar: {fileID: 21300000, guid: 7257738a3a2424f5fbef0a7a5651fc1b, type: 3}

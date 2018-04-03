@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: HatYoda
   m_EditorClassIdentifier: 
-  id: 89
+  id: 101
   name: Skin Yoda
   typeItem: 0
   avatar: {fileID: 21300000, guid: 8fb8f4fe2ca6241d8a3fd9abd39d602c, type: 3}

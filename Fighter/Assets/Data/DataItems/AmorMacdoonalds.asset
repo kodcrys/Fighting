@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorMacdoonalds
   m_EditorClassIdentifier: 
-  id: 0
-  name: 
-  typeItem: 0
+  id: 25
+  name: Mac's Amor
+  typeItem: 2
   avatar: {fileID: 0}
   ATK: 0
   DEF: 0

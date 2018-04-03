@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: AmorWonderWoman
   m_EditorClassIdentifier: 
-  id: 37
+  id: 48
   name: Wonder's Amor
   typeItem: 2
   avatar: {fileID: 21300000, guid: 34278e146f8334197b3fa4856cb7c1f5, type: 3}

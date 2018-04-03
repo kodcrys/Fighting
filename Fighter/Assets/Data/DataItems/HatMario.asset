@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: HatMario
   m_EditorClassIdentifier: 
-  id: 64
+  id: 82
   name: Mario's Hat
   typeItem: 0
   avatar: {fileID: 21300000, guid: 27102f996226f4fd4becc8d3e959b3b5, type: 3}
