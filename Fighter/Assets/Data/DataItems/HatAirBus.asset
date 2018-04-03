@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: HatAirBus
   m_EditorClassIdentifier: 
   id: 56
-  name: HatAirBus
+  name: AirBuss's Hat
   typeItem: 0
   avatar: {fileID: 21300000, guid: 702846f7b93734825a5206780459dced, type: 3}
   ATK: 0
