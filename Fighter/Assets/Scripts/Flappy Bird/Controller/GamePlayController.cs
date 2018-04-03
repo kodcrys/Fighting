@@ -10,6 +10,8 @@ public class GamePlayController : MonoBehaviour {
 	[SerializeField]
 	private Text scoreText;
 
+	public static DataItems hatAI, amorAI, wpAI;
+
 	/// <summary>
 	/// Awake this instance.
 	/// </summary>

@@ -42,8 +42,9 @@ public class FingerAnim : BaseFinger {
 
 	public override void DoIdel()
 	{
+		ChangeStateAni (FingerState.Idel);
+
 		finger.SetActive (true);
-		fingerDown.SetActive (false);
 		fingerAtk.SetActive (false);
 
 		firstAtk = false;
@@ -80,20 +81,54 @@ public class FingerAnim : BaseFinger {
 
 	public override void DoFirstAtk()
 	{
+		ChangeStateAni (FingerState.Atk);
+
 		firstAtk = true;
 		finger.SetActive (false);
-		fingerDown.SetActive (true);
-		fingerAtk.SetActive (false);
+		fingerAtk.SetActive (true);
 	}
 
 	public void ClickAtk(){
-		
 		doingSomething = true;
-		FingerBase.changeAnim = true;
 	}
 
 	public void UnClickAtk(){
 		doingSomething = false;
-		FingerBase.changeAnim = false;
+	}
+
+	public void ChangeItemsAI() {
+
+		if (GameplayBase.hatAI != null) {
+			// hat idle
+			hat.sprite = GamePlayController.hatAI.avatar;
+			hat.gameObject.SetActive (true);
+
+/*			// hat AtkDown
+			hatAtkDownSpr.sprite = GameplayBase.hatAI.avatar;
+			hatAtkDownSpr.gameObject.SetActive (true);*/
+		}
+
+		if (GameplayBase.amorAI != null) {
+			amor.sprite = GamePlayController.amorAI.avatar;
+			amor.gameObject.SetActive (true);
+		}
+
+		if (GameplayBase.wpAI != null) {
+			weapon.sprite = GamePlayController.wpAI.avatar;
+			weapon.gameObject.SetActive (true);
+		}
+	}
+
+	void ChangeStateAni (FingerState state) {
+		switch (state) {
+		case FingerState.Idel:
+			skinIdle.SetActive (true);
+			skinAtkDown.SetActive (false);
+			break;
+		case FingerState.Atk:
+			skinIdle.SetActive (false);
+			skinAtkDown.SetActive (true);
+			break;
+		}
 	}
 }
