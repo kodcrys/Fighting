@@ -466,15 +466,15 @@ public class FingerRightControl : FingerBase {
 		}
 
 		if (GameplayBase.amorPlayer2 != null) {
-			FingerLeftControl.instance.amor.sprite = GameplayBase.amorPlayer2.avatar;
-			FingerLeftControl.instance.amor.gameObject.SetActive (true);
+			FingerRightControl.instance.amor.sprite = GameplayBase.amorPlayer2.avatar;
+			FingerRightControl.instance.amor.gameObject.SetActive (true);
 
 			HideSkin ();
 		}
 
 		if (GameplayBase.wpPlayer2 != null) {
-			FingerLeftControl.instance.weapon.sprite = GameplayBase.wpPlayer2.avatar;
-			FingerLeftControl.instance.weapon.gameObject.SetActive (true);
+			FingerRightControl.instance.weapon.sprite = GameplayBase.wpPlayer2.avatar;
+			FingerRightControl.instance.weapon.gameObject.SetActive (true);
 
 			HideSkin ();
 		}

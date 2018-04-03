@@ -44,9 +44,7 @@ public class GameplayBase : MonoBehaviour {
 	public static DataItems hatPlayer1, hatPlayer2, amorPlayer1, amorPlayer2, wpPlayer1, wpPlayer2;
 	public static DataItems hatAI, amorAI, wpAI;
 
-	public void Start(){
-
-		//Debug.Log (data.characterPlayer1 + " & " + data.characterPlayer2 + " & " + data.hatPlayer1 + " & " + data.hatPlayer2);
+	public void Start() {
 
 		instance = this;
 		gamePause = false;
