@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: HatSSJRose
   m_EditorClassIdentifier: 
-  id: 89
+  id: 99
   name: SSJ Rose's Hair
   typeItem: 0
   avatar: {fileID: 21300000, guid: ffd7f83243ec3481bb7d1e9b0d63df01, type: 3}

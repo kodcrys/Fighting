@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: HatStorm
   m_EditorClassIdentifier: 
-  id: 90
+  id: 100
   name: Storm's Mask
   typeItem: 0
   avatar: {fileID: 21300000, guid: 1eb0fecfef8b5474c86d9ead0b5fdf98, type: 3}

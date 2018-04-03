@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c4ccbfde714a6ca693fa82bf08ea1, type: 3}
   m_Name: HatZoro
   m_EditorClassIdentifier: 
-  id: 105
+  id: 115
   name: Zoro's Hair
   typeItem: 0
   avatar: {fileID: 21300000, guid: 7c80e4a2b6727440ba4b8c14c80b2136, type: 3}
