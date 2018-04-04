@@ -272,6 +272,8 @@ public class ChooseCharManager : MonoBehaviour {
 		nextBtn.isRunMoveAni = false;
 		preBtn.isRunMoveAni = false;
 
+		StartSceneManager.instance.isShopScene = false;
+
 		aiBtn.GetComponent<UIAnimations> ().isRunMoveAni = false;
 	}
 

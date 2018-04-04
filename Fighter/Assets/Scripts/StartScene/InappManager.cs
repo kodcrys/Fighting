@@ -24,6 +24,14 @@ public class InappManager : MonoBehaviour {
 	[SerializeField]
 	Transform canvas;
 
+	[SerializeField]
+	GameObject effectGoldShop;
+	[SerializeField]
+	GameObject effectDiaShop;
+
+	[SerializeField]
+	StartSceneManager startSceneManager;
+
 	void Start() {
 		if(Instance == null)
 			Instance = this;
@@ -31,6 +39,9 @@ public class InappManager : MonoBehaviour {
 
 	// Use this for initialization
 	void OnEnable () {
+
+		effectDiaShop.SetActive (false);
+		effectGoldShop.SetActive (false);
 
 		btnOfTopBar.SetActive (false);
 		ExpFrame.SetActive (false);
@@ -43,6 +54,11 @@ public class InappManager : MonoBehaviour {
 		labelPrice [5].text = Purchaser.intance.GetPrice (Purchaser.intance.kProductIDConsumable30);
 		labelPrice [6].text = Purchaser.intance.GetPrice (Purchaser.intance.kProductIDConsumable50);
 		labelPrice [7].text = Purchaser.intance.GetPrice (Purchaser.intance.kProductIDConsumable100);
+	}
+
+	void OnDisable() {
+		effectDiaShop.SetActive (true);
+		effectGoldShop.SetActive (true);
 	}
 
 	public void BuyCoin(int price) {
@@ -76,7 +92,10 @@ public class InappManager : MonoBehaviour {
 
 	public void CloseInApp() {
 		gameObject.SetActive (false);
-		btnOfTopBar.SetActive (true);
+		if (startSceneManager.isShopScene)
+			btnOfTopBar.SetActive (false);
+		else
+			btnOfTopBar.SetActive (true);
 		ExpFrame.SetActive (true);
 	}
 

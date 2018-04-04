@@ -88,6 +88,15 @@ public class RewardManager : MonoBehaviour {
 
 	public static RewardManager instance;
 
+	[Header("Dialog not enough")]
+	[SerializeField]
+	GameObject dialogEnough;
+	[SerializeField]
+	UnityEngine.UI.Text content;
+
+	[SerializeField]
+	StartSceneManager startSceneManager;
+
 	// Use this for initialization
 	void Awake () {
 		if (instance == null)
@@ -138,7 +147,7 @@ public class RewardManager : MonoBehaviour {
 	}
 
 	public void OpenReward(bool isShopGold) {
-
+		startSceneManager.isShopScene = true;
 		if (isShopGold) {
 			if (SaveManager.instance.state.TotalGold >= priceGold) {
 				isX1 = true;
@@ -160,6 +169,8 @@ public class RewardManager : MonoBehaviour {
 				QuestManager.Intance.UpdateDisplayUI ();
 			} else {
 				// Neu khong du gold hien thong bao
+				content.text = "You don't Have Enough Money. Do You want more Money?";
+				dialogEnough.SetActive(true);
 			}
 		} else {
 			if (SaveManager.instance.state.TotalDiamond >= priceDiamond) {
@@ -181,14 +192,16 @@ public class RewardManager : MonoBehaviour {
 				SaveManager.instance.Save ();
 				QuestManager.Intance.UpdateDisplayUI ();
 			} else {
+				content.text = "You don't Have Enough Diamond. Do You want more Diamond?";
 				// Neu khong du diamond hien thong bao
+				dialogEnough.SetActive(true);
 			}
 		}
 
 	}
 
 	public void OpenRewardX10 (bool isShopGold) {
-
+		startSceneManager.isShopScene = true;
 		/*for (int i = 0; i < anisEffLightGlow.Length; i++)
 			anisEffLightGlow [i].isRunEffX10Ani = true;*/
 		if (isShopGold) {
@@ -214,6 +227,8 @@ public class RewardManager : MonoBehaviour {
 				QuestManager.Intance.UpdateDisplayUI ();
 			} else {
 				// Neu hk du gold hien thong bao
+				content.text = "You don't Have Enough Money. Do You want more Money?";
+				dialogEnough.SetActive(true);
 			}
 		} else {
 			if (SaveManager.instance.state.TotalDiamond >= priceX10Diamond) {
@@ -238,6 +253,8 @@ public class RewardManager : MonoBehaviour {
 				QuestManager.Intance.UpdateDisplayUI ();
 			} else {
 				// Neu hk du diamond hien thong bao
+				content.text = "You don't Have Enough Diamond. Do You want more Diamond?";
+				dialogEnough.SetActive(true);
 			}
 		}
 	}

@@ -77,6 +77,9 @@ public class StartSceneManager : MonoBehaviour {
 	[SerializeField]
 	FadeAni fadeAni; 
 
+	[HideInInspector]
+	public bool isShopScene;
+
 	void Awake() {
 		if (instance != null)
 			instance = this;
@@ -87,6 +90,7 @@ public class StartSceneManager : MonoBehaviour {
 
 		ChooseCharManager.instance.ReadSave ();
 		QuestManager.Intance.UpdateDisplayUI ();
+		isShopScene = false;
 
 		// Chua lam tat app thi tra ze
 		/*if (SaveManager.instance.state.isFirstOpenApp) {
