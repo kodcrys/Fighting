@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ResultControl : MonoBehaviour {
 
+	[Header("------Panel------")]
+	[SerializeField]
+	private GameObject resultPanel;
+
+	[SerializeField]
+	private GameObject findMatchPanel;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,8 +21,9 @@ public class ResultControl : MonoBehaviour {
 		
 	}
 
-	void OnNextButton ()
+	public void OnNextButton ()
 	{
-		
+		resultPanel.SetActive (false);
+		findMatchPanel.SetActive (true);
 	}
 }
