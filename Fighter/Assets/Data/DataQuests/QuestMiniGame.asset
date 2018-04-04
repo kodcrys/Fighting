@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idQuest: 2
   icon: {fileID: 21300000, guid: 908c34599d44741dab6d17268cf22ac5, type: 3}
-  content: Play any mini game 3 times
+  content: Play mini game 3 times
   requirement: 3
   doing: 0
-  rewardGold: 30
+  rewardGold: 25
   rewardExp: 15
   isDone: 0

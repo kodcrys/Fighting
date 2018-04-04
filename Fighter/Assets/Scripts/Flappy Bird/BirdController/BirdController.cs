@@ -28,9 +28,15 @@ public class BirdController : MonoBehaviour {
 
 	public GameObject gameOverImg;
 
+	private CointainData questGetScoreMini;
+	private CointainData questPlayMiniTimes;
+	private CointainData questPlayAnyGame;
+
 	// Use this for initialization
 	void Awake () 
 	{
+		questGetScoreMini = GameObject.Find ("GetScoreMinigame").GetComponent<CointainData> ();
+		questPlayMiniTimes = GameObject.Find ("PlayMiniTimes").GetComponent<CointainData> ();
 		isAlive = true;
 		myBody = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
@@ -134,6 +140,9 @@ public class BirdController : MonoBehaviour {
 		if (target.tag == "PipeHolder") 
 		{
 			score++;
+			if(!questGetScoreMini.quest.isDone)
+				questGetScoreMini.quest.doing = score;
+
 			if (GamePlayController.instance != null) 
 			{
 				GamePlayController.instance._SetScore (score);
@@ -156,6 +165,8 @@ public class BirdController : MonoBehaviour {
 				anim.SetTrigger ("Died");
 				gameOverImg.SetActive (true);
 				myBody.velocity = Vector2.zero;
+				if (!questPlayMiniTimes.quest.isDone)
+					questPlayMiniTimes.quest.doing++;
 			}
 
 			if (GamePlayController.instance != null) 

@@ -487,8 +487,10 @@ MonoBehaviour:
   isRate: 0
   isShare: 0
   isLeaderboard: 0
+  isLikeFacebook: 0
   linkRate: 
   linkShare: 
+  linkFB: 
   sprChangeFrame1: {fileID: 21300000, guid: 2821cb48733f8423a80c7fae086253df, type: 3}
   sprChangeFrame2: {fileID: 21300000, guid: 4e7fd9165cc0a4da88ad1d2da3beeb82, type: 3}
   isRunChangeColorAni: 0
@@ -558,6 +560,7 @@ MonoBehaviour:
   Share: {fileID: 0}
   Rate: {fileID: 0}
   LikeFB: {fileID: 0}
+  isInStartScene: 0
   dontUseOffset: 0
   indexGatcha: 0
   AniGatchaCharacter: 0
@@ -1671,8 +1674,10 @@ MonoBehaviour:
   isRate: 0
   isShare: 0
   isLeaderboard: 0
+  isLikeFacebook: 0
   linkRate: 
   linkShare: 
+  linkFB: 
   sprChangeFrame1: {fileID: 21300000, guid: c3ec101f0f179407c8f81d229995b771, type: 3}
   sprChangeFrame2: {fileID: 21300000, guid: b8723c1d0a9e0488c8c93a443938e29f, type: 3}
   isRunChangeColorAni: 0
@@ -1742,6 +1747,7 @@ MonoBehaviour:
   Share: {fileID: 0}
   Rate: {fileID: 0}
   LikeFB: {fileID: 0}
+  isInStartScene: 0
   dontUseOffset: 0
   indexGatcha: 0
   AniGatchaCharacter: 0
@@ -6205,8 +6211,10 @@ MonoBehaviour:
   isRate: 0
   isShare: 0
   isLeaderboard: 0
+  isLikeFacebook: 0
   linkRate: 
   linkShare: 
+  linkFB: 
   sprChangeFrame1: {fileID: 21300000, guid: 9935dc59297bc477fb5cc8c5f90b43ec, type: 3}
   sprChangeFrame2: {fileID: 21300000, guid: 02443e8b56cef440e8c369eb46b04355, type: 3}
   isRunChangeColorAni: 0
@@ -6276,6 +6284,7 @@ MonoBehaviour:
   Share: {fileID: 0}
   Rate: {fileID: 0}
   LikeFB: {fileID: 0}
+  isInStartScene: 0
   dontUseOffset: 0
   indexGatcha: 0
   AniGatchaCharacter: 0
@@ -8956,8 +8965,10 @@ MonoBehaviour:
   isRate: 0
   isShare: 0
   isLeaderboard: 0
+  isLikeFacebook: 0
   linkRate: 
   linkShare: 
+  linkFB: 
   sprChangeFrame1: {fileID: 21300000, guid: a38cca280d60046db944d977cdd81d64, type: 3}
   sprChangeFrame2: {fileID: 21300000, guid: 8b9a0c5b1e1e748f4b2710b3adcf8f07, type: 3}
   isRunChangeColorAni: 0
@@ -9027,6 +9038,7 @@ MonoBehaviour:
   Share: {fileID: 0}
   Rate: {fileID: 0}
   LikeFB: {fileID: 0}
+  isInStartScene: 0
   dontUseOffset: 0
   indexGatcha: 0
   AniGatchaCharacter: 0
@@ -10609,6 +10621,53 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &2142513652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2142513654}
+  - component: {fileID: 2142513653}
+  m_Layer: 0
+  m_Name: PlayAnyGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &2142513653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2142513652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9bc0245a03ba4ae79dadc884abb1fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataChar: {fileID: 0}
+  dataItem: {fileID: 0}
+  dataMap: {fileID: 0}
+  quest: {fileID: 11400000, guid: 028e02b23835d4a13ae7a77655043695, type: 2}
+  isX1Gatcha: 0
+  smokeEffect: {fileID: 0}
+  charEquipManager: {fileID: 0}
+--- !u!4 &2142513654
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2142513652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2143485001
 GameObject:
   m_ObjectHideFlags: 0

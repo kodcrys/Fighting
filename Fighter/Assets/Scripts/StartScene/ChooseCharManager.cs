@@ -900,9 +900,9 @@ public class ChooseCharManager : MonoBehaviour {
 	}
 
 	void RandomMinigame(){
-		SaveManager.instance.state.idHatAI = Random.Range (44, 94);
-		SaveManager.instance.state.idAmorAI = Random.Range (0, 44);
-		SaveManager.instance.state.idWpAI = Random.Range (94, lstItems.Length);
+		SaveManager.instance.state.idHatAI = Random.Range (55, 116);
+		SaveManager.instance.state.idAmorAI = Random.Range (0, 55);
+		SaveManager.instance.state.idWpAI = Random.Range (116, lstItems.Length);
 
 		SaveManager.instance.Save ();
 

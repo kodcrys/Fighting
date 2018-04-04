@@ -86,6 +86,7 @@ public class StartSceneManager : MonoBehaviour {
 		CheckSetting ();
 
 		ChooseCharManager.instance.ReadSave ();
+		QuestManager.Intance.UpdateDisplayUI ();
 
 		// Chua lam tat app thi tra ze
 		/*if (SaveManager.instance.state.isFirstOpenApp) {

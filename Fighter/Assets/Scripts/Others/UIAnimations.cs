@@ -39,9 +39,13 @@ public class UIAnimations : MonoBehaviour {
 	[SerializeField]
 	bool isLeaderboard;
 	[SerializeField]
+	bool isLikeFacebook;
+	[SerializeField]
 	string linkRate;
 	[SerializeField]
 	string linkShare;
+	[SerializeField]
+	string linkFB;
 
 	[Header("Change sprite")]
 	[SerializeField]
@@ -198,11 +202,15 @@ public class UIAnimations : MonoBehaviour {
 	DataQuests Rate;
 	[SerializeField]
 	DataQuests LikeFB;
+	[SerializeField]
+	bool isInStartScene;
 
 	void Awake() {
-/*		Share = GameObject.Find ("Share").GetComponent<CointainData> ().quest;
-		Rate = GameObject.Find ("Rate").GetComponent<CointainData> ().quest;
-		LikeFB = GameObject.Find ("LikeFacebook").GetComponent<CointainData> ().quest;*/
+		if (isInStartScene) {
+			Share = GameObject.Find ("Share").GetComponent<CointainData> ().quest;
+			Rate = GameObject.Find ("Rate").GetComponent<CointainData> ().quest;
+			LikeFB = GameObject.Find ("LikeFacebook").GetComponent<CointainData> ().quest;
+		}
 	}
 
 	void OnEnable() {
@@ -392,12 +400,19 @@ public class UIAnimations : MonoBehaviour {
 			fadeShop.changeToShopScene = true;
 		}
 		if (isRate) {
-			//Rate.doing += 1;
+			if (!Rate.isDone)
+				Rate.doing += 1;
 			Application.OpenURL (linkRate);
 		}
 		if (isShare) {
-			//Share.doing += 1;
+			if (!Share.isDone)
+				Share.doing += 1;
 			Application.OpenURL (linkShare);
+		}
+		if (isLikeFacebook) {
+			if (!LikeFB.isDone)
+				LikeFB.doing += 1;
+			Application.OpenURL (linkFB);
 		}
 		if (isLeaderboard) {
 			LeaderboardManager.ShowLeaderboardUI();

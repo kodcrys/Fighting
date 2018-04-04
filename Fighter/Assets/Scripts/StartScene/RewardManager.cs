@@ -73,6 +73,16 @@ public class RewardManager : MonoBehaviour {
 	[SerializeField]
 	UIAnimations [] anisEffLightGlow;
 
+	[Header("Cost Gatcha")]
+	[SerializeField]
+	int priceGold;
+	[SerializeField]
+	int priceDiamond;
+	[SerializeField]
+	int priceX10Gold;
+	[SerializeField]
+	int priceX10Diamond;
+
 	[HideInInspector]
 	public bool isReturnRewardGold;
 
@@ -128,52 +138,108 @@ public class RewardManager : MonoBehaviour {
 	}
 
 	public void OpenReward(bool isShopGold) {
-		isX1 = true;
-		panelOfCv_X1Reward.SetActive (true);
-		panelOfCv_X10Reward.SetActive (false);
-		panelOfCv_DailyOrQuest.SetActive (false);
-		//lightX1.SetActive (true);
 
-		// open panel ani reward
-		panel_Reward.SetActive (true);
-
-		// gatchaX1 character
 		if (isShopGold) {
-			charEqManager.GatchaCharacter ();
-			isReturnRewardGold = true;
-		} else {
-			charEqManager.GatchaEquipment ();
-			isReturnRewardGold = false;
-		}
-			
-		// gatchaX1 diamond
+			if (SaveManager.instance.state.TotalGold >= priceGold) {
+				isX1 = true;
+				panelOfCv_X1Reward.SetActive (true);
+				panelOfCv_X10Reward.SetActive (false);
+				panelOfCv_DailyOrQuest.SetActive (false);
+				//lightX1.SetActive (true);
 
-		RewardHandle (isShopGold);
+				// open panel ani reward
+				panel_Reward.SetActive (true);
+
+				charEqManager.GatchaCharacter ();
+				isReturnRewardGold = true;
+
+				RewardHandle (isShopGold);
+
+				SaveManager.instance.state.TotalGold -= priceGold;
+				SaveManager.instance.Save ();
+				QuestManager.Intance.UpdateDisplayUI ();
+			} else {
+				// Neu khong du gold hien thong bao
+			}
+		} else {
+			if (SaveManager.instance.state.TotalDiamond >= priceDiamond) {
+				isX1 = true;
+				panelOfCv_X1Reward.SetActive (true);
+				panelOfCv_X10Reward.SetActive (false);
+				panelOfCv_DailyOrQuest.SetActive (false);
+				//lightX1.SetActive (true);
+
+				// open panel ani reward
+				panel_Reward.SetActive (true);
+
+				charEqManager.GatchaEquipment ();
+				isReturnRewardGold = false;
+
+				RewardHandle (isShopGold);
+
+				SaveManager.instance.state.TotalDiamond -= priceDiamond;
+				SaveManager.instance.Save ();
+				QuestManager.Intance.UpdateDisplayUI ();
+			} else {
+				// Neu khong du diamond hien thong bao
+			}
+		}
+
 	}
 
 	public void OpenRewardX10 (bool isShopGold) {
 
 		/*for (int i = 0; i < anisEffLightGlow.Length; i++)
 			anisEffLightGlow [i].isRunEffX10Ani = true;*/
+		if (isShopGold) {
+			if (SaveManager.instance.state.TotalGold >= priceX10Gold) {
+				closeRewardX10.enabled = false;
 
-		closeRewardX10.enabled = false;
+				isX1 = false;
+				panelOfCv_X1Reward.SetActive (false);
+				panelOfCv_X10Reward.SetActive (true);
+				panelOfCv_DailyOrQuest.SetActive (false);
 
-		isX1 = false;
-		panelOfCv_X1Reward.SetActive (false);
-		panelOfCv_X10Reward.SetActive (true);
-		panelOfCv_DailyOrQuest.SetActive (false);
+				//lightX1.SetActive (false);
 
-		//lightX1.SetActive (false);
+				// open panel ani reward
+				panel_Reward.SetActive (true);
 
-		// open panel ani reward
-		panel_Reward.SetActive (true);
+				charEqManager.GatchaX10Character ();
 
-		if (isShopGold)
-			charEqManager.GatchaX10Character ();
-		else
-			charEqManager.GatchaX10Equipment ();
+				RewardHandleX10 (isShopGold);
 
-		RewardHandleX10 (isShopGold);
+				SaveManager.instance.state.TotalGold -= priceX10Gold;
+				SaveManager.instance.Save ();
+				QuestManager.Intance.UpdateDisplayUI ();
+			} else {
+				// Neu hk du gold hien thong bao
+			}
+		} else {
+			if (SaveManager.instance.state.TotalDiamond >= priceX10Diamond) {
+				closeRewardX10.enabled = false;
+
+				isX1 = false;
+				panelOfCv_X1Reward.SetActive (false);
+				panelOfCv_X10Reward.SetActive (true);
+				panelOfCv_DailyOrQuest.SetActive (false);
+
+				//lightX1.SetActive (false);
+
+				// open panel ani reward
+				panel_Reward.SetActive (true);
+
+				charEqManager.GatchaX10Equipment ();
+
+				RewardHandleX10 (isShopGold);
+
+				SaveManager.instance.state.TotalDiamond -= priceX10Diamond;
+				SaveManager.instance.Save ();
+				QuestManager.Intance.UpdateDisplayUI ();
+			} else {
+				// Neu hk du diamond hien thong bao
+			}
+		}
 	}
 
 	public void OpenRewardInRewardScene(bool isShopGold) {
