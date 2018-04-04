@@ -37,6 +37,8 @@ public class BirdController : MonoBehaviour {
 	{
 		questGetScoreMini = GameObject.Find ("GetScoreMinigame").GetComponent<CointainData> ();
 		questPlayMiniTimes = GameObject.Find ("PlayMiniTimes").GetComponent<CointainData> ();
+		questPlayAnyGame = GameObject.Find ("PlayAnyGame").GetComponent<CointainData> ();
+
 		isAlive = true;
 		myBody = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
@@ -165,7 +167,11 @@ public class BirdController : MonoBehaviour {
 				anim.SetTrigger ("Died");
 				gameOverImg.SetActive (true);
 				myBody.velocity = Vector2.zero;
+
 				if (!questPlayMiniTimes.quest.isDone)
+					questPlayMiniTimes.quest.doing++;
+
+				if (!questPlayAnyGame.quest.isDone)
 					questPlayMiniTimes.quest.doing++;
 			}
 

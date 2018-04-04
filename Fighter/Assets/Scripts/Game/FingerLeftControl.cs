@@ -6,12 +6,26 @@ public class FingerLeftControl : FingerBase {
 
 	public static FingerLeftControl instance;
 
+	DataQuests questPlayAnyGame;
+	DataQuests questPlay2Player;
+	DataQuests questPlayAITime;
+	DataQuests questWinAiTime;
+	[SerializeField]
+	bool isMainGame;
+
 	[SerializeField]
 	bool isUIAni;
 
 	void Awake(){
 		if (instance == null)
 			instance = this;
+
+		if (isMainGame) {
+			questPlayAnyGame = GameObject.Find ("PlayAnyGame").GetComponent<CointainData> ().quest;
+			questPlay2Player = GameObject.Find ("Play2Player").GetComponent<CointainData> ().quest;
+			questPlayAITime = GameObject.Find ("PlayAITimes").GetComponent<CointainData> ().quest;
+			questWinAiTime = GameObject.Find ("PlayWinAITimes").GetComponent<CointainData> ().quest;
+		}
 
 		healthBar.Initialize ();
 		staminaBar.Initialize ();
@@ -258,6 +272,21 @@ public class FingerLeftControl : FingerBase {
 	public override void Win(){
 		ChangeStateAni (FingerState.Idel);
 
+		if(isMainGame && !questPlayAnyGame.isDone)
+			questPlayAnyGame.doing++;
+
+		if (!SaveManager.instance.state.player2AI) {
+			//2 player
+			if (isMainGame && !questPlay2Player.isDone)
+				questPlay2Player.doing++;
+
+			if (isMainGame && !questWinAiTime.isDone)
+				questWinAiTime.doing++;
+		} else { // neu la AI
+			if (isMainGame && !questPlayAITime.isDone)
+				questPlayAITime.doing++;
+		}
+
 		finger.SetActive (true);
 		fingerDown.SetActive (false);
 		fingerAtk.SetActive (false);
@@ -294,6 +323,18 @@ public class FingerLeftControl : FingerBase {
 
 	public override void Dead(){
 		ChangeStateAni (FingerState.Death);
+
+		if(isMainGame && !questPlayAnyGame.isDone)
+			questPlayAnyGame.doing++;
+
+		if (!SaveManager.instance.state.player2AI) {
+			//2 player
+			if (isMainGame && !questPlay2Player.isDone)
+				questPlay2Player.doing++;
+		} else { // neu la AI
+			if (isMainGame && !questPlayAITime.isDone)
+				questPlayAITime.doing++;
+		}
 
 		finger.SetActive (false);
 		fingerDown.SetActive (true);
