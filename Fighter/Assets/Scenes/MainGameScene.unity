@@ -9769,7 +9769,7 @@ MonoBehaviour:
   speed: 15
   fade1: {fileID: 240104754}
   fade2: {fileID: 473120178}
-  fade: {fileID: 0}
+  fade: {fileID: 930820746}
   hidePosFade1: {fileID: 37926785}
   showPosFade1: {fileID: 127519864}
   showPos1Fade1: {fileID: 310242513}
