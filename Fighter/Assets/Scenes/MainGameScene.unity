@@ -1641,7 +1641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4319.333, y: 0}
+  m_AnchoredPosition: {x: 2118.0002, y: 0}
   m_SizeDelta: {x: 2118, y: 2336}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &240104755
@@ -2352,7 +2352,7 @@ MonoBehaviour:
   - {fileID: 1646166497}
   player1: {fileID: 1169754930}
   player2: {fileID: 1540023910}
-  aniFade: {fileID: 0}
+  aniFade: {fileID: 1940505415}
   pausePanel: {fileID: 1231712654}
   gameoverP1Panel: {fileID: 800837365}
   gameoverP2Panel: {fileID: 268096928}
@@ -2660,8 +2660,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -4469.9, y: 0}
-  m_SizeDelta: {x: 2223, y: 2336}
+  m_AnchoredPosition: {x: -2118, y: 0}
+  m_SizeDelta: {x: 2118, y: 2336}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &473120179
 MonoBehaviour:
@@ -2759,7 +2759,7 @@ Canvas:
   m_GameObject: {fileID: 498240919}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 825680082}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2768,8 +2768,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 100
+  m_SortingLayerID: 214919059
+  m_SortingOrder: 99
   m_TargetDisplay: 0
 --- !u!224 &498240923
 RectTransform:
