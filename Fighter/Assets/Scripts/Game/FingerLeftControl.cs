@@ -61,7 +61,7 @@ public class FingerLeftControl : FingerBase {
 		
 		switch (fingerAction) {
 		case FingerState.Idel:
-			ChangeStateAni (FingerState.Idel);
+//			ChangeStateAni (FingerState.Idel);
 			DoIdel ();
 			break;
 		case FingerState.Atk:
@@ -85,6 +85,7 @@ public class FingerLeftControl : FingerBase {
 				fingerAction = FingerState.Atk;
 			}
 		} else {
+			enemyRight.fingerAminChanger = 0;
 			if (!enemyRight.lastAtk && !isAtk)
 				fingerAction = FingerState.Idel;
 		}
@@ -179,7 +180,7 @@ public class FingerLeftControl : FingerBase {
 	}
 
 	public override void DoAtk(){
-		ChangeStateAni (FingerState.Atk);
+//		ChangeStateAni (FingerState.Atk);
 		if (!enemyRight.firstAtk && !firstAtk) {
 			firstAtk = true;
 			enemyRight.fingerAminChanger = 1;
@@ -197,7 +198,7 @@ public class FingerLeftControl : FingerBase {
 	}
 
 	public override void DoingAtk(){
-		ChangeStateAni (FingerState.Doing);
+//		ChangeStateAni (FingerState.Doing);
 		if (healthBar.CurrentVal > 0) {
 			if (firstAtk) {
 				if (!enemyRight.lastAtk) {
@@ -270,7 +271,7 @@ public class FingerLeftControl : FingerBase {
 	}
 
 	public override void Win(){
-		ChangeStateAni (FingerState.Idel);
+//		ChangeStateAni (FingerState.Idel);
 
 		if(isMainGame && !questPlayAnyGame.isDone)
 			questPlayAnyGame.doing++;
@@ -322,7 +323,7 @@ public class FingerLeftControl : FingerBase {
 	}
 
 	public override void Dead(){
-		ChangeStateAni (FingerState.Death);
+//		ChangeStateAni (FingerState.Death);
 
 		if(isMainGame && !questPlayAnyGame.isDone)
 			questPlayAnyGame.doing++;
@@ -379,7 +380,6 @@ public class FingerLeftControl : FingerBase {
 	public void UnClickAtk(){
 		touch = true;
 		doingSomething = false;
-		enemyRight.fingerAminChanger = 0;
 		if (!isAtk)
 			fingerAction = FingerState.Idel;
 		enemyRight.oneShotColor = false;

@@ -45,7 +45,6 @@ public class GameplayBase : MonoBehaviour {
 	public static DataItems hatAI, amorAI, wpAI;
 
 	public void Start() {
-		Debug.Log(GameplayBase.wpPlayer2.name);
 		instance = this;
 		gamePause = false;
 		CheckAI ();
@@ -145,7 +144,6 @@ public class GameplayBase : MonoBehaviour {
 		FadeAni.isRunMapToChooseChar = true;
 		FadeAni.isRunMapToHome = true;
 		FadeAni.isRunPlayGame = false;
-		FadeAni.isRunMiniGame = false;
 	}
 
 	public void ReMatch(){

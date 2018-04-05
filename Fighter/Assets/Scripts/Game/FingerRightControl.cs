@@ -43,7 +43,7 @@ public class FingerRightControl : FingerBase {
 			atk = 2;
 		switch (fingerAction) {
 		case FingerState.Idel:
-			ChangeStateAni (FingerState.Idel);
+//			ChangeStateAni (FingerState.Idel);
 			DoIdel ();
 			break;
 		case FingerState.Atk:
@@ -66,6 +66,7 @@ public class FingerRightControl : FingerBase {
 				fingerAction = FingerState.Atk;
 			}
 		} else {
+			enemyLeft.fingerAminChanger = 0;
 			if (!enemyLeft.lastAtk && !isAtk)
 				fingerAction = FingerState.Idel;
 		}
@@ -160,7 +161,7 @@ public class FingerRightControl : FingerBase {
 	}
 
 	public override void DoAtk(){
-		ChangeStateAni (FingerState.Atk);
+//		ChangeStateAni (FingerState.Atk);
 		if (!firstAtk && !enemyLeft.firstAtk) {
 			firstAtk = true;
 			enemyLeft.fingerAminChanger = 1;
@@ -184,7 +185,7 @@ public class FingerRightControl : FingerBase {
 	}
 
 	public override void DoingAtk(){
-		ChangeStateAni (FingerState.Doing);
+//		ChangeStateAni (FingerState.Doing);
 		if (healthBar.CurrentVal > 0) {
 			if (firstAtk) {
 				if (!enemyLeft.lastAtk) {
@@ -258,7 +259,7 @@ public class FingerRightControl : FingerBase {
 	}
 
 	public override void Win(){
-		ChangeStateAni (FingerState.Idel);
+//		ChangeStateAni (FingerState.Idel);
 
 		finger.SetActive (true);
 		fingerDown.SetActive (false);
@@ -296,7 +297,7 @@ public class FingerRightControl : FingerBase {
 
 	public override void Dead(){
 
-		ChangeStateAni (FingerState.Death);
+//		ChangeStateAni (FingerState.Death);
 
 		finger.SetActive (false);
 		fingerDown.SetActive (true);
@@ -341,7 +342,6 @@ public class FingerRightControl : FingerBase {
 	public void UnClickAtk(){
 		touch = true;
 		doingSomething = false;
-		enemyLeft.fingerAminChanger = 0;
 		if (!isAtk)
 			fingerAction = FingerState.Idel;
 		enemyLeft.oneShotColor = false;

@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGameScene.unity
     guid: b9a0c774cccd440f3ad59f022eb9b696
+  - enabled: 1
+    path: Assets/Scenes/FlappyThumb.unity
+    guid: 18fc24df3f384e8418c41001f47a26da
   - enabled: 0
     path: Assets/Scenes/MiniGameScene.unity
     guid: 924a562a9f61549a99a387991721c819
@@ -26,6 +29,3 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/FlappyThumb.unity
-    guid: 18fc24df3f384e8418c41001f47a26da
