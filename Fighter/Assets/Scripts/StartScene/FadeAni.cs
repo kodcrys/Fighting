@@ -71,9 +71,6 @@ public class FadeAni : MonoBehaviour {
 
 	bool isRunFadeHide;
 
-	[SerializeField]
-	bool isGameplay;
-
 	float timeDelay = 0;
 
 	// Use this for initialization
@@ -91,17 +88,11 @@ public class FadeAni : MonoBehaviour {
 		switch (stateFade) {
 		case State.none:
 			fade.enabled = false;
-			if (!isGameplay)
-				speed = 15;
-			else
-				speed = 400;
+			speed = 15;
 			break;
 		case State.Show:
 			fade.enabled = true;
-			if (!isGameplay)
-				speed = 15;
-			else
-				speed = 400;
+			speed = 15;
 			fade1.position = Vector3.MoveTowards (fade1.position, showPosFade1.position, speed * Time.deltaTime);
 			fade2.position = Vector3.MoveTowards (fade2.position, showPosFade2.position, speed * Time.deltaTime);
 			if (fade1.position == showPosFade1.position && fade2.position == showPosFade2.position) {
@@ -124,10 +115,7 @@ public class FadeAni : MonoBehaviour {
 			}
 			break;
 		case State.Show2:
-			if (!isGameplay)
-				speed = 100;
-			else
-				speed = 800;
+			speed = 100;
 			fade1.position = Vector3.MoveTowards (fade1.position, showPos2Fade1.position, speed * Time.deltaTime);
 			fade2.position = Vector3.MoveTowards (fade2.position, showPos2Fade2.position, speed * Time.deltaTime);
 			if (fade1.position == showPos2Fade1.position && fade2.position == showPos2Fade2.position) {
@@ -164,10 +152,7 @@ public class FadeAni : MonoBehaviour {
 				isRunFadeHide = true;
 
 			if (isRunFadeHide) {
-				if (!isGameplay)
-					speed = 15;
-				else
-					speed = 400;
+				speed = 15;
 				fade1.position = Vector3.MoveTowards (fade1.position, hidePosFade1.position, speed * Time.deltaTime);
 				fade2.position = Vector3.MoveTowards (fade2.position, hidePosFade2.position, speed * Time.deltaTime);
 				if (fade1.position == hidePosFade1.position && fade2.position == hidePosFade2.position) {
