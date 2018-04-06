@@ -11,9 +11,15 @@ public class ResultControl : MonoBehaviour {
 	[SerializeField]
 	private GameObject findMatchPanel;
 
+	[Header("------Icon------")]
+	[SerializeField]
+	private List<Sprite> listSpriteMask;
+	[SerializeField]
+	UnityEngine.UI.Image maskIcon;
+
 	// Use this for initialization
-	void Start () {
-		
+	void OnEnable () {
+		maskIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar];
 	}
 	
 	// Update is called once per frame
