@@ -1,24 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class IconControl : MonoBehaviour {
 
-	[Header("------Frame change icon character------")]
-	[SerializeField]
-	GameObject changebtn;
-
 	[Header("------Animations UI------")]
 	[SerializeField]
-	UIAnimations libraryMove;
+	Transform posIconLibrary;
+	[SerializeField]
+	Transform posHideLibrary;
+	[SerializeField]
+	Transform posShowLibrary;
 	[SerializeField]
 	GameObject btnBackLibrary;
 
 	[Header("------Data------")]
 	[SerializeField]
 	CointainData[] dataChars;
+	[SerializeField]
+	private List<Sprite> listSpriteMask;
 
-	bool isMove = false;
+	[Header("------Icon------")]
+	[SerializeField]
+	UnityEngine.UI.Image maskIcon;
+	[SerializeField]
+	GameObject changebtn;
+
+	bool isMove = false, isMoveLibraryUp, isMoveLibraryDown;
 	public bool isClick = false;
 
 	public static IconControl Instance;
@@ -32,38 +41,39 @@ public class IconControl : MonoBehaviour {
 	{
 		isMove = false;
 		isClick = false;
+		isMoveLibraryUp = false;
+		isMoveLibraryDown = false;
 	}
 
-	void Update() {
-		if (isMove) {
-			Vector3 pos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-			pos.z = 0;
-			changebtn.transform.position = Vector3.MoveTowards(changebtn.transform.position, pos, 10000 * Time.deltaTime);
+	void Update() 
+	{
+		if (isMoveLibraryUp) 
+		{
+			posIconLibrary.position = Vector3.MoveTowards (posIconLibrary.position, posShowLibrary.position, 40 * Time.deltaTime);
+			if (posIconLibrary.position == posShowLibrary.position)
+				isMoveLibraryUp = false;
+		}
+
+		if (isMoveLibraryDown) 
+		{
+			posIconLibrary.position = Vector3.MoveTowards (posIconLibrary.position, posHideLibrary.position, 40 * Time.deltaTime);
+			if (posIconLibrary.position == posHideLibrary.position)
+				isMoveLibraryDown = false;
 		}
 	}
-
-	public void ReadInfoCharacter(DataCharacter dataChar) {
-
-		isMove = true;
-
-		changebtn.SetActive (true);
-	}
-
-	public void UnReadInfoCharacter() {
-		isMove = false;
+		
+	public void OnChangeIcon(int idChar) 
+	{
+		maskIcon.sprite = listSpriteMask[idChar];
+		Debug.Log (idChar);
 		changebtn.SetActive (false);
+		HideLibrary ();
 	}
 
-	public void ReadInfoEquipment(DataItems dataItem) {
-		isMove = true;
-
-		changebtn.SetActive (true);
-	}
-
-	bool isShowLibChar = true;
-
-	void EnDisableLibraryCell() {
-		for (int i = 0; i < dataChars.Length; i++) {
+	void EnDisableLibraryCell() 
+	{
+		for (int i = 0; i < dataChars.Length; i++) 
+		{
 			if (dataChars [i].dataChar.isOwned == false)
 				dataChars [i].GetComponent<UnityEngine.UI.Button> ().interactable = false;
 			else
@@ -71,18 +81,25 @@ public class IconControl : MonoBehaviour {
 		}
 	}
 
-	public void ShowLibrary() {
-		if (isClick == false) {
+	public void ShowLibrary() 
+	{
+		if (isClick == false) 
+		{
+			isMoveLibraryUp = true;
 			EnDisableLibraryCell ();
-			libraryMove.isRunMoveAni = true;
+			btnBackLibrary.SetActive (true);
 			isClick = true;
 		}
 	}
 
-	public void HideLibrary() {
-		if (isClick) {
-			libraryMove.isRunMoveAni = false;
+	public void HideLibrary() 
+	{
+		if (isClick) 
+		{
+			isMoveLibraryDown = true;
 			btnBackLibrary.SetActive (false);
+			isClick = false;
 		}
 	}
+		
 }
