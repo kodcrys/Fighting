@@ -205,6 +205,10 @@ public class UIAnimations : MonoBehaviour {
 	[SerializeField]
 	bool isInStartScene;
 
+	[Header("Scale Sequence")]
+	[SerializeField]
+	bool isScaleSequence;
+
 	void Awake() {
 		if (isInStartScene) {
 			Share = GameObject.Find ("Share").GetComponent<CointainData> ().quest;
@@ -724,6 +728,20 @@ public class UIAnimations : MonoBehaviour {
 		isRunAniBtnChange = true;
 	}
 
+	bool isMoveScaleMin;
+	void ScaleSequent() {
+		if (isMoveScaleMin == false) {
+			target.localScale = Vector3.MoveTowards (target.localScale, maxScale, speed * Time.deltaTime);
+			if (target.localScale == maxScale)
+				isMoveScaleMin = true;
+		}
+		if (isMoveScaleMin) {
+			target.localScale = Vector3.MoveTowards (target.localScale, originScale, speed * Time.deltaTime);
+			if (target.localScale == originScale)
+				isMoveScaleMin = false;
+		}
+	}
+
 	IEnumerator RunAni(){
 		while (true) {
 			//if (isRunAniBtnChange == false) {
@@ -761,6 +779,8 @@ public class UIAnimations : MonoBehaviour {
 					ScaleFrameChangeBtnTo (maxScale);
 				else if(isRunAniFrameChange)
 					ScaleFrameChangeBtnTo (minScale);
+			if (isScaleSequence)
+				ScaleSequent ();
 			//}
 			yield return new WaitForSeconds (0.02f);
 		}

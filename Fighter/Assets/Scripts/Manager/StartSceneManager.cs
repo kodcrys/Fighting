@@ -80,6 +80,14 @@ public class StartSceneManager : MonoBehaviour {
 	[HideInInspector]
 	public bool isShopScene;
 
+	[Header("")]
+	[SerializeField]
+	GameObject diaAni;
+	[SerializeField]
+	Transform btnRewardAds;
+	[SerializeField]
+	Transform canvas;
+
 	void Awake() {
 		if (instance != null)
 			instance = this;
@@ -125,6 +133,8 @@ public class StartSceneManager : MonoBehaviour {
 			QuestManager.Intance.DoneQuest (lstQuest);
 		} else
 			QuestManager.Intance.isCanLoadData = true;
+
+		ShowBtnReward ();
 	}
 		
 	// daily quest
@@ -232,4 +242,35 @@ public class StartSceneManager : MonoBehaviour {
 	}
 
 
+
+	void ShowBtnReward() {
+		if (midBar.transform.localScale != Vector3.zero) {
+			if (Application.internetReachability == NetworkReachability.NotReachable) {
+				if (btnRewardAds.gameObject.activeSelf == true)
+					btnRewardAds.gameObject.SetActive (false);
+			} else {
+				if (LoadingScene.minutesWait - LoadingScene.minutesLastClick >= 300) {
+					btnRewardAds.gameObject.SetActive (true);
+				} else {
+					LoadingScene.minutesWait = Time.time;
+					btnRewardAds.gameObject.SetActive (false);
+				}
+			}
+		} else
+			btnRewardAds.gameObject.SetActive (false);
+	}
+
+	public void ShowReward() {
+		LoadingScene.minutesLastClick = LoadingScene.minutesWait;
+		LoadingScene.ggAdmobs.ShowRewardBasedVideo ();
+		//AniMoveRewardAds ();
+	}
+
+	public void AniMoveRewardAds() {
+		GameObject gobAni = Instantiate (diaAni, btnRewardAds.position, Quaternion.identity, canvas) as GameObject;
+		Transform transAni = gobAni.transform;
+
+		foreach (Transform trans in transAni)
+			trans.GetComponent<MagnetField> ().isMove = true;
+	}
 }
