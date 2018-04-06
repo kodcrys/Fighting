@@ -128,6 +128,9 @@ public class ChooseCharManager : MonoBehaviour {
 	[SerializeField]
 	FadeAni fadeAni;
 
+	[SerializeField]
+	StartSceneManager startSceneManager;
+
 	void Awake() {
 		if (instance == null)
 			instance = this;
@@ -167,16 +170,20 @@ public class ChooseCharManager : MonoBehaviour {
 	void EnDisableLibraryCell() {
 		for (int i = 0; i < dataChars.Length; i++) {
 			if (dataChars [i].dataChar.isOwned == false)
-				dataChars [i].GetComponent<UnityEngine.UI.Button> ().interactable = false;
+				//dataChars [i].GetComponent<UnityEngine.UI.Button> ().interactable = false;
+				dataChars [i].transform.GetChild (1).gameObject.SetActive (true);
 			else
-				dataChars [i].GetComponent<UnityEngine.UI.Button> ().interactable = true;
+				//dataChars [i].GetComponent<UnityEngine.UI.Button> ().interactable = true;
+				dataChars [i].transform.GetChild (1).gameObject.SetActive (false);
 		}
 
 		for (int i = 0; i < dataItems.Length; i++) {
 			if (dataItems [i].dataItem.isOwned == false)
-				dataItems [i].GetComponent<UnityEngine.UI.Button> ().interactable = false;
+				//dataItems [i].GetComponent<UnityEngine.UI.Button> ().interactable = false;
+				dataItems [i].transform.GetChild (1).gameObject.SetActive (true);
 			else
-				dataItems [i].GetComponent<UnityEngine.UI.Button> ().interactable = true;
+				//dataItems [i].GetComponent<UnityEngine.UI.Button> ().interactable = true;
+				dataItems [i].transform.GetChild (1).gameObject.SetActive (false);
 		}
 	}
 
@@ -272,7 +279,7 @@ public class ChooseCharManager : MonoBehaviour {
 		nextBtn.isRunMoveAni = false;
 		preBtn.isRunMoveAni = false;
 
-		StartSceneManager.instance.isShopScene = false;
+		startSceneManager.isShopScene = false;
 
 		aiBtn.GetComponent<UIAnimations> ().isRunMoveAni = false;
 	}
