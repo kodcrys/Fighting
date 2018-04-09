@@ -45,7 +45,6 @@ public class IconControl : MonoBehaviour {
 		isMoveLibraryDown = false;
 
 		maskIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar[0]];
-		
 	}
 
 	void Update() 

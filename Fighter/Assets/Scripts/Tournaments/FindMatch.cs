@@ -43,10 +43,17 @@ public class FindMatch : MonoBehaviour {
 	[SerializeField]
 	private UnityEngine.UI.Text waitingtxt;
 
+	[Header("------Medal------")]
+	[SerializeField]
+	private UnityEngine.UI.Image currentMedal;
+	[SerializeField]
+	private int[] listPointRank;
+	[SerializeField]
+	private List<Sprite> listSpriteMedal;
+
 	private bool isMoveIn, isMoveOut;
 	private float timeJoinGame;
 	private float timeCount;
-
 
 	// Use this for initialization
 	void Start () {
@@ -159,5 +166,12 @@ public class FindMatch : MonoBehaviour {
 			timeLefttxt.text = 8 - (int)System.DateTime.Now.DayOfWeek + (" Days left");
 		else
 			timeLefttxt.text = "1 Day left";
+	}
+
+	void ShowScoreAndMedal ()
+	{
+		for (int i = 0; i < listPointRank.Length; i++)
+			if (SaveManager.instance.state.score >= listPointRank [i])
+				currentMedal.sprite = listSpriteMedal [i];
 	}
 }

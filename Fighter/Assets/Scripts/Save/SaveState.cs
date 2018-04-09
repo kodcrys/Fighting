@@ -64,4 +64,6 @@ public class SaveState {
 	public bool isX2pack1, isX2pack5, isX2pack10, isX2pack15, isX2pack30, isX2pack50, isX2pack100 = true;
 
 	public int[] iconChar = new int[8]  { 0, 0, 0, 0, 0, 0, 0, 0};
+
+	public int score = 0;
 }
