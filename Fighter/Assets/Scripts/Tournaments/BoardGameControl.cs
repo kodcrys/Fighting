@@ -13,11 +13,12 @@ public class BoardGameControl : MonoBehaviour {
 	// Use this for initialization
 	void OnEnable () {
 		for (int i = 0; i < maskIcons.Count; i++)
-			maskIcons[i] = 
+			maskIcons [i].sprite = listSpriteMask [SaveManager.instance.state.iconChar [i]];
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		
 	}
 }

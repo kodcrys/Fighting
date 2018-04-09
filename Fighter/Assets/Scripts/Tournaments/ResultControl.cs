@@ -19,7 +19,7 @@ public class ResultControl : MonoBehaviour {
 
 	// Use this for initialization
 	void OnEnable () {
-		maskIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar];
+		maskIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar[0]];
 	}
 	
 	// Update is called once per frame

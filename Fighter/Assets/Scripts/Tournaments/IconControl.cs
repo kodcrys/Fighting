@@ -44,7 +44,7 @@ public class IconControl : MonoBehaviour {
 		isMoveLibraryUp = false;
 		isMoveLibraryDown = false;
 
-		maskIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar];
+		maskIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar[0]];
 		
 	}
 
@@ -68,7 +68,7 @@ public class IconControl : MonoBehaviour {
 	public void OnChangeIcon(int idChar) 
 	{
 		maskIcon.sprite = listSpriteMask[idChar];
-		SaveManager.instance.state.iconChar = idChar;
+		SaveManager.instance.state.iconChar[0] = idChar;
 		SaveManager.instance.Save ();
 		changebtn.SetActive (false);
 		HideLibrary ();
