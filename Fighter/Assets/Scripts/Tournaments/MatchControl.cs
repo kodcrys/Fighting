@@ -81,6 +81,7 @@ public class MatchControl : MonoBehaviour
 		SaveManager.instance.state.player1AI = false;
 		SaveManager.instance.state.player2AI = true;
 		SaveManager.instance.state.whatMode = 2;
+
 		SaveManager.instance.state.idHatAI = Random.Range (55, 116);
 		SaveManager.instance.state.idAmorAI = Random.Range (0, 55);
 		SaveManager.instance.state.idWpAI = Random.Range (116, 124);
@@ -96,9 +97,14 @@ public class MatchControl : MonoBehaviour
 		SaveManager.instance.state.player1AI = true;
 		SaveManager.instance.state.player2AI = true;
 		SaveManager.instance.state.whatMode = 2;
+
 		SaveManager.instance.state.idHatAI = Random.Range (55, 116);
 		SaveManager.instance.state.idAmorAI = Random.Range (0, 55);
 		SaveManager.instance.state.idWpAI = Random.Range (116, 124);
+
+		SaveManager.instance.state.idHatAI1 = Random.Range (55, 116);
+		SaveManager.instance.state.idAmorAI1 = Random.Range (0, 55);
+		SaveManager.instance.state.idWpAI1 = Random.Range (116, 124);
 
 		SaveManager.instance.Save ();
 	}

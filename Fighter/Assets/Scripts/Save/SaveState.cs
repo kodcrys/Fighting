@@ -57,7 +57,7 @@ public class SaveState {
 
 	public int idChar1 = -1, idChar2 = -1, idHat1 = -1, idHat2 = -1, idAmor1 = -1, idAmor2 = -1, idWp1 = -1, idWp2 = -1;
 
-	public int idCharAI = -1, idHatAI = -1, idAmorAI = -1, idWpAI = -1;
+	public int idCharAI = -1, idHatAI = -1, idAmorAI = -1, idWpAI = -1, idCharAI1 = -1, idHatAI1 = -1, idAmorAI1 = -1, idWpAI1 = -1;
 
 	public bool isPurchaseRemoveAds = false;
 

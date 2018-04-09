@@ -43,13 +43,15 @@ public class FindMatch : MonoBehaviour {
 	[SerializeField]
 	private UnityEngine.UI.Text waitingtxt;
 
-	[Header("------Medal------")]
+	[Header("------Medal and Score------")]
 	[SerializeField]
 	private UnityEngine.UI.Image currentMedal;
 	[SerializeField]
 	private int[] listPointRank;
 	[SerializeField]
 	private List<Sprite> listSpriteMedal;
+	[SerializeField]
+	private UnityEngine.UI.Text scoretxt;
 
 	private bool isMoveIn, isMoveOut;
 	private float timeJoinGame;
@@ -65,7 +67,8 @@ public class FindMatch : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		FindMatchControl ();
-		CountTimeLeft ();	
+		CountTimeLeft ();
+		ShowScoreAndMedal ();
 	}
 
 	public void OnChartPanel ()
@@ -170,6 +173,8 @@ public class FindMatch : MonoBehaviour {
 
 	void ShowScoreAndMedal ()
 	{
+		scoretxt.text = SaveManager.instance.state.score.ToString ();
+
 		for (int i = 0; i < listPointRank.Length; i++)
 			if (SaveManager.instance.state.score >= listPointRank [i])
 				currentMedal.sprite = listSpriteMedal [i];
