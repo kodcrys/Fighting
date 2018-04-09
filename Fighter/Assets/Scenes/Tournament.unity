@@ -7364,7 +7364,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -273, y: 307}
-  m_SizeDelta: {x: 513, y: 513}
+  m_SizeDelta: {x: 512, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282166685
 MonoBehaviour:
@@ -7385,7 +7385,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d6ed4ca76ea1c4ecf8e179d57c61c138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05230405b00f44cfb9efb38bfdf750c6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19196,7 +19196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -273.00006, y: 237}
+  m_AnchoredPosition: {x: -279, y: 237}
   m_SizeDelta: {x: 135, y: 116.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &903571736
@@ -36848,6 +36848,16 @@ MonoBehaviour:
   timeLefttxt: {fileID: 362121217}
   timetxt: {fileID: 31379484}
   waitingtxt: {fileID: 276359283}
+  currentMedal: {fileID: 282166685}
+  listPointRank: 140000003200000064000000c8000000f4010000e8030000
+  listSpriteMedal:
+  - {fileID: 21300000, guid: 29d328932fd3c4664ba445633bf4df74, type: 3}
+  - {fileID: 21300000, guid: 54a30c10854574bffacff40f0de8ca5e, type: 3}
+  - {fileID: 21300000, guid: 2a97236833d2d474681319a0d912b8ce, type: 3}
+  - {fileID: 21300000, guid: 363b5a609a4eb444789a911223d28a13, type: 3}
+  - {fileID: 21300000, guid: 912999b528e974be1ba22c4b74658a81, type: 3}
+  - {fileID: 21300000, guid: d6ed4ca76ea1c4ecf8e179d57c61c138, type: 3}
+  scoretxt: {fileID: 903571736}
 --- !u!1 &1690837083
 GameObject:
   m_ObjectHideFlags: 0

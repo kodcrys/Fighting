@@ -27,7 +27,7 @@ public class IconControl : MonoBehaviour {
 	[SerializeField]
 	GameObject changebtn;
 
-	bool isMove = false, isMoveLibraryUp, isMoveLibraryDown;
+	bool isMoveLibraryUp, isMoveLibraryDown;
 	public bool isClick = false;
 
 	public static IconControl Instance;
@@ -39,7 +39,6 @@ public class IconControl : MonoBehaviour {
 
 	void Start()
 	{
-		isMove = false;
 		isClick = false;
 		isMoveLibraryUp = false;
 		isMoveLibraryDown = false;
@@ -103,6 +102,5 @@ public class IconControl : MonoBehaviour {
 			btnBackLibrary.SetActive (false);
 			isClick = false;
 		}
-	}
-		
+	}		
 }
