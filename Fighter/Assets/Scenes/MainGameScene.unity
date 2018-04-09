@@ -6258,6 +6258,8 @@ MonoBehaviour:
   staminaImage: {fileID: 2010343432}
   redHealth: {fileID: 872883588}
   stunFinger: {fileID: 1576644768}
+  levelStatManager: {fileID: 782210244}
+  lvMain: {fileID: 11400000, guid: 9d5ee45de97434f86be46a6bb15b04c3, type: 2}
   isMainGame: 1
   isUIAni: 0
 --- !u!114 &1169754935
@@ -8349,6 +8351,8 @@ MonoBehaviour:
   staminaImage: {fileID: 1293532664}
   redHealth: {fileID: 1842487878}
   stunFinger: {fileID: 408478869}
+  levelStatManager: {fileID: 0}
+  lvMain: {fileID: 11400000, guid: 9d5ee45de97434f86be46a6bb15b04c3, type: 2}
 --- !u!114 &1540023915
 MonoBehaviour:
   m_ObjectHideFlags: 0

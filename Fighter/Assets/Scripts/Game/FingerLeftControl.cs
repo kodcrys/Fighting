@@ -286,6 +286,13 @@ public class FingerLeftControl : FingerBase {
 		} else { // neu la AI
 			if (isMainGame && !questPlayAITime.isDone)
 				questPlayAITime.doing++;
+
+			if (levelStatManager != null) {
+				if (lvMain.level <= 19)
+					levelStatManager.IncreaseExp (50);
+				else
+					levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 20));
+			}
 		}
 
 		finger.SetActive (true);
@@ -335,6 +342,13 @@ public class FingerLeftControl : FingerBase {
 		} else { // neu la AI
 			if (isMainGame && !questPlayAITime.isDone)
 				questPlayAITime.doing++;
+
+			if (levelStatManager != null) {
+				if (lvMain.level <= 19)
+					levelStatManager.IncreaseExp (10);
+				else
+					levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 50));
+			}
 		}
 
 		finger.SetActive (false);
@@ -482,12 +496,20 @@ public class FingerLeftControl : FingerBase {
 			hatAtkDownSpr.sprite = GameplayBase.hatPlayer1.avatar;
 			hatAtkDownSpr.gameObject.SetActive (true);
 
+			maxHealth += GameplayBase.hatPlayer1.HP;
+			atk += GameplayBase.hatPlayer1.ATK;
+			defend += GameplayBase.hatPlayer1.DEF;
+
 			HideSkin ();
 		}
 
 		if (GameplayBase.amorPlayer1 != null) {
 			FingerLeftControl.instance.amor.sprite = GameplayBase.amorPlayer1.avatar;
 			FingerLeftControl.instance.amor.gameObject.SetActive (true);
+
+			maxHealth += GameplayBase.amorPlayer1.HP;
+			atk += GameplayBase.amorPlayer1.ATK;
+			defend += GameplayBase.amorPlayer1.DEF;
 
 			HideSkin ();
 		}
@@ -496,7 +518,17 @@ public class FingerLeftControl : FingerBase {
 			FingerLeftControl.instance.weapon.sprite = GameplayBase.wpPlayer1.avatar;
 			FingerLeftControl.instance.weapon.gameObject.SetActive (true);
 
+			maxHealth += GameplayBase.wpPlayer1.HP;
+			atk += GameplayBase.wpPlayer1.ATK;
+			defend += GameplayBase.wpPlayer1.DEF;
+
 			HideSkin ();
+		}
+
+		if (GameplayBase.dataPlayer1 == null) {
+			maxHealth += lvMain.hpBonus;
+			atk += lvMain.atkBonus;
+			defend += lvMain.defBonus;
 		}
 	}
 

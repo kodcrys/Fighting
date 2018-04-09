@@ -87,6 +87,9 @@ public class FingerBase : MonoBehaviour {
 
 	public Animator stunFinger;
 
+	public LevelStatManager levelStatManager;
+	public DataLevelStat lvMain;
+
 	public virtual void HanderHealth(){
 		
 	}
