@@ -453,7 +453,11 @@ public class FingerLeftControl : FingerBase {
 
 
 		if (GameplayBase.dataPlayer1 != null) {
-			Debug.Log ("GameplayBase.dataPlayer1: " + GameplayBase.dataPlayer1);
+
+			maxHealth = lvMain.hpBonus;
+			atk = lvMain.atkBonus;
+			defend = lvMain.defBonus;
+
 			// skin Idle
 			skin.sprite = GameplayBase.dataPlayer1.equipmentOfChar;
 			skin.gameObject.SetActive (true);
@@ -483,6 +487,12 @@ public class FingerLeftControl : FingerBase {
 	}
 
 	public void ChangeItemsPlayer() {
+		if (GameplayBase.dataPlayer1 == null) {
+			maxHealth = lvMain.hpBonus;
+			atk = lvMain.atkBonus;
+			defend = lvMain.defBonus;
+		}
+
 		if (GameplayBase.hatPlayer1 != null) {
 			// hat idle
 			hat.sprite = GameplayBase.hatPlayer1.avatar;
@@ -523,12 +533,6 @@ public class FingerLeftControl : FingerBase {
 			defend += GameplayBase.wpPlayer1.DEF;
 
 			HideSkin ();
-		}
-
-		if (GameplayBase.dataPlayer1 == null) {
-			maxHealth += lvMain.hpBonus;
-			atk += lvMain.atkBonus;
-			defend += lvMain.defBonus;
 		}
 	}
 

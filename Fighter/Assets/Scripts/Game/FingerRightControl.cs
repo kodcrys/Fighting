@@ -400,6 +400,11 @@ public class FingerRightControl : FingerBase {
 	public void ChangeCharPlayer() {
 		
 		if (GameplayBase.dataPlayer2 != null) {
+
+			maxHealth = lvMain.hpBonus;
+			atk = lvMain.atkBonus;
+			defend = lvMain.defBonus;
+
 			// skin Idle
 			skin.sprite = GameplayBase.dataPlayer2.equipmentOfChar;
 			skin.gameObject.SetActive (true);
@@ -420,6 +425,11 @@ public class FingerRightControl : FingerBase {
 	public void ChangeCharAI() {
 
 		if (GameplayBase.dataAI != null) {
+
+			maxHealth = lvMain.hpBonus;
+			atk = lvMain.atkBonus;
+			defend = lvMain.defBonus;
+
 			// skin Idle
 			skin.sprite = GameplayBase.dataAI.equipmentOfChar;
 			skin.gameObject.SetActive (true);
@@ -464,6 +474,10 @@ public class FingerRightControl : FingerBase {
 			hatAtkDownSpr.sprite = GameplayBase.hatPlayer2.avatar;
 			hatAtkDownSpr.gameObject.SetActive (true);
 
+			maxHealth += GameplayBase.hatPlayer1.HP;
+			atk += GameplayBase.hatPlayer1.ATK;
+			defend += GameplayBase.hatPlayer1.DEF;
+
 			HideSkin ();
 		}
 
@@ -471,12 +485,20 @@ public class FingerRightControl : FingerBase {
 			FingerRightControl.instance.amor.sprite = GameplayBase.amorPlayer2.avatar;
 			FingerRightControl.instance.amor.gameObject.SetActive (true);
 
+			maxHealth += GameplayBase.hatPlayer1.HP;
+			atk += GameplayBase.hatPlayer1.ATK;
+			defend += GameplayBase.hatPlayer1.DEF;
+
 			HideSkin ();
 		}
 			
 		if (GameplayBase.wpPlayer2 != null) {
 			FingerRightControl.instance.weapon.sprite = GameplayBase.wpPlayer2.avatar;
 			FingerRightControl.instance.weapon.gameObject.SetActive (true);
+
+			maxHealth += GameplayBase.hatPlayer1.HP;
+			atk += GameplayBase.hatPlayer1.ATK;
+			defend += GameplayBase.hatPlayer1.DEF;
 
 			HideSkin ();
 		}
@@ -497,6 +519,10 @@ public class FingerRightControl : FingerBase {
 			hatAtkDownSpr.sprite = GameplayBase.hatAI.avatar;
 			hatAtkDownSpr.gameObject.SetActive (true);
 
+			maxHealth += GameplayBase.hatPlayer1.HP;
+			atk += GameplayBase.hatPlayer1.ATK;
+			defend += GameplayBase.hatPlayer1.DEF;
+
 			HideSkin ();
 		}
 
@@ -504,12 +530,20 @@ public class FingerRightControl : FingerBase {
 			amor.sprite = GameplayBase.amorAI.avatar;
 			amor.gameObject.SetActive (true);
 
+			maxHealth += GameplayBase.hatPlayer1.HP;
+			atk += GameplayBase.hatPlayer1.ATK;
+			defend += GameplayBase.hatPlayer1.DEF;
+
 			HideSkin ();
 		}
 
 		if (GameplayBase.wpAI != null) {
 			weapon.sprite = GameplayBase.wpAI.avatar;
 			weapon.gameObject.SetActive (true);
+
+			maxHealth += GameplayBase.hatPlayer1.HP;
+			atk += GameplayBase.hatPlayer1.ATK;
+			defend += GameplayBase.hatPlayer1.DEF;
 
 			HideSkin ();
 		}
