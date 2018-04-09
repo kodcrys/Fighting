@@ -374,6 +374,8 @@ public class FingerRightControl : FingerBase {
 					AnimationText.endRound = true;
 					if (SaveManager.instance.state.whatMode == 1) {
 						GameplayBase.instance.gameoverP2Panel.SetActive (true);
+						LoadingScene.ggAdmobs.ShowInterstitial ();
+						LoadingScene.ggAdmobs.RequestInterstitial ();
 					} else if (SaveManager.instance.state.whatMode == 2) {
 						
 					}

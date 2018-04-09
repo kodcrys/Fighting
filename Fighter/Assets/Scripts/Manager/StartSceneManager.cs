@@ -241,8 +241,6 @@ public class StartSceneManager : MonoBehaviour {
 		ringUI.CheckRing ();
 	}
 
-
-
 	void ShowBtnReward() {
 		if (midBar.transform.localScale != Vector3.zero) {
 			if (Application.internetReachability == NetworkReachability.NotReachable) {

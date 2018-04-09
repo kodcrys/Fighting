@@ -412,6 +412,8 @@ public class FingerLeftControl : FingerBase {
 					AnimationText.endRound = true;
 					if (SaveManager.instance.state.whatMode == 1) {
 						GameplayBase.instance.gameoverP1Panel.SetActive (true);
+						LoadingScene.ggAdmobs.ShowInterstitial ();
+						LoadingScene.ggAdmobs.RequestInterstitial ();
 					} else if (SaveManager.instance.state.whatMode == 2) {
 						
 					}
