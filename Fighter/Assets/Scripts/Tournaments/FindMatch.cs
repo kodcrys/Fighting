@@ -18,7 +18,7 @@ public class FindMatch : MonoBehaviour {
 	private GameObject findMatchPanel;
 
 	[SerializeField]
-	private GameObject MatchPanel;
+	private GameObject BoardGame;
 
 	[Header("------Move Panel------")]
 	[SerializeField]
@@ -77,7 +77,7 @@ public class FindMatch : MonoBehaviour {
 	{
 		isMoveOut = true;
 		timeCount = 0f;
-		timeJoinGame = Random.Range (1, 3);
+		timeJoinGame = Random.Range (2, 5);
 		findMatchbtn.SetActive (false);
 		cancelbtn.SetActive (true);
 	}
@@ -97,7 +97,6 @@ public class FindMatch : MonoBehaviour {
 			findMatchPanel.transform.position = Vector3.MoveTowards (findMatchPanel.transform.position, moveIn.position, speedMovePanel * Time.deltaTime);
 			rewardPanel.transform.position = Vector3.MoveTowards (rewardPanel.transform.position, moveOut.position, speedMovePanel * Time.deltaTime);
 			chartPanel.transform.position = Vector3.MoveTowards (chartPanel.transform.position, moveOut.position, speedMovePanel * Time.deltaTime);
-
 		}
 
 		if (rewardPanel.transform.position == moveOut.position && chartPanel.transform.position == moveOut.position) 
@@ -125,11 +124,17 @@ public class FindMatch : MonoBehaviour {
 			} 
 			else 
 			{
+				for (int i = 1; i < 8; i++) 
+				{
+					SaveManager.instance.state.iconChar [i] = Random.Range (0, 61);
+					SaveManager.instance.Save ();
+				}
+
 				chartPanel.SetActive (false);
 				rewardPanel.SetActive (false);
 				characterPanel.SetActive (false);
 				findMatchPanel.SetActive (false);
-				MatchPanel.SetActive (true);
+				BoardGame.SetActive (true);
 				transform.gameObject.SetActive (false);
 			}
 		}
