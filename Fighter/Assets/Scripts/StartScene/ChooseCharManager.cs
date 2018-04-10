@@ -1022,4 +1022,13 @@ public class ChooseCharManager : MonoBehaviour {
 			t.GetChild (0).GetComponent<UnityEngine.UI.Image> ().color = showColor;
 		}
 	}
+
+	public void RandomMap() {
+		int indexMap = Random.Range (0, maps.Length);
+		for (int i = 0; i < maps.Length; i++)
+			if (indexMap == i)
+				maps [i].SetActive (true);
+			else
+				maps [i].SetActive (false);
+	}
 }
