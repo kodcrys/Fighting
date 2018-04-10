@@ -50,12 +50,6 @@ public class ChooseCharControl : MonoBehaviour {
 
 	[Header("UIAnimations")]
 	[SerializeField]
-	UIAnimations topBar;
-	[SerializeField]
-	UIAnimations midBar;
-	[SerializeField]
-	UIAnimations botBar;
-	[SerializeField]
 	UIAnimations moveChooseFrame;
 	[SerializeField]
 	UIAnimations showTop;
@@ -75,11 +69,6 @@ public class ChooseCharControl : MonoBehaviour {
 	[Header("Btn Play Game")]
 	[SerializeField]
 	UnityEngine.UI.Text contentBtn;
-	string[] playMode = { "P1 VS P2", "P1 VS CPU", "TOURNAMENT", "MINI GAME" };
-	[SerializeField]
-	GameObject play2Btn;
-	[SerializeField]
-	GameObject aiBtn;
 
 	[Header("Screen Map")]
 	[SerializeField]
@@ -174,65 +163,21 @@ public class ChooseCharControl : MonoBehaviour {
 	// run ani change scene when click play
 	public void AniChangeScene() 
 	{
-		// p1 zs p2
-		if (contentBtn.text == playMode [0]) 
-		{
-			SaveManager.instance.state.player1AI = false;
-			SaveManager.instance.state.player2AI = false;
-			play2Btn.SetActive (true);
-			aiBtn.SetActive (false);
-
-			isTurnPlayer1 = true;
-
-			ready1.sprite = readySpr;
-
-			preBtn.GetComponent<UnityEngine.UI.Button> ().interactable = true;
-			nextBtn.GetComponent<UnityEngine.UI.Button> ().interactable = false;
-
-			EnDisableLibraryCell ();
-
-			topBar.isRunMoveAni = false;
-			midBar.isRunScaleAni = false;
-			botBar.isRunMoveAni = false;
-
-			showTop.isRunMoveAni = true;
-			vsImage.isRunScaleAni = true;
-			moveChooseFrame.isRunMoveAni = true;
-			nextBtn.isRunMoveAni = true;
-			preBtn.isRunMoveAni = true;
-
-			ReadSave ();
-		}
-
 		// zs AI
-		if (contentBtn.text == playMode [1]) {
+		{
 			SaveManager.instance.state.player1AI = false;
 			SaveManager.instance.state.player2AI = true;
 
-			play2Btn.SetActive (false);
-			aiBtn.SetActive (true);
-
 			isTurnPlayer1 = true;
 
 			ready1.sprite = readySpr;
 			preBtn.GetComponent<UnityEngine.UI.Button> ().interactable = true;
 			EnDisableLibraryCell ();
 
-			topBar.isRunMoveAni = false;
-			midBar.isRunScaleAni = false;
-			botBar.isRunMoveAni = false;
-
 			showTop.isRunMoveAni = true;
 			vsImage.isRunScaleAni = true;
 			moveChooseFrame.isRunMoveAni = true;
 			preBtn.isRunMoveAni = true;
-
-			aiBtn.GetComponent<UIAnimations> ().isRunMoveAni = true;
-		}
-
-		// tour
-		if (contentBtn.text == playMode [2]) {
-
 		}
 	}
 		
@@ -247,7 +192,7 @@ public class ChooseCharControl : MonoBehaviour {
 			isTurnPlayer1 = false;
 
 			// AI
-			if (contentBtn.text == playMode [1]) 
+
 			{
 				aniFade.stateFade = FadeAni.State.Show;
 				aniFade.isChangeMap = true;
@@ -276,40 +221,11 @@ public class ChooseCharControl : MonoBehaviour {
 				GameplayBase.wpPlayer1 = null;
 
 		} 
-		else 
-		{
-			if (contentBtn.text == playMode [0]) 
-			{
-				nextBtn.GetComponent<UnityEngine.UI.Button> ().interactable = false;
-				aniFade.stateFade = FadeAni.State.Show;
-				aniFade.isChangeMap = true;
-
-				if (SaveManager.instance.state.idChar2 != -1)
-					GameplayBase.dataPlayer2 = lstCharacters [SaveManager.instance.state.idChar2];
-				else
-					GameplayBase.dataPlayer2 = null;
-
-				if (SaveManager.instance.state.idHat2 != -1)
-					GameplayBase.hatPlayer2 = lstItems [SaveManager.instance.state.idHat2];
-				else
-					GameplayBase.hatPlayer2 = null;
-
-				if (SaveManager.instance.state.idAmor2 != -1)
-					GameplayBase.amorPlayer2 = lstItems [SaveManager.instance.state.idAmor2];
-				else
-					GameplayBase.amorPlayer2 = null;
-
-				if (SaveManager.instance.state.idWp2 != -1)
-					GameplayBase.wpPlayer2 = lstItems [SaveManager.instance.state.idWp2];
-				else
-					GameplayBase.wpPlayer2 = null;
-			}
-			//UnityEngine.SceneManagement.SceneManager.LoadScene ("ChooseMap");
-		}
 	}
 
 	// choose character or equipment when click button in choose frame
-	public void ChooseChar() {
+	public void ChooseChar() 
+	{
 		GameObject gob = EventSystem.current.currentSelectedGameObject;
 
 		objFollow = gob;
