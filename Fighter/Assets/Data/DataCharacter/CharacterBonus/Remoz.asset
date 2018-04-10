@@ -16,7 +16,7 @@ MonoBehaviour:
   equipmentOfChar: {fileID: 21300000, guid: 5f8cf70163a354edc85994b736296ddb, type: 3}
   equipmentWP: {fileID: 0}
   equipmetnTShirt: {fileID: 0}
-  ATK: 50
-  DEF: 250
-  HP: 500
+  ATK: 10
+  DEF: 50
+  HP: 100
   isOwned: 0
