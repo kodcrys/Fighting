@@ -56,9 +56,16 @@ public class ChooseCharControl : MonoBehaviour {
 	[SerializeField]
 	UIAnimations vsImage;
 	[SerializeField]
-	UIAnimations nextBtn;
+	Transform showPosFrame;
 	[SerializeField]
-	UIAnimations preBtn;
+	Transform showPosReady;
+	[SerializeField]
+	Transform frameListChar;
+	[SerializeField]
+	Transform readybtn;
+	[SerializeField]
+	GameObject boardGamePanel;
+
 
 	[Header("Lock Btn")]
 	[SerializeField]
@@ -66,17 +73,9 @@ public class ChooseCharControl : MonoBehaviour {
 	[SerializeField]
 	Sprite readySpr;
 
-	[Header("Btn Play Game")]
-	[SerializeField]
-	UnityEngine.UI.Text contentBtn;
-
 	[Header("Screen Map")]
 	[SerializeField]
 	SpriteRenderer map;
-
-	[Header("Fade ani")]
-	[SerializeField]
-	FadeAni aniFade;
 
 	[Header("Load Data")]
 	[SerializeField]
@@ -93,9 +92,7 @@ public class ChooseCharControl : MonoBehaviour {
 	[HideInInspector]
 	public bool isPlayAI;
 
-	[Header("FadeAni")]
-	[SerializeField]
-	FadeAni fadeAni;
+	bool isMoveListChar;
 
 	void Awake() 
 	{
@@ -106,6 +103,7 @@ public class ChooseCharControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		isMoveListChar = false;
 		isTurnPlayer1 = true;
 		chooseSymbol.SetActive (false);
 		EnDisableLibraryCell ();
@@ -116,6 +114,12 @@ public class ChooseCharControl : MonoBehaviour {
 	{
 		if(objFollow != null)
 			chooseSymbol.transform.position = objFollow.transform.position;
+
+		if (!isMoveListChar) 
+		{
+			frameListChar.position = Vector3.MoveTowards (frameListChar.position, showPosFrame.position, 9 * Time.deltaTime);
+			readybtn.position = Vector3.MoveTowards (readybtn.position, showPosReady.position, 12 * Time.deltaTime);
+		}
 	}
 
 	bool isShowTypeChar = true;
@@ -187,7 +191,6 @@ public class ChooseCharControl : MonoBehaviour {
 			EnDisableLibraryCell ();
 
 			showTop.isRunMoveAni = true;
-			vsImage.isRunScaleAni = true;
 			moveChooseFrame.isRunMoveAni = true;
 
 		}
@@ -198,19 +201,8 @@ public class ChooseCharControl : MonoBehaviour {
 	{
 		if (isTurnPlayer1) 
 		{
-			preBtn.GetComponent<UnityEngine.UI.Button> ().interactable = false;
-			nextBtn.GetComponent<UnityEngine.UI.Button> ().interactable = true;
 			ready1.sprite = lockSpr;
 			isTurnPlayer1 = false;
-
-			// AI
-
-			{
-				aniFade.stateFade = FadeAni.State.Show;
-				aniFade.isChangeMap = true;
-				// Change mode AI afer play
-				PlayModeAI ();
-			}
 
 			if (SaveManager.instance.state.idChar1 != -1)
 				GameplayBase.dataPlayer1 = lstCharacters [SaveManager.instance.state.idChar1];
@@ -231,8 +223,10 @@ public class ChooseCharControl : MonoBehaviour {
 				GameplayBase.wpPlayer1 = lstItems [SaveManager.instance.state.idWp1];
 			else
 				GameplayBase.wpPlayer1 = null;
-
 		} 
+
+		transform.gameObject.SetActive (false);
+		boardGamePanel.SetActive (true);
 	}
 
 	// choose character or equipment when click button in choose frame
@@ -572,31 +566,8 @@ public class ChooseCharControl : MonoBehaviour {
 			}
 	}
 
-	public void BackChooseChar() 
-	{
-		aniFade.stateFade = FadeAni.State.Show;
-		aniFade.isChangeChooseChar = true;
-
-		// bien danh dau tu map ze choose char
-		FadeAni.isRunMapToChooseChar = true;
-		FadeAni.isRunMapToHome = false;
-		FadeAni.isRunPlayGame = false;
-	}
-
-	public void Home() 
-	{
-		aniFade.stateFade = FadeAni.State.Show;
-		aniFade.isChangeChooseChar = true;
-		FadeAni.isRunMapToChooseChar = true;
-		FadeAni.isRunMapToHome = true;
-		FadeAni.isRunPlayGame = false;
-		//UnityEngine.SceneManagement.SceneManager.LoadScene ("StartScene");
-	}
-
 	public void PlayGame() 
 	{
-		aniFade.stateFade = FadeAni.State.Show;
-		aniFade.isChangeChooseChar = true;
 		FadeAni.isRunMapToChooseChar = false;
 		FadeAni.isRunMapToHome = false ;
 		FadeAni.isRunPlayGame = true;
@@ -604,64 +575,6 @@ public class ChooseCharControl : MonoBehaviour {
 		SaveManager.instance.state.winCountRight = 0;
 		SaveManager.instance.state.roundCount = 1;
 		SaveManager.instance.state.whatMode = 1;
-		SaveManager.instance.Save ();
-	}
-
-	void PlayModeAI() 
-	{
-		// neu file luu tru theo ID cua nhan zat hoac equipment dang != -1 (nghia la co luu tru thi thuc hien thay doi theo character player)
-		// neu player chon character thi random character cho AI
-		if (SaveManager.instance.state.idChar1 != -1) 
-		{
-			SaveManager.instance.state.idCharAI = Random.Range (0, lstCharacters.Length);
-			SaveManager.instance.Save ();
-
-			// Open data char
-			GameplayBase.dataAI = lstCharacters[SaveManager.instance.state.idCharAI];
-
-			// Close data items
-			GameplayBase.hatAI = null;
-			GameplayBase.amorAI = null;
-			GameplayBase.hatAI = null;
-		}
-
-		// neu player chon equipment tuong ung thi AI se co equipment ung zs player
-		if (SaveManager.instance.state.idHat1 != -1) 
-		{
-			SaveManager.instance.state.idHatAI = Random.Range (55, 116);
-			SaveManager.instance.Save ();
-
-			// Close data char
-			GameplayBase.dataAI = null;
-
-			// Open data items
-			GameplayBase.hatAI = lstItems[SaveManager.instance.state.idHatAI];
-		}
-
-		if (SaveManager.instance.state.idAmor1 != -1) 
-		{
-			SaveManager.instance.state.idAmorAI = Random.Range (0, 55);
-			SaveManager.instance.Save ();
-
-			// Close data char
-			GameplayBase.dataAI = null;
-
-			// Open data items
-			GameplayBase.amorAI = lstItems[SaveManager.instance.state.idAmorAI];
-		}
-
-		if (SaveManager.instance.state.idWp1 != -1) 
-		{
-			SaveManager.instance.state.idWpAI = Random.Range (116, lstItems.Length);
-			SaveManager.instance.Save ();
-
-			// Close data char
-			GameplayBase.dataAI = null;
-
-			// Open data items
-			GameplayBase.wpAI = lstItems[SaveManager.instance.state.idWpAI];
-		}
-			
 		SaveManager.instance.Save ();
 	}
 }

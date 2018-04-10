@@ -18,7 +18,7 @@ public class FindMatch : MonoBehaviour {
 	private GameObject findMatchPanel;
 
 	[SerializeField]
-	private GameObject BoardGame;
+	private GameObject ChooseCharPanel;
 
 	[Header("------Move Panel------")]
 	[SerializeField]
@@ -144,7 +144,7 @@ public class FindMatch : MonoBehaviour {
 				rewardPanel.SetActive (false);
 				characterPanel.SetActive (false);
 				findMatchPanel.SetActive (false);
-				BoardGame.SetActive (true);
+				ChooseCharPanel.SetActive (true);
 				transform.gameObject.SetActive (false);
 			}
 		}
