@@ -16,6 +16,6 @@ MonoBehaviour:
   typeItem: 2
   avatar: {fileID: 21300000, guid: caf32a09d35de4747a65f173a23f7c3b, type: 3}
   ATK: 0
-  DEF: 0
-  HP: 0
+  DEF: 200
+  HP: 500
   isOwned: 1

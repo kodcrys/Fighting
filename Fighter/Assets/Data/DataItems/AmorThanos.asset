@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Thanos's Necklace
   typeItem: 2
   avatar: {fileID: 21300000, guid: 2cbf47de4846940f6b651fa6e551110d, type: 3}
-  ATK: 0
-  DEF: 0
-  HP: 0
+  ATK: 10
+  DEF: 500
+  HP: 1000
   isOwned: 1

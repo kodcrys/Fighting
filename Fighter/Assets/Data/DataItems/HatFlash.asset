@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Flash's Mask
   typeItem: 0
   avatar: {fileID: 21300000, guid: c0dfbbfbbb83e41c496da6fc7af7ea2d, type: 3}
-  ATK: 0
-  DEF: 0
-  HP: 0
+  ATK: 10
+  DEF: 100
+  HP: 100
   isOwned: 1

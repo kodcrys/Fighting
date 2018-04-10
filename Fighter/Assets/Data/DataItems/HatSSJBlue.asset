@@ -15,7 +15,7 @@ MonoBehaviour:
   name: SSJ Blue's Hair
   typeItem: 0
   avatar: {fileID: 21300000, guid: 1ae10c415fdd34e57a9b236f21f6d024, type: 3}
-  ATK: 0
-  DEF: 0
-  HP: 0
+  ATK: 10
+  DEF: 100
+  HP: 200
   isOwned: 1

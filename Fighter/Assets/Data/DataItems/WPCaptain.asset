@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Cap's Shield
   typeItem: 1
   avatar: {fileID: 21300000, guid: 6a963ef691db1412e93b741f2d1782b0, type: 3}
-  ATK: 0
-  DEF: 0
+  ATK: 20
+  DEF: 100
   HP: 0
   isOwned: 1

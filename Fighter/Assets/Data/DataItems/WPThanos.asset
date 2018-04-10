@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Gauntlet
   typeItem: 1
   avatar: {fileID: 21300000, guid: 119d624315d3a4784894f3884474dc78, type: 3}
-  ATK: 0
+  ATK: 50
   DEF: 0
   HP: 0
   isOwned: 1

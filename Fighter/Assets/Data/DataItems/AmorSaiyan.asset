@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Saiyan's Amor
   typeItem: 2
   avatar: {fileID: 21300000, guid: e59936fbe8e584be182ef7d7e0ddc038, type: 3}
-  ATK: 0
-  DEF: 0
-  HP: 0
+  ATK: 10
+  DEF: 100
+  HP: 250
   isOwned: 1

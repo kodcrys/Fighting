@@ -11,11 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fdba199229be4291be402dd4cf74685, type: 3}
   m_Name: Batman
   m_EditorClassIdentifier: 
+  id: 0
   name: BATMAN
   equipmentOfChar: {fileID: 21300000, guid: b50c15d7735134596bc7f09fd498b0dc, type: 3}
   equipmentWP: {fileID: 0}
   equipmetnTShirt: {fileID: 0}
-  ATK: 0
-  DEF: 0
-  HP: 0
+  ATK: 50
+  DEF: 250
+  HP: 500
   isOwned: 1

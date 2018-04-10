@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Gambit's Amor
   typeItem: 2
   avatar: {fileID: 21300000, guid: ce700160d9e7d45baa3c26165cff27ab, type: 3}
-  ATK: 0
-  DEF: 0
-  HP: 0
+  ATK: 10
+  DEF: 10
+  HP: 100
   isOwned: 1

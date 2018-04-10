@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Naruto's Hair
   typeItem: 0
   avatar: {fileID: 21300000, guid: 64b968d23d8d84e3c9f234c482c917b3, type: 3}
-  ATK: 0
-  DEF: 0
-  HP: 0
+  ATK: 10
+  DEF: 100
+  HP: 100
   isOwned: 1

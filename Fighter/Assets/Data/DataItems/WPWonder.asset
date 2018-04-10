@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Wonder's Shield
   typeItem: 1
   avatar: {fileID: 21300000, guid: f24e14a8578e14e06bffcd14b3993a08, type: 3}
-  ATK: 0
+  ATK: 20
   DEF: 0
   HP: 0
   isOwned: 1

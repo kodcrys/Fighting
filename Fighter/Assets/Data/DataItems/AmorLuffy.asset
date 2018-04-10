@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Luffy's Amor
   typeItem: 2
   avatar: {fileID: 21300000, guid: 338e52c9d06d94c8192d94a8cfa0cf5e, type: 3}
-  ATK: 0
-  DEF: 0
-  HP: 0
+  ATK: 5
+  DEF: 150
+  HP: 600
   isOwned: 1

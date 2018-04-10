@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Sanji's Hair
   typeItem: 0
   avatar: {fileID: 21300000, guid: 12853166aec274d7b94d8e8dc4143e5f, type: 3}
-  ATK: 0
-  DEF: 0
-  HP: 0
+  ATK: 10
+  DEF: 100
+  HP: 100
   isOwned: 1

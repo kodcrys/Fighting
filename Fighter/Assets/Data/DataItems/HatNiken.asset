@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Niken's Hat
   typeItem: 0
   avatar: {fileID: 21300000, guid: 4175962c3fff34758a2fc6fb9862fd0b, type: 3}
-  ATK: 0
-  DEF: 0
-  HP: 0
+  ATK: 10
+  DEF: 100
+  HP: 100
   isOwned: 0
