@@ -3173,22 +3173,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224346440954027284, guid: 1c9a31c637f3c4d509982ea420360a7b,
     type: 2}
   m_PrefabInternal: {fileID: 68863199}
---- !u!224 &68863201 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224914725857995438, guid: 1c9a31c637f3c4d509982ea420360a7b,
-    type: 2}
-  m_PrefabInternal: {fileID: 68863199}
 --- !u!114 &68863202 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114239312497215602, guid: 1c9a31c637f3c4d509982ea420360a7b,
     type: 2}
   m_PrefabInternal: {fileID: 68863199}
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!224 &68863203 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224415062186236726, guid: 1c9a31c637f3c4d509982ea420360a7b,
-    type: 2}
-  m_PrefabInternal: {fileID: 68863199}
 --- !u!114 &68863204 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114956588139730242, guid: 1c9a31c637f3c4d509982ea420360a7b,
@@ -3208,16 +3198,6 @@ GameObject:
 --- !u!1 &68863207 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1592922844515494, guid: 1c9a31c637f3c4d509982ea420360a7b,
-    type: 2}
-  m_PrefabInternal: {fileID: 68863199}
---- !u!224 &68863208 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224613866638940720, guid: 1c9a31c637f3c4d509982ea420360a7b,
-    type: 2}
-  m_PrefabInternal: {fileID: 68863199}
---- !u!224 &68863209 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224029369150798752, guid: 1c9a31c637f3c4d509982ea420360a7b,
     type: 2}
   m_PrefabInternal: {fileID: 68863199}
 --- !u!1 &73660956
@@ -7881,7 +7861,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1496768605}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.37254953
+  m_Size: 0.3725495
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -17047,7 +17027,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 671952288}
-  - component: {fileID: 671952289}
   - component: {fileID: 671952290}
   m_Layer: 5
   m_Name: '----------Choose Character----------'
@@ -17078,68 +17057,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &671952289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 671952287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d034ff97850a34d2793a1b602648bce1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnsChangeType:
-  - {fileID: 68863202}
-  - {fileID: 68863204}
-  PosBtnsChangeType:
-  - {fileID: 68863203}
-  - {fileID: 68863201}
-  typeChooseChar: {fileID: 68863207}
-  typeChooseEquipment: {fileID: 68863205}
-  dataChars: []
-  dataItems: []
-  dataHats: []
-  dataAmors: []
-  dataWeapons: []
-  chooseSymbol: {fileID: 68863206}
-  maskFrameChooseChar: {fileID: 68863209}
-  maskFrameChooseEquip: {fileID: 68863208}
-  hatSymbol: {fileID: 0}
-  hatMainR: {fileID: 0}
-  amorMainR: {fileID: 0}
-  weaponMainR: {fileID: 0}
-  hatSymbol2: {fileID: 0}
-  hatMainL: {fileID: 0}
-  amorMainL: {fileID: 0}
-  weaponMainL: {fileID: 0}
-  topBar: {fileID: 0}
-  midBar: {fileID: 0}
-  botBar: {fileID: 0}
-  moveChooseFrame: {fileID: 0}
-  showTop: {fileID: 0}
-  vsImage: {fileID: 0}
-  nextBtn: {fileID: 0}
-  preBtn: {fileID: 0}
-  lockSpr: {fileID: 0}
-  readySpr: {fileID: 0}
-  contentBtn: {fileID: 0}
-  modeAIText: {fileID: 0}
-  play2Btn: {fileID: 0}
-  aiBtn: {fileID: 0}
-  map: {fileID: 0}
-  aniFade: {fileID: 0}
-  lstCharacters: []
-  lstItems: []
-  ready1: {fileID: 0}
-  ready2: {fileID: 0}
-  isPlayAI: 0
-  handRight: {fileID: 0}
-  colorShow:
-    serializedVersion: 2
-    rgba: 0
-  fadeAni: {fileID: 0}
-  startSceneManager: {fileID: 0}
 --- !u!114 &671952290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17165,10 +17082,6 @@ MonoBehaviour:
   chooseSymbol: {fileID: 68863206}
   maskFrameChooseChar: {fileID: 0}
   maskFrameChooseEquip: {fileID: 0}
-  hatSymbol: {fileID: 0}
-  hatMainR: {fileID: 0}
-  amorMainR: {fileID: 0}
-  weaponMainR: {fileID: 0}
   hatSymbol2: {fileID: 1280629982}
   hatMainL: {fileID: 1167323363}
   amorMainL: {fileID: 1686939149}
@@ -17184,7 +17097,6 @@ MonoBehaviour:
   lockSpr: {fileID: 0}
   readySpr: {fileID: 0}
   contentBtn: {fileID: 0}
-  modeAIText: {fileID: 0}
   play2Btn: {fileID: 0}
   aiBtn: {fileID: 0}
   map: {fileID: 0}
@@ -17192,12 +17104,7 @@ MonoBehaviour:
   lstCharacters: []
   lstItems: []
   ready1: {fileID: 1946583183}
-  ready2: {fileID: 0}
   isPlayAI: 0
-  handRight: {fileID: 0}
-  colorShow:
-    serializedVersion: 2
-    rgba: 0
   fadeAni: {fileID: 0}
 --- !u!1 &685612039
 GameObject:
@@ -31221,12 +31128,12 @@ Prefab:
     - target: {fileID: 224904464959051298, guid: 9dab490da341a4bbead4fcd259341f5d,
         type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 224904464959051298, guid: 9dab490da341a4bbead4fcd259341f5d,
         type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 114054793915943464, guid: 9dab490da341a4bbead4fcd259341f5d,
         type: 2}

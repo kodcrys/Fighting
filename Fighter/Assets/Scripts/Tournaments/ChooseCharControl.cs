@@ -38,16 +38,6 @@ public class ChooseCharControl : MonoBehaviour {
 	[SerializeField]
 	Transform maskFrameChooseEquip;
 
-	[Header("PLayer2 or AI")]
-	[SerializeField]
-	UnityEngine.UI.Image hatSymbol;
-	[SerializeField]
-	UnityEngine.UI.Image hatMainR;
-	[SerializeField]
-	UnityEngine.UI.Image amorMainR;
-	[SerializeField]
-	UnityEngine.UI.Image weaponMainR;
-
 	[Header("PLayer1")]
 	[SerializeField]
 	UnityEngine.UI.Image hatSymbol2;
@@ -87,12 +77,9 @@ public class ChooseCharControl : MonoBehaviour {
 	UnityEngine.UI.Text contentBtn;
 	string[] playMode = { "P1 VS P2", "P1 VS CPU", "TOURNAMENT", "MINI GAME" };
 	[SerializeField]
-	UnityEngine.UI.Text modeAIText;
-	[SerializeField]
 	GameObject play2Btn;
 	[SerializeField]
 	GameObject aiBtn;
-	string[] modeAI = {"EASY", "NORMAL", "HARD", "VERY HARD"};
 
 	[Header("Screen Map")]
 	[SerializeField]
@@ -113,15 +100,9 @@ public class ChooseCharControl : MonoBehaviour {
 	GameObject objFollow;
 
 	[SerializeField]
-	UnityEngine.UI.Image ready1, ready2;
+	UnityEngine.UI.Image ready1;
 	[HideInInspector]
 	public bool isPlayAI;
-
-	[Header("Hand right")]
-	[SerializeField]
-	Transform handRight;
-	[SerializeField]
-	Color32 colorShow;
 
 	[Header("FadeAni")]
 	[SerializeField]
@@ -140,6 +121,7 @@ public class ChooseCharControl : MonoBehaviour {
 		chooseSymbol.SetActive (false);
 	}
 
+	// khi chọn vào char hoặc equipment thì sẽ có vòng tròn sáng màu vàng hiện ra ở chỗ chọn.
 	void Update() 
 	{
 		if(objFollow != null)
@@ -203,7 +185,6 @@ public class ChooseCharControl : MonoBehaviour {
 			isTurnPlayer1 = true;
 
 			ready1.sprite = readySpr;
-			ready2.sprite = readySpr;
 
 			preBtn.GetComponent<UnityEngine.UI.Button> ().interactable = true;
 			nextBtn.GetComponent<UnityEngine.UI.Button> ().interactable = false;
@@ -221,7 +202,6 @@ public class ChooseCharControl : MonoBehaviour {
 			preBtn.isRunMoveAni = true;
 
 			ReadSave ();
-			ShowColor ();
 		}
 
 		// zs AI
@@ -247,51 +227,16 @@ public class ChooseCharControl : MonoBehaviour {
 			moveChooseFrame.isRunMoveAni = true;
 			preBtn.isRunMoveAni = true;
 
-			//Change mode ai text
-			modeAIText.text = modeAI[0].ToString();
-
 			aiBtn.GetComponent<UIAnimations> ().isRunMoveAni = true;
-
-			HideColor ();
 		}
 
 		// tour
 		if (contentBtn.text == playMode [2]) {
 
 		}
-
-		// minigame
-		if (contentBtn.text == playMode [3]) {
-			fadeAni.stateFade = FadeAni.State.Show;
-			FadeAni.isRunMiniGame = true;
-			RandomMinigame ();
-
-		}
-
-
 	}
-
-	// run ani change scene when click back
-	public void AniChangeBackScene() 
-	{
-		chooseSymbol.SetActive (false);
-
-		topBar.isRunMoveAni = true;
-		midBar.isRunScaleAni = true;
-		botBar.isRunMoveAni = true;
-
-		showTop.isRunMoveAni = false;
-		vsImage.isRunScaleAni = false;
-		moveChooseFrame.isRunMoveAni = false;
-		nextBtn.isRunMoveAni = false;
-		preBtn.isRunMoveAni = false;
-
-		StartSceneManager.instance.isShopScene = false;
-
-		aiBtn.GetComponent<UIAnimations> ().isRunMoveAni = false;
-	}
-
-	//
+		
+	// Khi bấm ready thì nút ready của player 1 sẽ tắt và hiện cái nút ready của player 2
 	public void LockWhenFinishChoose() 
 	{
 		if (isTurnPlayer1) 
@@ -336,7 +281,6 @@ public class ChooseCharControl : MonoBehaviour {
 			if (contentBtn.text == playMode [0]) 
 			{
 				nextBtn.GetComponent<UnityEngine.UI.Button> ().interactable = false;
-				ready2.sprite = lockSpr;
 				aniFade.stateFade = FadeAni.State.Show;
 				aniFade.isChangeMap = true;
 
@@ -401,31 +345,8 @@ public class ChooseCharControl : MonoBehaviour {
 				GameplayBase.hatPlayer1 = null;
 				GameplayBase.amorPlayer1 = null;
 				GameplayBase.wpPlayer1 = null;
-
 			} 
-			else 
-			{
-				hatSymbol.gameObject.SetActive (false);
-				hatMainR.gameObject.SetActive (true);
-				hatMainR.sprite = ctData.dataChar.equipmentOfChar;
-				amorMainR.gameObject.SetActive (false);
-				weaponMainR.gameObject.SetActive (false);
 
-				// Open data char
-				GameplayBase.dataPlayer2 = ctData.dataChar;
-
-				// Save data char
-				SaveManager.instance.state.idChar2 = ctData.dataChar.id;
-				SaveManager.instance.state.idHat2 = -1;
-				SaveManager.instance.state.idAmor2 = -1;
-				SaveManager.instance.state.idWp2 = -1;
-				SaveManager.instance.Save ();
-
-				// Close data items
-				GameplayBase.hatPlayer2 = null;
-				GameplayBase.amorPlayer2 = null;
-				GameplayBase.wpPlayer2 = null;
-			}
 			chooseSymbol.SetActive (true);
 		} 
 		else
@@ -476,47 +397,6 @@ public class ChooseCharControl : MonoBehaviour {
 					GameplayBase.wpPlayer1 = ctData.dataItem;
 				}
 			} 
-			else 
-			{
-				hatSymbol.gameObject.SetActive (false);
-
-				SaveManager.instance.state.idChar2 = -1;
-				SaveManager.instance.Save ();
-
-				GameplayBase.dataPlayer2 = null;
-
-				if (ctData.dataItem.typeItem == TypeObject.hat) 
-				{
-					hatMainR.gameObject.SetActive (true);
-					hatMainR.sprite = ctData.dataItem.avatar;
-
-					SaveManager.instance.state.idHat2 = ctData.dataItem.id;
-
-					GameplayBase.hatPlayer2 = ctData.dataItem;
-				}
-
-				if (ctData.dataItem.typeItem == TypeObject.tshirt) 
-				{
-					amorMainR.gameObject.SetActive (true);
-					amorMainR.sprite = ctData.dataItem.avatar;
-
-					SaveManager.instance.state.idAmor2 = ctData.dataItem.id;
-					SaveManager.instance.Save ();
-
-					GameplayBase.amorPlayer2 = ctData.dataItem;
-				}
-
-				if (ctData.dataItem.typeItem == TypeObject.weapon) 
-				{
-					weaponMainR.gameObject.SetActive (true);
-					weaponMainR.sprite = ctData.dataItem.avatar;
-
-					SaveManager.instance.state.idWp2 = ctData.dataItem.id;
-					SaveManager.instance.Save ();
-
-					GameplayBase.wpPlayer2 = ctData.dataItem;
-				}
-			}
 			chooseSymbol.SetActive (true);
 		} 
 		else
@@ -549,7 +429,6 @@ public class ChooseCharControl : MonoBehaviour {
 			}
 			CointainData ctData = dtChars [rand];
 
-
 			if (isTurnPlayer1) 
 			{
 				hatSymbol2.gameObject.SetActive (false);
@@ -574,30 +453,6 @@ public class ChooseCharControl : MonoBehaviour {
 
 				SaveManager.instance.Save ();
 			} 
-			else 
-			{
-				hatSymbol.gameObject.SetActive (false);
-				hatMainR.gameObject.SetActive (true);
-				hatMainR.sprite = ctData.dataChar.equipmentOfChar;
-				amorMainR.gameObject.SetActive (false);
-				weaponMainR.gameObject.SetActive (false);
-
-				// Open data char
-				GameplayBase.dataPlayer2 = ctData.dataChar;
-
-				// Close data items
-				GameplayBase.hatPlayer2 = null;
-				GameplayBase.amorPlayer2 = null;
-				GameplayBase.wpPlayer2 = null;
-
-				SaveManager.instance.state.idChar2 = ctData.dataChar.id;
-
-				SaveManager.instance.state.idHat2 = -1;
-				SaveManager.instance.state.idAmor2 = -1;
-				SaveManager.instance.state.idWp2 = -1;
-
-				SaveManager.instance.Save ();
-			}
 		}
 	}
 
@@ -639,24 +494,6 @@ public class ChooseCharControl : MonoBehaviour {
 
 				SaveManager.instance.Save ();
 			} 
-			else 
-			{
-				hatSymbol.gameObject.SetActive (false);
-				hatMainR.gameObject.SetActive (true);
-				hatMainR.sprite = ctData.dataItem.avatar;
-
-				// close data char
-				GameplayBase.dataPlayer2 = null;
-
-				// open data items
-				GameplayBase.hatPlayer2 = ctData.dataItem;
-
-				SaveManager.instance.state.idHat2 = ctData.dataItem.id;
-
-				SaveManager.instance.state.idChar2 = -1;
-
-				SaveManager.instance.Save ();
-			}
 		}
 	}
 
@@ -696,24 +533,6 @@ public class ChooseCharControl : MonoBehaviour {
 
 				SaveManager.instance.Save ();
 			} 
-			else 
-			{
-				hatSymbol.gameObject.SetActive (false);
-				amorMainR.gameObject.SetActive (true);
-				amorMainR.sprite = ctData.dataItem.avatar;
-
-				// close data char
-				GameplayBase.dataPlayer2 = null;
-
-				// open data items
-				GameplayBase.amorPlayer2 = ctData.dataItem;
-
-				SaveManager.instance.state.idAmor2 = ctData.dataItem.id;
-
-				SaveManager.instance.state.idChar1 = -1;
-
-				SaveManager.instance.Save ();
-			}
 		}
 	}
 
@@ -754,24 +573,6 @@ public class ChooseCharControl : MonoBehaviour {
 
 				SaveManager.instance.Save ();
 			} 
-			else 
-			{
-				hatSymbol.gameObject.SetActive (false);
-				weaponMainR.gameObject.SetActive (true);
-				weaponMainR.sprite = ctData.dataItem.avatar;
-
-				// close data char
-				GameplayBase.dataPlayer2 = null;
-
-				// open data items
-				GameplayBase.wpPlayer2 = ctData.dataItem;
-
-				SaveManager.instance.state.idWp2 = ctData.dataItem.id;
-
-				SaveManager.instance.state.idChar2 = -1;
-
-				SaveManager.instance.Save ();
-			}
 		}
 	}
 
@@ -797,25 +598,6 @@ public class ChooseCharControl : MonoBehaviour {
 				weaponMainL.gameObject.SetActive (false);
 			}
 
-		if (SaveManager.instance.state.idChar2 != -1) 
-		{
-			hatSymbol.gameObject.SetActive (false);
-
-			hatMainR.gameObject.SetActive (true);
-			hatMainR.sprite = lstCharacters[SaveManager.instance.state.idChar2].equipmentOfChar;
-
-			amorMainR.gameObject.SetActive (false);
-			weaponMainR.gameObject.SetActive (false);
-		} 
-		else 
-			if (SaveManager.instance.state.idChar2 == -1) 
-			{
-				hatSymbol.gameObject.SetActive (true);
-				hatMainR.gameObject.SetActive (false);
-				amorMainR.gameObject.SetActive (false);
-				weaponMainR.gameObject.SetActive (false);
-			}
-
 		if (SaveManager.instance.state.idHat1 != -1) 
 		{
 			hatSymbol2.gameObject.SetActive (false);
@@ -838,32 +620,7 @@ public class ChooseCharControl : MonoBehaviour {
 					hatSymbol2.gameObject.SetActive (true);
 				}
 			}
-
-		if (SaveManager.instance.state.idHat2 != -1) 
-		{
-			hatSymbol.gameObject.SetActive (false);
-
-			hatMainR.gameObject.SetActive (true);
-
-			hatMainR.sprite = lstItems[SaveManager.instance.state.idHat2].avatar;
-		} 
-		else 
-			if (SaveManager.instance.state.idHat2 == -1) 
-			{
-				hatMainR.gameObject.SetActive (false);
-
-				if (SaveManager.instance.state.idChar1 != -1) 
-				{
-					hatMainR.gameObject.SetActive (true);
-					hatSymbol.gameObject.SetActive (false);
-				}
-				else 
-				{
-					hatMainR.gameObject.SetActive (false);
-					hatSymbol.gameObject.SetActive (true);
-				}
-			}
-
+				
 		if (SaveManager.instance.state.idAmor1 != -1) 
 		{
 			amorMainL.gameObject.SetActive (true);
@@ -874,18 +631,7 @@ public class ChooseCharControl : MonoBehaviour {
 			{
 				amorMainL.gameObject.SetActive (false);
 			}
-
-		if (SaveManager.instance.state.idAmor2 != -1) 
-		{
-			amorMainR.gameObject.SetActive (true);
-			amorMainR.sprite = lstItems[SaveManager.instance.state.idAmor2].avatar;
-		} 
-		else 
-			if (SaveManager.instance.state.idAmor2 == -1) 
-			{
-				amorMainR.gameObject.SetActive (false);
-			}
-
+	
 		if (SaveManager.instance.state.idWp1 != -1) 
 		{
 			weaponMainL.gameObject.SetActive (true);
@@ -895,17 +641,6 @@ public class ChooseCharControl : MonoBehaviour {
 			if (SaveManager.instance.state.idWp1 == -1) 
 			{
 				weaponMainL.gameObject.SetActive (false);
-			}
-
-		if (SaveManager.instance.state.idWp2 != -1) 
-		{
-			weaponMainR.gameObject.SetActive (true);
-			weaponMainR.sprite = lstItems[SaveManager.instance.state.idWp2].avatar;
-		} 
-		else 
-			if (SaveManager.instance.state.idWp2 == -1) 
-			{
-				weaponMainR.gameObject.SetActive (false);
 			}
 	}
 
@@ -944,44 +679,6 @@ public class ChooseCharControl : MonoBehaviour {
 		SaveManager.instance.Save ();
 	}
 
-	int countModeAI = 0;
-	public void TopModeAI() 
-	{
-		countModeAI++;
-		if (countModeAI < playMode.Length)
-			modeAIText.text = modeAI [countModeAI].ToString ();
-		else {
-			countModeAI = 0;
-			modeAIText.text = modeAI [countModeAI].ToString ();
-		}
-		//Debug.Log (countModeAI);
-	}
-
-	public void DownModeAI() 
-	{
-		countModeAI--;
-		if (countModeAI >= 0)
-			modeAIText.text = modeAI [countModeAI].ToString ();
-		else 
-		{
-			countModeAI = playMode.Length - 1;
-			modeAIText.text = modeAI [countModeAI].ToString ();
-		}
-	}
-
-	void RandomMinigame()
-	{
-		SaveManager.instance.state.idHatAI = Random.Range (55, 116);
-		SaveManager.instance.state.idAmorAI = Random.Range (0, 55);
-		SaveManager.instance.state.idWpAI = Random.Range (116, lstItems.Length);
-
-		SaveManager.instance.Save ();
-
-		GamePlayController.hatAI = lstItems[SaveManager.instance.state.idHatAI];
-		GamePlayController.amorAI = lstItems[SaveManager.instance.state.idAmorAI];
-		GamePlayController.wpAI = lstItems[SaveManager.instance.state.idWpAI];
-	}
-
 	void PlayModeAI() 
 	{
 		// neu file luu tru theo ID cua nhan zat hoac equipment dang != -1 (nghia la co luu tru thi thuc hien thay doi theo character player)
@@ -998,7 +695,6 @@ public class ChooseCharControl : MonoBehaviour {
 			GameplayBase.hatAI = null;
 			GameplayBase.amorAI = null;
 			GameplayBase.hatAI = null;
-
 		}
 
 		// neu player chon equipment tuong ung thi AI se co equipment ung zs player
@@ -1037,55 +733,7 @@ public class ChooseCharControl : MonoBehaviour {
 			// Open data items
 			GameplayBase.wpAI = lstItems[SaveManager.instance.state.idWpAI];
 		}
-
-		if (modeAIText.text == modeAI [0].ToString ()) 
-		{
-			// easy
-			SaveManager.instance.state.levelAI = 0;
-		}
-		if (modeAIText.text == modeAI [1].ToString ()) 
-		{
-			// normal
-			SaveManager.instance.state.levelAI = 1;
-		}
-		if (modeAIText.text == modeAI [2].ToString ()) 
-		{
-			// hard
-			SaveManager.instance.state.levelAI = 2;
-		}
-		if (modeAIText.text == modeAI [3].ToString ()) 
-		{
-			// very hard
-			SaveManager.instance.state.levelAI = 3;
-		}
-
+			
 		SaveManager.instance.Save ();
-	}
-
-	void HideColor() 
-	{
-		Color32 hideColor = new Color32 (0, 0, 0, 255);
-
-		handRight.GetComponent<UnityEngine.UI.Image> ().color = hideColor;
-
-		foreach (Transform t in handRight) {
-			t.GetComponent<UnityEngine.UI.Image> ().color = hideColor;
-			t.GetChild (0).GetComponent<UnityEngine.UI.Image> ().color = hideColor;
-		}
-
-		hatSymbol.gameObject.SetActive (true);
-		hatMainR.gameObject.SetActive (false);
-	}
-
-	void ShowColor() 
-	{
-		handRight.GetComponent<UnityEngine.UI.Image> ().color = colorShow;
-
-		foreach (Transform t in handRight) 
-		{
-			Color32 showColor = new Color32 (255, 255, 255, 255);
-			t.GetComponent<UnityEngine.UI.Image> ().color = colorShow;
-			t.GetChild (0).GetComponent<UnityEngine.UI.Image> ().color = showColor;
-		}
 	}
 }
