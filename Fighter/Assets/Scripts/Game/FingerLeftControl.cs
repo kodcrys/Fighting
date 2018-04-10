@@ -290,13 +290,6 @@ public class FingerLeftControl : FingerBase {
 			} else { // neu la AI
 				if (isMainGame && !questPlayAITime.isDone)
 					questPlayAITime.doing++;
-
-				if (levelStatManager != null) {
-					if (lvMain.level <= 19)
-						levelStatManager.IncreaseExp (50);
-					else
-						levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 20));
-				}
 			}
 			isDoneRound = true;
 		}
@@ -348,12 +341,6 @@ public class FingerLeftControl : FingerBase {
 			} else { // neu la AI
 				if (isMainGame && !questPlayAITime.isDone)
 					questPlayAITime.doing++;
-				if (levelStatManager != null) {
-					if (lvMain.level <= 19)
-						levelStatManager.IncreaseExp (10);
-					else
-						levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 50));
-				}
 			}
 			isDoneRound = true;
 		}
@@ -430,7 +417,12 @@ public class FingerLeftControl : FingerBase {
 				}
 			} else {
 				if (!AnimationText.endRound) {
-					AnimationText.endRound = true;
+					if (levelStatManager != null) {
+						if (lvMain.level <= 19)
+							levelStatManager.IncreaseExp (50);
+						else
+							levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 20));
+					}
 					if (SaveManager.instance.state.whatMode == 1) {
 						GameplayBase.instance.gameoverP1Panel.SetActive (true);
 						LoadingScene.ggAdmobs.ShowInterstitial ();
@@ -438,6 +430,7 @@ public class FingerLeftControl : FingerBase {
 					} else if (SaveManager.instance.state.whatMode == 2) {
 						
 					}
+					AnimationText.endRound = true;
 				}
 			}
 			SaveManager.instance.Save ();
