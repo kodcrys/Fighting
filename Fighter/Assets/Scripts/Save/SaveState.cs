@@ -5,11 +5,11 @@ public class SaveState {
 
 	public bool isFirstOpenApp = true;
 
-	public int TotalGold = 0;
+	public int TotalGold = 10000;
 
 	public int CurExp = 0;
 
-	public int TotalDiamond = 0;
+	public int TotalDiamond = 10000;
 
 	public int TotalCardChar = 0;
 
@@ -41,9 +41,9 @@ public class SaveState {
 
 	public float cameraSize = 6.21f;
 
-	public bool player1AI = true;
+	public bool player1AI = false;
 
-	public bool player2AI = true;
+	public bool player2AI = false;
 
 	public int whatMode = 0;
 

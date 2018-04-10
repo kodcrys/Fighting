@@ -179,6 +179,7 @@ public class ChooseCharControl : MonoBehaviour {
 		{
 			SaveManager.instance.state.player1AI = false;
 			SaveManager.instance.state.player2AI = true;
+			SaveManager.instance.Save ();
 
 			isTurnPlayer1 = true;
 

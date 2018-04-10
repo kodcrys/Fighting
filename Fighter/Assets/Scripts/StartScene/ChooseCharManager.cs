@@ -196,6 +196,7 @@ public class ChooseCharManager : MonoBehaviour {
 		if (contentBtn.text == playMode [0]) {
 			SaveManager.instance.state.player1AI = false;
 			SaveManager.instance.state.player2AI = false;
+			SaveManager.instance.Save ();
 			play2Btn.SetActive (true);
 			aiBtn.SetActive (false);
 
@@ -226,6 +227,7 @@ public class ChooseCharManager : MonoBehaviour {
 		if (contentBtn.text == playMode [1]) {
 			SaveManager.instance.state.player1AI = false;
 			SaveManager.instance.state.player2AI = true;
+			SaveManager.instance.Save ();
 
 			play2Btn.SetActive (false);
 			aiBtn.SetActive (true);
@@ -1011,6 +1013,8 @@ public class ChooseCharManager : MonoBehaviour {
 
 		hatSymbol.gameObject.SetActive (true);
 		hatMainR.gameObject.SetActive (false);
+		amorMainR.gameObject.SetActive (false);
+		weaponMainR.gameObject.SetActive (false);
 	}
 
 	void ShowColor() {
@@ -1021,5 +1025,18 @@ public class ChooseCharManager : MonoBehaviour {
 			t.GetComponent<UnityEngine.UI.Image> ().color = colorShow;
 			t.GetChild (0).GetComponent<UnityEngine.UI.Image> ().color = showColor;
 		}
+	}
+
+	public void RandomMap() {
+		int index = Random.Range (0, maps.Length);
+		for (int i = 0; i < maps.Length; i++)
+			if (index == i) {
+				maps [i].SetActive (true);
+				indexMap = i;
+			}
+			else
+				maps [i].SetActive (false);
+
+		chooseSymbol.SetActive (false);
 	}
 }

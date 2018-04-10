@@ -28109,7 +28109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bb1861475ca4513864287b467312b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difLevel: 4
+  difLevel: 0
   left: 1
   right: 0
   finger: {fileID: 1169754930}
@@ -35650,7 +35650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bb1861475ca4513864287b467312b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difLevel: 4
+  difLevel: 0
   left: 0
   right: 1
   finger: {fileID: 1540023910}
