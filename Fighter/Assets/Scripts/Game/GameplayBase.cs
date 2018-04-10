@@ -65,6 +65,27 @@ public class GameplayBase : MonoBehaviour {
 		else if(SaveManager.instance.state.roundCount == 2)
 			roundNumImg.sprite = numRound [1];
 
+		if (!SaveManager.instance.state.player2AI) {
+			FingerRightControl.instance.ChangeCharPlayer ();
+			FingerRightControl.instance.ChangeItemsPlayer ();
+		} else if (SaveManager.instance.state.player2AI) {
+			FingerRightControl.instance.ChangeCharAI ();
+			FingerRightControl.instance.ChangeItemsAI ();
+		}
+
+		FingerLeftControl.instance.ChangeCharPlayer ();
+		FingerLeftControl.instance.ChangeItemsPlayer ();
+
+		if (player1.GetComponent<FingerLeftControl>().defend > 0) {
+			SaveManager.instance.state.isShieldLeft = true;
+			SaveManager.instance.Save ();
+		}
+
+		if (player2.GetComponent<FingerRightControl>().defend > 0) {
+			SaveManager.instance.state.isShieldRight = true;
+			SaveManager.instance.Save ();
+		}
+
 		if (!SaveManager.instance.state.isShieldLeft) {
 			shieldLeft.SetActive (false);
 		} else {
@@ -76,17 +97,6 @@ public class GameplayBase : MonoBehaviour {
 		} else {
 			shieldRight.SetActive (true);
 		}
-
-		if (!SaveManager.instance.state.player2AI) {
-			FingerRightControl.instance.ChangeCharPlayer ();
-			FingerRightControl.instance.ChangeItemsPlayer ();
-		} else if (SaveManager.instance.state.player2AI) {
-			FingerRightControl.instance.ChangeCharAI ();
-			FingerRightControl.instance.ChangeItemsAI ();
-		}
-
-		FingerLeftControl.instance.ChangeCharPlayer ();
-		FingerLeftControl.instance.ChangeItemsPlayer ();
 	}
 
 	public void Update(){

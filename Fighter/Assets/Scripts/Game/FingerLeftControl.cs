@@ -31,10 +31,6 @@ public class FingerLeftControl : FingerBase {
 		staminaBar.Initialize ();
 		redHealthBar.Initialize ();
 		shieldBar.Initialize ();
-		if (defend > 0) {
-			SaveManager.instance.state.isShieldLeft = true;
-			SaveManager.instance.Save ();
-		}
 	}
 
 	// Use this for initialization
@@ -59,10 +55,12 @@ public class FingerLeftControl : FingerBase {
 	
 	// Update is called once per frame
 	void Update () {
+/*		if (SaveManager.instance.state.player1AI) {
+			if (fuckingMode) {
+				atk = enemyRight.maxHealth + enemyRight.defend;
+			} 
+		}*/
 
-		if (fuckingMode)
-			atk = enemyRight.maxHealth + enemyRight.defend;
-		
 		switch (fingerAction) {
 		case FingerState.Idel:
 //			ChangeStateAni (FingerState.Idel);

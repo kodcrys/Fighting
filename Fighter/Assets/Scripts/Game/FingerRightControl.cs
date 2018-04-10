@@ -14,11 +14,6 @@ public class FingerRightControl : FingerBase {
 
 		if (instance == null)
 			instance = this;
-
-		if (defend > 0) {
-			SaveManager.instance.state.isShieldRight = true;
-			SaveManager.instance.Save ();
-		}
 	}
 
 	// Use this for initialization
@@ -30,8 +25,13 @@ public class FingerRightControl : FingerBase {
 		a = 0;
 		staminaBar.MaxVal = 100;
 		staminaBar.CurrentVal = 100;
-		healthBar.MaxVal = maxHealth;
-		healthBar.CurrentVal = maxHealth;
+		if (fuckingMode) {
+			healthBar.MaxVal = maxHealth * 10;
+			healthBar.CurrentVal = maxHealth * 10;
+		} else {
+			healthBar.MaxVal = maxHealth;
+			healthBar.CurrentVal = maxHealth;
+		}
 		redHealthBar.MaxVal = maxHealth;
 		redHealthBar.CurrentVal = maxHealth;
 		if (SaveManager.instance.state.isShieldRight) {
@@ -42,9 +42,12 @@ public class FingerRightControl : FingerBase {
 	
 	// Update is called once per frame
 	void Update () {
+		if (SaveManager.instance.state.player2AI) {
+			if (fuckingMode) {
+				atk = enemyLeft.maxHealth + enemyLeft.defend;
+			} 
+		}
 
-		if (fuckingMode)
-			atk = enemyLeft.maxHealth + enemyLeft.defend;
 		switch (fingerAction) {
 		case FingerState.Idel:
 //			ChangeStateAni (FingerState.Idel);

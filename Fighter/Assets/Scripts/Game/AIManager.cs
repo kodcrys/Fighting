@@ -53,13 +53,16 @@ public class AIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
+	}
+
+	void OnEnable(){
 		if (difLevel == DifficultLevel.WhatTheFuckIamPlaying) {
 			if (left)
 				fingerAILeft.fuckingMode = true;
 			else if (right)
 				fingerAIRight.fuckingMode = true;
 		}
-
 	}
 	
 	// Update is called once per frame

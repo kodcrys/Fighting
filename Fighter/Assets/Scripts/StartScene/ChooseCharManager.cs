@@ -196,6 +196,7 @@ public class ChooseCharManager : MonoBehaviour {
 		if (contentBtn.text == playMode [0]) {
 			SaveManager.instance.state.player1AI = false;
 			SaveManager.instance.state.player2AI = false;
+			SaveManager.instance.Save ();
 			play2Btn.SetActive (true);
 			aiBtn.SetActive (false);
 
@@ -226,6 +227,7 @@ public class ChooseCharManager : MonoBehaviour {
 		if (contentBtn.text == playMode [1]) {
 			SaveManager.instance.state.player1AI = false;
 			SaveManager.instance.state.player2AI = true;
+			SaveManager.instance.Save ();
 
 			play2Btn.SetActive (false);
 			aiBtn.SetActive (true);
