@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class LoadingScene : MonoBehaviour {
 	
-	public static GoogleMobileAdsDemoScript ggAdmobs = new GoogleMobileAdsDemoScript();
+	public GoogleMobileAdsDemoScript ggAdmob;
+	public static GoogleMobileAdsDemoScript ggAdmobs;
 
 	public static int isViewRewardAds;
 	public static float minutesLastClick;
@@ -11,6 +12,9 @@ public class LoadingScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		ggAdmob = GameObject.Find ("GGAmobs").GetComponent<GoogleMobileAdsDemoScript> ();
+		ggAdmobs = ggAdmob;
+
 		isViewRewardAds = 0;
 		minutesLastClick = 0;
 		minutesWait = 300;

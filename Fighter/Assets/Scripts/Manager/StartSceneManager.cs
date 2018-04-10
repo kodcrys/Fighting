@@ -88,7 +88,13 @@ public class StartSceneManager : MonoBehaviour {
 	[SerializeField]
 	Transform canvas;
 
+	GoogleMobileAdsDemoScript ggAdmobs;
+
 	void Awake() {
+
+		ggAdmobs = GameObject.Find ("GGAmobs").GetComponent<GoogleMobileAdsDemoScript> ();
+		ggAdmobs.startSceneManager = this;
+
 		if (instance != null)
 			instance = this;
 

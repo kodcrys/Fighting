@@ -766,7 +766,6 @@ public class ChooseCharManager : MonoBehaviour {
 
 	public void ReadSave() {
 		if (SaveManager.instance.state.idChar1 != -1) {
-			Debug.Log(SaveManager.instance.state.idChar1);
 			hatSymbol2.gameObject.SetActive (false);
 
 			hatMainL.gameObject.SetActive (true);

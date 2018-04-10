@@ -15,6 +15,8 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
     private float deltaTime = 0.0f;
     private static string outputMessage = string.Empty;
 
+	public StartSceneManager startSceneManager;
+
     public static string OutputMessage
     {
         set { outputMessage = value; }
@@ -22,6 +24,7 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
 
     public void Start()
     {
+		DontDestroyOnLoad (gameObject);
         // Get singleton reward based video ad reference.
         rewardBasedVideo = RewardBasedVideoAd.Instance;
 
@@ -442,8 +445,10 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
 			SaveManager.instance.state.TotalDiamond += 1;
 			SaveManager.instance.Save ();
 			isReward = false;
-
-			StartSceneManager.instance.AniMoveRewardAds ();
+			
+			Debug.Log ("adada");
+			Debug.Log (StartSceneManager.instance);
+			startSceneManager.AniMoveRewardAds ();
 		}
 
 		RequestRewardBasedVideo ();
