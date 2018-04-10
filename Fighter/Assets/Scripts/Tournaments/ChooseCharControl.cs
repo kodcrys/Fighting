@@ -108,6 +108,7 @@ public class ChooseCharControl : MonoBehaviour {
 	{
 		isTurnPlayer1 = true;
 		chooseSymbol.SetActive (false);
+		EnDisableLibraryCell ();
 	}
 
 	// khi chọn vào char hoặc equipment thì sẽ có vòng tròn sáng màu vàng hiện ra ở chỗ chọn.
@@ -145,18 +146,29 @@ public class ChooseCharControl : MonoBehaviour {
 	{
 		for (int i = 0; i < dataChars.Length; i++) 
 		{
-			if (dataChars [i].dataChar.isOwned == false)
+			if (dataChars [i].dataChar.isOwned == false) 
+			{
 				dataChars [i].GetComponent<UnityEngine.UI.Button> ().interactable = false;
-			else
+				dataChars [i].transform.GetChild (1).gameObject.SetActive (true);
+			} 
+			else 
+			{
 				dataChars [i].GetComponent<UnityEngine.UI.Button> ().interactable = true;
+				dataChars [i].transform.GetChild (1).gameObject.SetActive (false);
+			}
 		}
 
 		for (int i = 0; i < dataItems.Length; i++) 
 		{
-			if (dataItems [i].dataItem.isOwned == false)
+			if (dataItems [i].dataItem.isOwned == false) {
 				dataItems [i].GetComponent<UnityEngine.UI.Button> ().interactable = false;
-			else
+				dataItems [i].transform.GetChild (1).gameObject.SetActive (true);
+			} 
+			else 
+			{
 				dataItems [i].GetComponent<UnityEngine.UI.Button> ().interactable = true;
+				dataItems [i].transform.GetChild (1).gameObject.SetActive (false);
+			}
 		}
 	}
 
@@ -171,13 +183,12 @@ public class ChooseCharControl : MonoBehaviour {
 			isTurnPlayer1 = true;
 
 			ready1.sprite = readySpr;
-			preBtn.GetComponent<UnityEngine.UI.Button> ().interactable = true;
 			EnDisableLibraryCell ();
 
 			showTop.isRunMoveAni = true;
 			vsImage.isRunScaleAni = true;
 			moveChooseFrame.isRunMoveAni = true;
-			preBtn.isRunMoveAni = true;
+
 		}
 	}
 		
