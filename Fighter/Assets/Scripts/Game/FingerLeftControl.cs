@@ -61,7 +61,7 @@ public class FingerLeftControl : FingerBase {
 	void Update () {
 
 		if (fuckingMode)
-			atk = enemyRight.maxHealth;
+			atk = enemyRight.maxHealth + enemyRight.defend;
 		
 		switch (fingerAction) {
 		case FingerState.Idel:
