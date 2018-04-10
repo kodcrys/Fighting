@@ -39,6 +39,7 @@ public class FingerLeftControl : FingerBase {
 		changeColor = false;
 		oneShotColor = false;
 		stopTime = true;
+		isDoneRound = false;
 		a = 0;
 		staminaBar.MaxVal = 100;
 		staminaBar.CurrentVal = 100;
@@ -46,18 +47,21 @@ public class FingerLeftControl : FingerBase {
 		healthBar.CurrentVal = maxHealth;
 		redHealthBar.MaxVal = maxHealth;
 		redHealthBar.CurrentVal = maxHealth;
+		if (defend > 0) {
+			SaveManager.instance.state.isShieldLeft = true;
+			SaveManager.instance.Save ();
+		}
 		if (SaveManager.instance.state.isShieldLeft) {
-			shieldBar.MaxVal = 100;
-			shieldBar.CurrentVal = 100;
+			shieldBar.MaxVal = defend;
+			shieldBar.CurrentVal = defend;
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (fuckingMode)
 			atk = enemyRight.maxHealth;
-		else
-			atk = 2;
 		
 		switch (fingerAction) {
 		case FingerState.Idel:
@@ -272,27 +276,29 @@ public class FingerLeftControl : FingerBase {
 
 	public override void Win(){
 //		ChangeStateAni (FingerState.Idel);
+		if (!isDoneRound) {
+			if (isMainGame && !questPlayAnyGame.isDone)
+				questPlayAnyGame.doing++;
 
-		if(isMainGame && !questPlayAnyGame.isDone)
-			questPlayAnyGame.doing++;
+			if (!SaveManager.instance.state.player2AI) {
+				//2 player
+				if (isMainGame && !questPlay2Player.isDone)
+					questPlay2Player.doing++;
 
-		if (!SaveManager.instance.state.player2AI) {
-			//2 player
-			if (isMainGame && !questPlay2Player.isDone)
-				questPlay2Player.doing++;
+				if (isMainGame && !questWinAiTime.isDone)
+					questWinAiTime.doing++;
+			} else { // neu la AI
+				if (isMainGame && !questPlayAITime.isDone)
+					questPlayAITime.doing++;
 
-			if (isMainGame && !questWinAiTime.isDone)
-				questWinAiTime.doing++;
-		} else { // neu la AI
-			if (isMainGame && !questPlayAITime.isDone)
-				questPlayAITime.doing++;
-
-			if (levelStatManager != null) {
-				if (lvMain.level <= 19)
-					levelStatManager.IncreaseExp (50);
-				else
-					levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 20));
+				if (levelStatManager != null) {
+					if (lvMain.level <= 19)
+						levelStatManager.IncreaseExp (50);
+					else
+						levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 20));
+				}
 			}
+			isDoneRound = true;
 		}
 
 		finger.SetActive (true);
@@ -331,24 +337,25 @@ public class FingerLeftControl : FingerBase {
 
 	public override void Dead(){
 //		ChangeStateAni (FingerState.Death);
+		if (!isDoneRound) {
+			if (isMainGame && !questPlayAnyGame.isDone)
+				questPlayAnyGame.doing++;
 
-		if(isMainGame && !questPlayAnyGame.isDone)
-			questPlayAnyGame.doing++;
-
-		if (!SaveManager.instance.state.player2AI) {
-			//2 player
-			if (isMainGame && !questPlay2Player.isDone)
-				questPlay2Player.doing++;
-		} else { // neu la AI
-			if (isMainGame && !questPlayAITime.isDone)
-				questPlayAITime.doing++;
-
-			if (levelStatManager != null) {
-				if (lvMain.level <= 19)
-					levelStatManager.IncreaseExp (10);
-				else
-					levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 50));
+			if (!SaveManager.instance.state.player2AI) {
+				//2 player
+				if (isMainGame && !questPlay2Player.isDone)
+					questPlay2Player.doing++;
+			} else { // neu la AI
+				if (isMainGame && !questPlayAITime.isDone)
+					questPlayAITime.doing++;
+				if (levelStatManager != null) {
+					if (lvMain.level <= 19)
+						levelStatManager.IncreaseExp (10);
+					else
+						levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 50));
+				}
 			}
+			isDoneRound = true;
 		}
 
 		finger.SetActive (false);

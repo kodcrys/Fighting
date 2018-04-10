@@ -90,6 +90,8 @@ public class FingerBase : MonoBehaviour {
 	public LevelStatManager levelStatManager;
 	public DataLevelStat lvMain;
 
+	protected bool isDoneRound = false;
+
 	public virtual void HanderHealth(){
 		
 	}

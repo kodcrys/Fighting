@@ -29,18 +29,21 @@ public class FingerRightControl : FingerBase {
 		healthBar.CurrentVal = maxHealth;
 		redHealthBar.MaxVal = maxHealth;
 		redHealthBar.CurrentVal = maxHealth;
+		if (defend > 0) {
+			SaveManager.instance.state.isShieldRight = true;
+			SaveManager.instance.Save ();
+		}
 		if (SaveManager.instance.state.isShieldRight) {
-			shieldBar.MaxVal = 100;
-			shieldBar.CurrentVal = 100;
+			shieldBar.MaxVal = defend;
+			shieldBar.CurrentVal = defend;
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (fuckingMode)
 			atk = enemyLeft.maxHealth;
-		else
-			atk = 2;
 		switch (fingerAction) {
 		case FingerState.Idel:
 //			ChangeStateAni (FingerState.Idel);
