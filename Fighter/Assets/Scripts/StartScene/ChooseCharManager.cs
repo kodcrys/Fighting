@@ -1011,6 +1011,8 @@ public class ChooseCharManager : MonoBehaviour {
 
 		hatSymbol.gameObject.SetActive (true);
 		hatMainR.gameObject.SetActive (false);
+		amorMainR.gameObject.SetActive (false);
+		weaponMainR.gameObject.SetActive (false);
 	}
 
 	void ShowColor() {
@@ -1024,11 +1026,15 @@ public class ChooseCharManager : MonoBehaviour {
 	}
 
 	public void RandomMap() {
-		int indexMap = Random.Range (0, maps.Length);
+		int index = Random.Range (0, maps.Length);
 		for (int i = 0; i < maps.Length; i++)
-			if (indexMap == i)
+			if (index == i) {
 				maps [i].SetActive (true);
+				indexMap = i;
+			}
 			else
 				maps [i].SetActive (false);
+
+		chooseSymbol.SetActive (false);
 	}
 }
