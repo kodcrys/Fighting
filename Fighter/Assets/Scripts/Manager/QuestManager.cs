@@ -314,6 +314,7 @@ public class QuestManager : MonoBehaviour {
 
 	public void UpdateDisplayUI() {
 		goldTxt.text = SaveManager.instance.state.TotalGold.ToString ();
+		diaTxt.text = SaveManager.instance.state.TotalDiamond.ToString ();
 	}
 
 	// For test
