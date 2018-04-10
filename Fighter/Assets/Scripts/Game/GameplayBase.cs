@@ -15,6 +15,9 @@ public class GameplayBase : MonoBehaviour {
 	public Camera mainCamera;
 
 	[SerializeField]
+	GameObject[] maps;
+
+	[SerializeField]
 	GameObject shieldLeft, shieldRight;
 
 	[SerializeField]
@@ -49,6 +52,14 @@ public class GameplayBase : MonoBehaviour {
 		gamePause = false;
 		CheckAI ();
 		zoomCamera = false;
+
+		for (int i = 0; i < maps.Length; i++) {
+			if (i == ChooseCharManager.indexMap)
+				maps [i].SetActive (true);
+			else
+				maps [i].SetActive (false);
+		}
+
 		if (SaveManager.instance.state.roundCount == 1)
 			roundNumImg.sprite = numRound [0];
 		else if(SaveManager.instance.state.roundCount == 2)
