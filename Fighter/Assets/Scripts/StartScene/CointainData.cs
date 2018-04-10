@@ -5,7 +5,7 @@ public class CointainData : MonoBehaviour {
 
 	public DataCharacter dataChar;
 	public DataItems dataItem;
-	public Sprite dataMap;
+	public GameObject dataMap;
 
 	public DataQuests quest;
 

@@ -524,7 +524,7 @@ public class ChooseCharControl : MonoBehaviour {
 
 		if (ctData.dataMap != null) 
 		{
-			map.sprite = ctData.dataMap;
+			ctData.dataMap.SetActive (true);
 			chooseSymbol.SetActive (true);
 		}
 	}

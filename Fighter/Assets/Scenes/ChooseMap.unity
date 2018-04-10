@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: 2eda684dfd7844306b55e75069127db9, type: 3}
+  dataMap: {fileID: 1572897034}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -3600,7 +3600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: bce4564794e284eaa961c6e139705c0b, type: 3}
+  dataMap: {fileID: 2118167099}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -6700,7 +6700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: 24474047f6e6c4aff9e87a151fdb88bf, type: 3}
+  dataMap: {fileID: 657865807}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -7020,7 +7020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: ac4df387b34ad4d8c98068cc292d9261, type: 3}
+  dataMap: {fileID: 2058357203}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -10107,7 +10107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: 10f7e93af34244682aeed8b250d483f7, type: 3}
+  dataMap: {fileID: 1925445293}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -13241,7 +13241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: a4d5dbbd95c5c44c4a289a31089dea61, type: 3}
+  dataMap: {fileID: 1461899895}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -19296,7 +19296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: 1995962f5d9714ac0a1564d42b09bf94, type: 3}
+  dataMap: {fileID: 726858268}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -25454,7 +25454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: 73988fc82ba9c474db685300c7738507, type: 3}
+  dataMap: {fileID: 1123957346}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -28433,7 +28433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: 2ef9bc08b8df54593ad9149519f6397e, type: 3}
+  dataMap: {fileID: 1090683982}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -28871,7 +28871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: 6381d7009c78e46d6b55b062c00190ff, type: 3}
+  dataMap: {fileID: 93966256}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -29131,7 +29131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: abdc81c81fbc946608503424bf3ca899, type: 3}
+  dataMap: {fileID: 1373015908}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -32374,7 +32374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
-  dataMap: {fileID: 21300000, guid: 26c168e949287445a9112a0b6af09d9b, type: 3}
+  dataMap: {fileID: 333139392}
   quest: {fileID: 0}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
@@ -35385,7 +35385,6 @@ MonoBehaviour:
   modeAIText: {fileID: 0}
   play2Btn: {fileID: 0}
   aiBtn: {fileID: 0}
-  map: {fileID: 998052365}
   aniFade: {fileID: 47878426}
   lstCharacters: []
   lstItems: []
@@ -35397,6 +35396,19 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   fadeAni: {fileID: 0}
+  maps:
+  - {fileID: 1461899895}
+  - {fileID: 93966256}
+  - {fileID: 333139392}
+  - {fileID: 2118167099}
+  - {fileID: 1123957346}
+  - {fileID: 657865807}
+  - {fileID: 1925445293}
+  - {fileID: 726858268}
+  - {fileID: 1373015908}
+  - {fileID: 1090683982}
+  - {fileID: 1572897034}
+  - {fileID: 2058357203}
   startSceneManager: {fileID: 0}
 --- !u!4 &2069318603
 Transform:

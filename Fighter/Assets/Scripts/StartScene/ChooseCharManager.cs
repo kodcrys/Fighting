@@ -7,6 +7,8 @@ public class ChooseCharManager : MonoBehaviour {
 
 	public static ChooseCharManager instance;
 
+	public static int indexMap;
+
 	[Header("Button change type choose")]
 	[SerializeField]
 	UnityEngine.UI.Button[] btnsChangeType;
@@ -95,10 +97,6 @@ public class ChooseCharManager : MonoBehaviour {
 	GameObject aiBtn;
 	string[] modeAI = {"EASY", "NORMAL", "HARD", "VERY HARD"};
 
-	[Header("Screen Map")]
-	[SerializeField]
-	SpriteRenderer map;
-
 	[Header("Fade ani")]
 	[SerializeField]
 	FadeAni aniFade;
@@ -127,6 +125,10 @@ public class ChooseCharManager : MonoBehaviour {
 	[Header("FadeAni")]
 	[SerializeField]
 	FadeAni fadeAni;
+
+	[Header("Map scene")]
+	[SerializeField]
+	GameObject[] maps;
 
 	[SerializeField]
 	StartSceneManager startSceneManager;
@@ -497,7 +499,14 @@ public class ChooseCharManager : MonoBehaviour {
 			chooseSymbol.SetActive (true);
 
 		if (ctData.dataMap != null) {
-			map.sprite = ctData.dataMap;
+			for (int i = 0; i < maps.Length; i++) {
+				if (ctData.dataMap.name == maps [i].name) {
+					indexMap = i;
+					maps[i].SetActive(true);
+				} else {
+					maps[i].SetActive(false);
+				}
+			}
 			chooseSymbol.SetActive (true);
 		}
 	}
