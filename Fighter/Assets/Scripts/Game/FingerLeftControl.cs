@@ -31,6 +31,10 @@ public class FingerLeftControl : FingerBase {
 		staminaBar.Initialize ();
 		redHealthBar.Initialize ();
 		shieldBar.Initialize ();
+		if (defend > 0) {
+			SaveManager.instance.state.isShieldLeft = true;
+			SaveManager.instance.Save ();
+		}
 	}
 
 	// Use this for initialization
@@ -47,10 +51,6 @@ public class FingerLeftControl : FingerBase {
 		healthBar.CurrentVal = maxHealth;
 		redHealthBar.MaxVal = maxHealth;
 		redHealthBar.CurrentVal = maxHealth;
-		if (defend > 0) {
-			SaveManager.instance.state.isShieldLeft = true;
-			SaveManager.instance.Save ();
-		}
 		if (SaveManager.instance.state.isShieldLeft) {
 			shieldBar.MaxVal = defend;
 			shieldBar.CurrentVal = defend;

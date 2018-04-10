@@ -14,6 +14,11 @@ public class FingerRightControl : FingerBase {
 
 		if (instance == null)
 			instance = this;
+
+		if (defend > 0) {
+			SaveManager.instance.state.isShieldRight = true;
+			SaveManager.instance.Save ();
+		}
 	}
 
 	// Use this for initialization
@@ -29,10 +34,6 @@ public class FingerRightControl : FingerBase {
 		healthBar.CurrentVal = maxHealth;
 		redHealthBar.MaxVal = maxHealth;
 		redHealthBar.CurrentVal = maxHealth;
-		if (defend > 0) {
-			SaveManager.instance.state.isShieldRight = true;
-			SaveManager.instance.Save ();
-		}
 		if (SaveManager.instance.state.isShieldRight) {
 			shieldBar.MaxVal = defend;
 			shieldBar.CurrentVal = defend;
