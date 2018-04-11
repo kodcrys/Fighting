@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SoundManager : MonoBehaviour {
+public class SoundsManager : MonoBehaviour {
 	
 	public AudioSource fly;
 	public AudioSource score;

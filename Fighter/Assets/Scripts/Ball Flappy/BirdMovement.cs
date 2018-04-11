@@ -103,7 +103,7 @@ public class BirdMovement : MonoBehaviour {
 
 			rigid.AddForce (new Vector2 (tempx, tempy));
 
-			SoundManager.flyS.Play ();
+			SoundsManager.flyS.Play ();
 			didFlap = false;
 		} 
 		else 
@@ -154,7 +154,7 @@ public class BirdMovement : MonoBehaviour {
 				isScoreBox = false;
 				isCorrect = false;
 				indexPipe++;
-				SoundManager.scoreS.Play ();
+				SoundsManager.scoreS.Play ();
 				coll.transform.parent.parent.GetChild (4).gameObject.SetActive (true);
 			} 
 			else 
@@ -171,7 +171,7 @@ public class BirdMovement : MonoBehaviour {
 		{
 			dead = true;
 			isCdTime = true;
-			SoundManager.deathS.Play ();
+			SoundsManager.deathS.Play ();
 		}
 	}
 }

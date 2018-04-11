@@ -17,7 +17,7 @@ public class PlayGame : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) 
 		{
 			Time.timeScale = 1;
-			SoundManager.flyS.Play ();
+			SoundsManager.flyS.Play ();
 			gameObject.SetActive (false);
 		}
 	}
