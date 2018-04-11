@@ -14,6 +14,10 @@ public class GameplayBase : MonoBehaviour {
 
 	public Camera mainCamera;
 
+	bool isTalk;
+
+	float time, timeInter;
+
 	[SerializeField]
 	GameObject[] maps;
 
@@ -50,6 +54,8 @@ public class GameplayBase : MonoBehaviour {
 	public void Start() {
 		instance = this;
 		gamePause = false;
+		isTalk = false;
+		timeInter = Random.Range (10, 20);
 		CheckAI ();
 		zoomCamera = false;
 		SoundManager.Bangs.Play ();
@@ -106,8 +112,19 @@ public class GameplayBase : MonoBehaviour {
 
 			if (!SaveManager.instance.state.player1AI)
 				leftButton.SetActive (true);
-
-//			if(player1.GetComponent<FingerLeftControl>().doingSomething)
+			
+			if (!isTalk) {
+				if (!player1.GetComponent<FingerLeftControl> ().doingSomething && !player2.GetComponent<FingerRightControl> ().doingSomething) {
+					time += Time.deltaTime;
+					if (time >= timeInter) {
+						SoundManager.WaitToLongs.Play ();
+						time = 0;
+						isTalk = true;
+					}
+				}
+			} else {
+				StartCoroutine (WaitToTalk (2f));
+			}
 		} else {
 			rightButton.SetActive (false);
 			leftButton.SetActive (false);
@@ -175,5 +192,11 @@ public class GameplayBase : MonoBehaviour {
 		SaveManager.instance.state.roundCount = 1;
 		SaveManager.instance.Save ();
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("MainGameScene");
+	}
+
+	IEnumerator WaitToTalk(float time){
+		yield return new WaitForSeconds (time);
+		isTalk = false;
+		yield return null;
 	}
 }
