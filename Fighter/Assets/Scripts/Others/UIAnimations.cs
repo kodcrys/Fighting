@@ -728,16 +728,16 @@ public class UIAnimations : MonoBehaviour {
 		isRunAniBtnChange = true;
 	}
 
-	GameObject goTemp;
+	GameObject goTemp1;
 	public void ChangeIconFrameChooseChar(int i) {
 
 		btnChange.sprite = changeImgBtn [i];
 
 		for (int j = 0; j < btnsChange.Length; j++) {
 			if (btnChange.sprite == btnsChange [j].GetComponent<Image> ().sprite) {
-				goTemp = btnsChange [j];
+				goTemp1 = btnsChange [j];
 				btnsChange [j] = btnsChange [0];
-				btnsChange [0] = goTemp;
+				btnsChange [0] = goTemp1;
 			}
 		}
 
