@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ggAdmob: {fileID: 0}
+  isTestGame: 1
 --- !u!1 &712144943
 GameObject:
   m_ObjectHideFlags: 0

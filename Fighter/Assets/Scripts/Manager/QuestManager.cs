@@ -180,7 +180,7 @@ public class QuestManager : MonoBehaviour {
 	}
 
 	// Read data in ScriptableObject
-	private void ReadData(Image iconQuest, Text contentQuest, Text doing, Text rewardGold, Text rewardExp, DataQuests quest, Button btnReward, Button btnReward2) {
+	private void ReadData(Image iconQuest, Text contentQuest, Text doing, Text rewardGold, Text rewardExp, DataQuests quest, Button btnReward) {
 		iconQuest.sprite = quest.icon;
 		contentQuest.text = quest.content;
 		doing.text = quest.doing + " / " + quest.requirement;
@@ -192,13 +192,15 @@ public class QuestManager : MonoBehaviour {
 		else
 			btnReward.interactable = false;
 
+
+		btnReward.onClick.RemoveAllListeners ();
 		btnReward.onClick.AddListener (() => {
 			ClaimReward (quest, btnReward);
 		});
 
-		btnReward2.onClick.AddListener (() => {
+		/*btnReward2.onClick.AddListener (() => {
 			ClaimReward (quest, btnReward);
-		});
+		});*/
 	}
 
 	// Load data in ScriptableObject
@@ -208,14 +210,14 @@ public class QuestManager : MonoBehaviour {
 
 		foreach (Transform t in lstTransform) {
 			Button btnReward = t.GetComponent<Button> ();
-			Button btnReward2 = t.GetChild (0).GetComponent<Button> ();
+			//Button btnReward2 = t.GetChild (0).GetComponent<Button> ();
 			Image iconQuest = t.GetChild (0).GetChild(0).GetComponent<Image> ();
 			Text contentQuest = t.GetChild (1).GetComponent<Text> ();
 			Text doing = t.GetChild (2).GetComponent<Text> ();
 			Text rewardGold = t.GetChild (3).GetChild(0).GetComponent<Text> ();
 			Text rewardExp = t.GetChild (4).GetChild(0).GetComponent<Text> ();
 
-			ReadData (iconQuest, contentQuest, doing, rewardGold, rewardExp, lstStoreQuest [indexQuest], btnReward, btnReward2);
+			ReadData (iconQuest, contentQuest, doing, rewardGold, rewardExp, lstStoreQuest [indexQuest], btnReward);
 
 			indexQuest++;
 		}
@@ -253,6 +255,7 @@ public class QuestManager : MonoBehaviour {
 	}
 
 	public void ClaimReward(DataQuests quest, Button claimBtn) {
+		Debug.Log ("asd");
 		quest.isDone = true;
 
 		claimBonus.bar.isChange = true;

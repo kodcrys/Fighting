@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7485d2dafeafb47c1b4ae294816bf2a6, type: 3}
   content: Rate the game
   requirement: 1
-  doing: 0
+  doing: 1
   rewardGold: 70
   rewardExp: 35
   isDone: 0

@@ -10,6 +10,9 @@ public class LoadingScene : MonoBehaviour {
 	public static float minutesLastClick;
 	public static float minutesWait;
 
+	[SerializeField]
+	bool isTestGame;
+
 	// Use this for initialization
 	void Start () {
 		ggAdmob = GameObject.Find ("GGAmobs").GetComponent<GoogleMobileAdsDemoScript> ();
@@ -21,7 +24,10 @@ public class LoadingScene : MonoBehaviour {
 		ggAdmobs.RequestBanner ();
 		ggAdmobs.RequestInterstitial ();
 		ggAdmobs.RequestRewardBasedVideo ();
-		StartCoroutine (Wait (Random.Range (3f, 5f)));
+		if(!isTestGame)
+			StartCoroutine (Wait (Random.Range (3f, 5f)));
+		else
+			StartCoroutine (Wait (0));
 	}
 
 	IEnumerator Wait(float time) {
