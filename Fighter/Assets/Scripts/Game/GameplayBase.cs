@@ -106,6 +106,8 @@ public class GameplayBase : MonoBehaviour {
 
 			if (!SaveManager.instance.state.player1AI)
 				leftButton.SetActive (true);
+
+//			if(player1.GetComponent<FingerLeftControl>().doingSomething)
 		} else {
 			rightButton.SetActive (false);
 			leftButton.SetActive (false);
