@@ -121,6 +121,12 @@ public class AnimationText : MonoBehaviour {
 
 	void DoingAnimText(){
 		if (textAnimState == TextAnim.RoundText) {
+			if (SaveManager.instance.state.roundCount == 1)
+				SoundManager.FirstRounds.Play ();
+			else if (SaveManager.instance.state.roundCount == 2)
+				SoundManager.SecondRounds.Play ();
+			else
+				SoundManager.FinalRounds.Play ();
 			if (step == 0) {
 				transform.localScale = Vector3.MoveTowards (transform.localScale, new Vector3 (0.9f, 0.9f, 0.9f), Time.deltaTime * 6);
 				if (transform.localScale == new Vector3 (0.9f, 0.9f, 0.9f))
@@ -143,6 +149,7 @@ public class AnimationText : MonoBehaviour {
 				}
 			}
 		} else if (textAnimState == TextAnim.KOText) {
+			SoundManager.KOs.Play ();
 			if (step == 0) {
 				one.localPosition = Vector3.MoveTowards (one.localPosition, new Vector3 (-150, -20, 0), Time.deltaTime * speed);
 				two.localPosition = Vector3.MoveTowards (two.localPosition, new Vector3 (100, -200, 0), Time.deltaTime * speed);
@@ -157,6 +164,7 @@ public class AnimationText : MonoBehaviour {
 				}
 			}
 		} else if (textAnimState == TextAnim.FightText) {
+			SoundManager.Fights.Play ();
 			if (step == 0) {
 				one.localPosition = Vector3.MoveTowards (one.localPosition, new Vector3 (-250, -100, 0), Time.deltaTime * speed);
 				two.localPosition = Vector3.MoveTowards (two.localPosition, new Vector3 (250, -100, 0), Time.deltaTime * speed);

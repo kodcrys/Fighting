@@ -52,7 +52,7 @@ public class GameplayBase : MonoBehaviour {
 		gamePause = false;
 		CheckAI ();
 		zoomCamera = false;
-
+		SoundManager.Bangs.Play ();
 		for (int i = 0; i < maps.Length; i++) {
 			if (i == ChooseCharManager.indexMap)
 				maps [i].SetActive (true);

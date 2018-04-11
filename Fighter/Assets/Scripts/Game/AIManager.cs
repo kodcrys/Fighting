@@ -102,425 +102,353 @@ public class AIManager : MonoBehaviour {
 
 	void EasyMode(){
 		timeInter = 0.4f;
-		if (right) {
-			if (!fingerAIRight.isAtk) {
-				if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
+		if (time >= timeInter) {
+			if (right) {
+				if (!fingerAIRight.isAtk) {
+					if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
-					}
-				} else {
-					if (time >= timeInter) {
+					} else {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 70) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
 					}
 				}
-			}
-		} else if (left) {
-			if (!fingerAILeft.isAtk) {
-				if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
+			} else if (left) {
+				if (!fingerAILeft.isAtk) {
+					if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
-					}
-				} else {
-					if (time >= timeInter) {
+					} else {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 70) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
 					}
 				}
 			}
+			time = 0;
 		}
 	}
 
 	void NormalMode(){
 		timeInter = 0.2f;
-		if (right) {
-			if (!fingerAIRight.isAtk) {
-				if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
+		if (time >= timeInter) {
+			if (right) {
+				if (!fingerAIRight.isAtk) {
+					if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
-				} else {
-					if (time >= timeInter) {
+				}
+			} else if (left) {
+				if (!fingerAILeft.isAtk) {
+					if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
 				}
 			}
-		} else if (left) {
-			if (!fingerAILeft.isAtk) {
-				if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 100);
-						if (ranMove > 50) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				} else {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 100);
-						if (ranMove > 50) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				}
-			}
+			time = 0;
 		}
 	}
 
 	void HardMode(){
 		timeInter = 0.1f;
-		if (right) {
-			if (!fingerAIRight.isAtk) {
-				if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 10);
-						if (ranMove > 2) {
+		if (time >= timeInter) {
+			if (right) {
+				if (!fingerAIRight.isAtk) {
+					if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 20) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
-				} else {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 10);
-						if (ranMove > 2) {
+				}
+			} else if (left) {
+				if (!fingerAILeft.isAtk) {
+					if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 20) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
 				}
 			}
-		} else if (left) {
-			if (!fingerAILeft.isAtk) {
-				if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 10);
-						if (ranMove > 2) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				} else {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 10);
-						if (ranMove > 2) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				}
-			}
+			time = 0;
 		}
 	}
 
 	void FuckingMode(){
 		timeInter = 0.1f;
-		if (right) {
-			if (!fingerAIRight.isAtk) {
-				if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 10);
-						if (ranMove > 2) {
+		if (time >= timeInter) {
+			if (right) {
+				if (!fingerAIRight.isAtk) {
+					if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 20) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
-				} else {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 10);
-						if (ranMove > 2) {
+				}
+			} else if (left) {
+				if (!fingerAILeft.isAtk) {
+					if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 20) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
 				}
 			}
-		} else if (left) {
-			if (!fingerAILeft.isAtk) {
-				if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 10);
-						if (ranMove > 2) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				} else {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 10);
-						if (ranMove > 2) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				}
-			}
+			time = 0;
 		}
 	}
 
 	void Tor1Mode(){
 		timeInter = 0.35f;
-		if (right) {
-			if (!fingerAIRight.isAtk) {
-				if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
+		if (time >= timeInter) {
+			if (right) {
+				if (!fingerAIRight.isAtk) {
+					if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
-				} else {
-					if (time >= timeInter) {
+				}
+			} else if (left) {
+				if (!fingerAILeft.isAtk) {
+					if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
 				}
 			}
-		} else if (left) {
-			if (!fingerAILeft.isAtk) {
-				if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 100);
-						if (ranMove > 50) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				} else {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 100);
-						if (ranMove > 50) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				}
-			}
+			time = 0;
 		}
 	}
 
 	void Tor2Mode(){
 		timeInter = 0.3f;
-		if (right) {
-			if (!fingerAIRight.isAtk) {
-				if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
+		if (time >= timeInter) {
+			if (right) {
+				if (!fingerAIRight.isAtk) {
+					if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
-				} else {
-					if (time >= timeInter) {
+				}
+			} else if (left) {
+				if (!fingerAILeft.isAtk) {
+					if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
 				}
 			}
-		} else if (left) {
-			if (!fingerAILeft.isAtk) {
-				if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 100);
-						if (ranMove > 50) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				} else {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 100);
-						if (ranMove > 50) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				}
-			}
+			time = 0;
 		}
 	}
 
 	void Tor3Mode(){
 		timeInter = 0.25f;
-		if (right) {
-			if (!fingerAIRight.isAtk) {
-				if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
+		if (time >= timeInter) {
+			if (right) {
+				if (!fingerAIRight.isAtk) {
+					if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
-				} else {
-					if (time >= timeInter) {
+				}
+			} else if (left) {
+				if (!fingerAILeft.isAtk) {
+					if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
 				}
 			}
-		} else if (left) {
-			if (!fingerAILeft.isAtk) {
-				if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 100);
-						if (ranMove > 50) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				} else {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 100);
-						if (ranMove > 50) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				}
-			}
+			time = 0;
 		}
 	}
 
 	void Tor4Mode(){
 		timeInter = 0.2f;
-		if (right) {
-			if (!fingerAIRight.isAtk) {
-				if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
+		if (time >= timeInter) {
+			if (right) {
+				if (!fingerAIRight.isAtk) {
+					if (fingerAIRight.enemyLeft.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
-				} else {
-					if (time >= timeInter) {
+				}
+			} else if (left) {
+				if (!fingerAILeft.isAtk) {
+					if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
 						ranMove = Random.Range (0, 100);
 						if (ranMove > 50) {
 							AIClick ();
 						} else {
 							AIUnClick ();
 						}
-						time = 0;
+					} else {
+						ranMove = Random.Range (0, 100);
+						if (ranMove > 50) {
+							AIClick ();
+						} else {
+							AIUnClick ();
+						}
 					}
 				}
 			}
-		} else if (left) {
-			if (!fingerAILeft.isAtk) {
-				if (fingerAILeft.enemyRight.fingerAction == FingerBase.FingerState.Idel) {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 100);
-						if (ranMove > 50) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				} else {
-					if (time >= timeInter) {
-						ranMove = Random.Range (0, 100);
-						if (ranMove > 50) {
-							AIClick ();
-						} else {
-							AIUnClick ();
-						}
-						time = 0;
-					}
-				}
-			}
+			time = 0;
 		}
 	}
 
@@ -543,11 +471,11 @@ public class AIManager : MonoBehaviour {
 	void AIUnClick(){
 		if (left) {
 			if (fingerAILeft.fingerAction != FingerBase.FingerState.Idel) {
-				FingerLeftControl.instance.UnClickAtk ();
+				fingerAILeft.UnClickAtk ();
 			}
 		} else if (right) {
 			if (fingerAIRight.fingerAction != FingerBase.FingerState.Idel)
-				FingerRightControl.instance.UnClickAtk ();
+				fingerAIRight.UnClickAtk ();
 		}
 	}
 }

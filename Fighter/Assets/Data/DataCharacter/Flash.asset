@@ -17,6 +17,6 @@ MonoBehaviour:
   equipmentWP: {fileID: 0}
   equipmetnTShirt: {fileID: 0}
   ATK: 2
-  DEF: 20
-  HP: 50
+  DEF: 10
+  HP: 100
   isOwned: 0

@@ -178,6 +178,13 @@ public class FingerRightControl : FingerBase {
 				fingerDown.SetActive (true);
 			if (fingerAtk != null)
 				fingerAtk.SetActive (false);
+
+			int ranSound = Random.Range (0, 1);
+			if (ranSound == 0)
+				SoundManager.Miss1s.Play ();
+			else
+				SoundManager.Miss2s.Play ();
+
 			fingerAction = FingerState.Doing;
 		} else if(enemyLeft.firstAtk){
 			lastAtk = true;
@@ -187,6 +194,7 @@ public class FingerRightControl : FingerBase {
 				fingerDown.SetActive (false);
 			if (fingerAtk != null)
 				fingerAtk.SetActive (true);
+			SoundManager.Hits.Play ();
 			fingerAction = FingerState.Doing;
 		}
 	}
