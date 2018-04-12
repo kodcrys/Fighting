@@ -39,6 +39,10 @@ public class MatchControl : MonoBehaviour
 	[SerializeField]
 	FadeAni fadeAniForMatch;
 
+	[Header("------Fade------")]
+	[SerializeField]
+	DataItems[] lstItems;
+
 	private bool isMe, isReady, isView;
 	private float timeCount, timeAiReady;
 	// Use this for initialization
@@ -117,8 +121,25 @@ public class MatchControl : MonoBehaviour
 		SaveManager.instance.state.idAmorAI = Random.Range (0, 55);
 		SaveManager.instance.state.idWpAI = Random.Range (116, 124);
 
+		GameplayBase.hatAI = lstItems[SaveManager.instance.state.idHatAI];
+		GameplayBase.amorAI = lstItems[SaveManager.instance.state.idAmorAI];
+		GameplayBase.wpAI = lstItems[SaveManager.instance.state.idWpAI];
+
+		SaveManager.instance.state.randMap = Random.Range (0, 11);
+
+		SaveManager.instance.state.winCountLeft = 0;
+		SaveManager.instance.state.winCountRight = 0;
+		SaveManager.instance.state.roundCount = 1;
+
+		int randomAI = Random.Range (0, 8);
+
+		while (randomAI == 3)
+			randomAI = Random.Range (0, 8);
+		
+		SaveManager.instance.state.levelAI = randomAI;
 		SaveManager.instance.Save ();
 		fadeAniForMatch.stateFade = FadeAni.State.Show;
+		FadeAni.isRunPlayGame = true;
 
 	}
 
@@ -138,6 +159,31 @@ public class MatchControl : MonoBehaviour
 		SaveManager.instance.state.idAmorAI1 = Random.Range (0, 55);
 		SaveManager.instance.state.idWpAI1 = Random.Range (116, 124);
 
+		SaveManager.instance.state.randMap = Random.Range (0, 11);
+
+		GameplayBase.hatPlayer1 = lstItems[SaveManager.instance.state.idHatAI1];
+		GameplayBase.amorPlayer1 = lstItems[SaveManager.instance.state.idAmorAI1];
+		GameplayBase.wpPlayer1 = lstItems[SaveManager.instance.state.idWpAI1];
+
+		GameplayBase.hatAI = lstItems[SaveManager.instance.state.idHatAI];
+		GameplayBase.amorAI = lstItems[SaveManager.instance.state.idAmorAI];
+		GameplayBase.wpAI = lstItems[SaveManager.instance.state.idWpAI];
+
+		SaveManager.instance.state.winCountLeft = 0;
+		SaveManager.instance.state.winCountRight = 0;
+		SaveManager.instance.state.roundCount = 1;
+
+		int randomAI = Random.Range (0, 8);
+
+		while (randomAI == 3)
+			randomAI = Random.Range (0, 8);
+
+		SaveManager.instance.state.levelAI = randomAI;
+
 		SaveManager.instance.Save ();
+
+		fadeAniForMatch.stateFade = FadeAni.State.Show;
+		FadeAni.isRunPlayGame = true;
+
 	}
 }

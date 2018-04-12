@@ -256,7 +256,7 @@ public class ChooseCharManager : MonoBehaviour {
 		}
 		// tour
 		if (contentBtn.text == playMode [2]) {
-			
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("Tournament");
 		}
 		// minigame
 		if (contentBtn.text == playMode [3]) {

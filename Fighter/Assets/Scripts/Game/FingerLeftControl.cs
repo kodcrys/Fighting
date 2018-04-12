@@ -428,7 +428,9 @@ public class FingerLeftControl : FingerBase {
 						LoadingScene.ggAdmobs.ShowInterstitial ();
 						LoadingScene.ggAdmobs.RequestInterstitial ();
 					} else if (SaveManager.instance.state.whatMode == 2) {
-						
+						SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.currentMatch + 8] = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2];
+						GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
+						FadeAni.isReturnTournament = true;
 					}
 					AnimationText.endRound = true;
 				}

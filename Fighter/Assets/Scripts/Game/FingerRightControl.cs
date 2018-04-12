@@ -400,7 +400,9 @@ public class FingerRightControl : FingerBase {
 						LoadingScene.ggAdmobs.ShowInterstitial ();
 						LoadingScene.ggAdmobs.RequestInterstitial ();
 					} else if (SaveManager.instance.state.whatMode == 2) {
-						
+						SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.currentMatch + 8] = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2 + 1];
+						GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
+						FadeAni.isReturnTournament = true;
 					}
 					AnimationText.endRound = true;
 				}
@@ -542,11 +544,15 @@ public class FingerRightControl : FingerBase {
 			// hat AtkDown
 			hatAtkDownSpr.sprite = GameplayBase.hatAI.avatar;
 			hatAtkDownSpr.gameObject.SetActive (true);
-
-			maxHealth += GameplayBase.hatPlayer1.HP;
-			atk += GameplayBase.hatPlayer1.ATK;
-			defend += GameplayBase.hatPlayer1.DEF;
-
+			if (SaveManager.instance.state.whatMode == 1) {
+				maxHealth += GameplayBase.hatPlayer1.HP;
+				atk += GameplayBase.hatPlayer1.ATK;
+				defend += GameplayBase.hatPlayer1.DEF;
+			} else {
+				maxHealth += GameplayBase.hatAI.HP;
+				atk += GameplayBase.hatAI.ATK;
+				defend += GameplayBase.hatAI.DEF;
+			}
 			HideSkin ();
 		}
 
@@ -554,10 +560,15 @@ public class FingerRightControl : FingerBase {
 			amor.sprite = GameplayBase.amorAI.avatar;
 			amor.gameObject.SetActive (true);
 
-			maxHealth += GameplayBase.hatPlayer1.HP;
-			atk += GameplayBase.hatPlayer1.ATK;
-			defend += GameplayBase.hatPlayer1.DEF;
-
+			if (SaveManager.instance.state.whatMode == 1) {
+				maxHealth += GameplayBase.amorPlayer1.HP;
+				atk += GameplayBase.amorPlayer1.ATK;
+				defend += GameplayBase.amorPlayer1.DEF;
+			} else {
+				maxHealth += GameplayBase.amorAI.HP;
+				atk += GameplayBase.amorAI.ATK;
+				defend += GameplayBase.amorAI.DEF;
+			}
 			HideSkin ();
 		}
 
@@ -565,10 +576,15 @@ public class FingerRightControl : FingerBase {
 			weapon.sprite = GameplayBase.wpAI.avatar;
 			weapon.gameObject.SetActive (true);
 
-			maxHealth += GameplayBase.hatPlayer1.HP;
-			atk += GameplayBase.hatPlayer1.ATK;
-			defend += GameplayBase.hatPlayer1.DEF;
-
+			if (SaveManager.instance.state.whatMode == 1) {
+				maxHealth += GameplayBase.wpPlayer1.HP;
+				atk += GameplayBase.wpPlayer1.ATK;
+				defend += GameplayBase.wpPlayer1.DEF;
+			} else {
+				maxHealth += GameplayBase.wpAI.HP;
+				atk += GameplayBase.wpAI.ATK;
+				defend += GameplayBase.wpAI.DEF;
+			}
 			HideSkin ();
 		}
 	}

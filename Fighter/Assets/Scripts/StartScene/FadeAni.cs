@@ -15,6 +15,7 @@ public class FadeAni : MonoBehaviour {
 	public static bool isRunMapToHome;
 	public static bool isRunPlayGame;
 	public static bool isRunMiniGame;
+	public static bool isReturnTournament;
 
 	public enum State {none, Show, Hide, Show1, Show2}
 	[Header("State machine")]
@@ -80,6 +81,7 @@ public class FadeAni : MonoBehaviour {
 		isRunFadeHide = false;
 		isChangeMap = false;
 		isChangeChooseChar = false;
+		isReturnTournament = false;
 		timeDelay = 0;
 	}
 	
@@ -136,8 +138,12 @@ public class FadeAni : MonoBehaviour {
 
 				if (isRunPlayGame)
 					UnityEngine.SceneManagement.SceneManager.LoadScene ("MainGameScene");
+				
 				if (isRunMiniGame)
 					UnityEngine.SceneManagement.SceneManager.LoadScene ("FlappyThumb");
+
+				if (isReturnTournament)
+					UnityEngine.SceneManagement.SceneManager.LoadScene ("Tournament");
 			}
 			break;
 		case State.Hide:

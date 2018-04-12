@@ -221,6 +221,7 @@ public class ChooseCharControl : MonoBehaviour {
 				GameplayBase.wpPlayer1 = null;
 		} 
 
+		Debug.Log (GameplayBase.dataPlayer1 + " " + GameplayBase.hatPlayer1 + " " + GameplayBase.amorPlayer1 + " " + GameplayBase.wpPlayer1);
 		transform.gameObject.SetActive (false);
 		boardGamePanel.SetActive (true);
 	}

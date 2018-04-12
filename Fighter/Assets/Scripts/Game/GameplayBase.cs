@@ -39,8 +39,8 @@ public class GameplayBase : MonoBehaviour {
 	[SerializeField]
 	GameObject player1, player2;
 
-	[SerializeField]
-	FadeAni aniFade;
+
+	public FadeAni aniFade;
 
 	public GameObject pausePanel, gameoverP1Panel, gameoverP2Panel;
 
