@@ -48,7 +48,6 @@ public class MatchControl : MonoBehaviour
 	// Use this for initialization
 	void OnEnable () 
 	{
-		//SaveManager.instance.state.currentMatch++;
 		int numberIconLeft, numberIconRight;
 
 		if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2] == 1)

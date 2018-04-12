@@ -116,9 +116,11 @@ public class FingerLeftControl : FingerBase {
 			fingerDown.GetComponent<SpriteRenderer> ().color = new Color32 (255, 207, 179, 255);
 			hand.GetComponent<SpriteRenderer> ().color = new Color32 (255, 207, 179, 255);
 		}
+	}
 
+	void FixedUpdate(){
 		if (takeDame)
-			StartCoroutine (WaitRedBlood (0.5f));
+			StartCoroutine (WaitRedBlood (0.2f));
 	}
 
 	public override void DoIdel(){
@@ -427,11 +429,16 @@ public class FingerLeftControl : FingerBase {
 						GameplayBase.instance.gameoverP1Panel.SetActive (true);
 						LoadingScene.ggAdmobs.ShowInterstitial ();
 						LoadingScene.ggAdmobs.RequestInterstitial ();
-					} else if (SaveManager.instance.state.whatMode == 2) {
-						SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.currentMatch + 8] = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2];
-						GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
-						FadeAni.isReturnTournament = true;
-					}
+					} else 
+						if (SaveManager.instance.state.whatMode == 2) 
+						{
+							if (SaveManager.instance.state.currentMatch < 7) 
+							{
+							SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.currentMatch + 7] = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2];
+							GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
+							FadeAni.isReturnTournament = true;
+							}
+						}
 					AnimationText.endRound = true;
 				}
 			}
