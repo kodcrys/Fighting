@@ -15,6 +15,8 @@ public class LoadingScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		SaveManager.instance.state.firstInGame = false;
+		SaveManager.instance.Save ();
 		ggAdmob = GameObject.Find ("GGAmobs").GetComponent<GoogleMobileAdsDemoScript> ();
 		ggAdmobs = ggAdmob;
 

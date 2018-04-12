@@ -125,6 +125,14 @@ public class StartSceneManager : MonoBehaviour {
 		}
 	}
 
+	void Start(){
+		if (!SaveManager.instance.state.firstInGame) {
+			SoundManager.Welcomes.Play ();
+			SaveManager.instance.state.firstInGame = true;
+			SaveManager.instance.Save ();
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		// get list form questManager
