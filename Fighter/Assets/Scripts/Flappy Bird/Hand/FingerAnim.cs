@@ -42,7 +42,7 @@ public class FingerAnim : BaseFinger {
 
 	public override void DoIdel()
 	{
-		ChangeStateAni (FingerState.Idel);
+//		ChangeStateAni (FingerState.Idel);
 
 		finger.SetActive (true);
 		fingerAtk.SetActive (false);
@@ -81,7 +81,7 @@ public class FingerAnim : BaseFinger {
 
 	public override void DoFirstAtk()
 	{
-		ChangeStateAni (FingerState.Atk);
+//		ChangeStateAni (FingerState.Atk);
 
 		firstAtk = true;
 		finger.SetActive (false);
@@ -103,9 +103,9 @@ public class FingerAnim : BaseFinger {
 			hat.sprite = GamePlayController.hatAI.avatar;
 			hat.gameObject.SetActive (true);
 
-/*			// hat AtkDown
-			hatAtkDownSpr.sprite = GameplayBase.hatAI.avatar;
-			hatAtkDownSpr.gameObject.SetActive (true);*/
+			// hat AtkDown
+			hatAtkDownSpr.sprite = GamePlayController.hatAI.avatar;
+			hatAtkDownSpr.gameObject.SetActive (true);
 		}
 
 		if (GamePlayController.amorAI != null) {
