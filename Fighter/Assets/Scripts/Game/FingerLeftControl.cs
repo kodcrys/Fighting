@@ -55,15 +55,8 @@ public class FingerLeftControl : FingerBase {
 	
 	// Update is called once per frame
 	void Update () {
-/*		if (SaveManager.instance.state.player1AI) {
-			if (fuckingMode) {
-				atk = enemyRight.maxHealth + enemyRight.defend;
-			} 
-		}*/
-
 		switch (fingerAction) {
 		case FingerState.Idel:
-//			ChangeStateAni (FingerState.Idel);
 			DoIdel ();
 			break;
 		case FingerState.Atk:
@@ -79,7 +72,6 @@ public class FingerLeftControl : FingerBase {
 			Dead ();
 			break;
 		}
-
 
 		if (doingSomething) {
 			if (!enemyRight.firstAtk && lastAtk) {
@@ -142,6 +134,7 @@ public class FingerLeftControl : FingerBase {
 		firstAtk = false;
 		lastAtk = false;
 		changeColor = false;
+		isHitOne = false;
 
 		if (isUIAni == false) {
 			if (!enemyRight.firstAtk) {
@@ -200,7 +193,10 @@ public class FingerLeftControl : FingerBase {
 			finger.SetActive (false);
 			fingerDown.SetActive (false);
 			fingerAtk.SetActive (true);
-			SoundManager.Hits.Play ();
+			if (!isHitOne) {
+				SoundManager.Hits.Play ();
+				isHitOne = true;
+			}
 			fingerAction = FingerState.Doing;
 		}
 	}

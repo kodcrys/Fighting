@@ -51,10 +51,18 @@ public class GameplayBase : MonoBehaviour {
 	public static DataItems hatPlayer1, hatPlayer2, amorPlayer1, amorPlayer2, wpPlayer1, wpPlayer2;
 	public static DataItems hatAI, amorAI, wpAI;
 
+	int ranVoice1;
+	int ranVoice2;
+
+	bool wasTalk;
+	bool waitToTalk;
+
 	public void Start() {
 		instance = this;
 		gamePause = false;
 		isTalk = false;
+		wasTalk = false;
+		waitToTalk = false;
 		timeInter = Random.Range (10, 20);
 		CheckAI ();
 		zoomCamera = false;
@@ -117,13 +125,37 @@ public class GameplayBase : MonoBehaviour {
 				if (!player1.GetComponent<FingerLeftControl> ().doingSomething && !player2.GetComponent<FingerRightControl> ().doingSomething) {
 					time += Time.deltaTime;
 					if (time >= timeInter) {
-						SoundManager.WaitToLongs.Play ();
-						time = 0;
+						if (!wasTalk) {
+							SoundManager.WaitToLongs.Play ();
+							wasTalk = true;
+						}
 						isTalk = true;
+						time = 0;
+					}
+				} else if (player1.GetComponent<FingerLeftControl> ().lastAtk || player2.GetComponent<FingerRightControl> ().lastAtk) {
+					ranVoice1 = Random.Range (1, 100);
+					if (ranVoice1 > 80) {
+						ranVoice2 = Random.Range (0, 2);
+						if (ranVoice2 == 1) {
+							if (!wasTalk) {
+								SoundManager.Unbelievables.Play ();
+								wasTalk = true;
+							}
+							isTalk = true;
+						} else {
+							if (!wasTalk) {
+								SoundManager.Fantastics.Play ();
+								wasTalk = true;
+							}
+							isTalk = true;
+						}
 					}
 				}
 			} else {
-				StartCoroutine (WaitToTalk (2f));
+				if (!waitToTalk) {
+					StartCoroutine (WaitToTalk (2f));
+					waitToTalk = true;
+				}
 			}
 		} else {
 			rightButton.SetActive (false);
@@ -197,7 +229,8 @@ public class GameplayBase : MonoBehaviour {
 	IEnumerator WaitToTalk(float time){
 		yield return new WaitForSeconds (time);
 		timeInter = Random.Range (10, 20);
+		wasTalk = false;
+		waitToTalk = false;
 		isTalk = false;
-		yield return null;
 	}
 }

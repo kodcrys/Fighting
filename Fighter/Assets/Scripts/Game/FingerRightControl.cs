@@ -50,7 +50,6 @@ public class FingerRightControl : FingerBase {
 
 		switch (fingerAction) {
 		case FingerState.Idel:
-//			ChangeStateAni (FingerState.Idel);
 			DoIdel ();
 			break;
 		case FingerState.Atk:
@@ -66,7 +65,7 @@ public class FingerRightControl : FingerBase {
 			Dead ();
 			break;
 		}
-			
+
 		if (doingSomething) {
 			if (!enemyLeft.firstAtk && lastAtk) {
 				lastAtk = false;
@@ -96,8 +95,8 @@ public class FingerRightControl : FingerBase {
 				StartCoroutine (WhoDeadWhoWin (1f));
 			}
 		}
-		
-			
+
+
 		if (changeColor) {
 			finger.GetComponent<SpriteRenderer> ().color = new Color32 (255, 255, 255, 255);
 			fingerAtk.GetComponent<SpriteRenderer> ().color = new Color32 (255, 255, 255, 255);
@@ -129,6 +128,7 @@ public class FingerRightControl : FingerBase {
 		firstAtk = false;
 		lastAtk = false;
 		changeColor = false;
+		isHitOne = false;
 
 
 		if (!enemyLeft.firstAtk) {
@@ -194,7 +194,10 @@ public class FingerRightControl : FingerBase {
 				fingerDown.SetActive (false);
 			if (fingerAtk != null)
 				fingerAtk.SetActive (true);
-			SoundManager.Hits.Play ();
+			if (!isHitOne) {
+				SoundManager.Hits.Play ();
+				isHitOne = true;
+			}
 			fingerAction = FingerState.Doing;
 		}
 	}

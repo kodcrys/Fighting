@@ -92,6 +92,8 @@ public class FingerBase : MonoBehaviour {
 
 	protected bool isDoneRound = false;
 
+	protected bool isHitOne = false;
+
 	public virtual void HanderHealth(){
 		
 	}
