@@ -67,11 +67,20 @@ public class GameplayBase : MonoBehaviour {
 		CheckAI ();
 		zoomCamera = false;
 		SoundManager.Bangs.Play ();
-		for (int i = 0; i < maps.Length; i++) {
-			if (i == ChooseCharManager.indexMap)
-				maps [i].SetActive (true);
-			else
-				maps [i].SetActive (false);
+		if (SaveManager.instance.state.whatMode == 1) {
+			for (int i = 0; i < maps.Length; i++) {
+				if (i == ChooseCharManager.indexMap)
+					maps [i].SetActive (true);
+				else
+					maps [i].SetActive (false);
+			}
+		} else if (SaveManager.instance.state.whatMode == 2) {
+			for (int i = 0; i < maps.Length; i++) {
+				if (i == SaveManager.instance.state.randMap)
+					maps [i].SetActive (true);
+				else
+					maps [i].SetActive (false);
+			}
 		}
 
 		if (SaveManager.instance.state.roundCount == 1)
