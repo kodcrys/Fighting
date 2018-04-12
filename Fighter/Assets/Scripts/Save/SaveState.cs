@@ -66,4 +66,6 @@ public class SaveState {
 	public int[] iconChar = new int[8]  { 0, 0, 0, 0, 0, 0, 0, 0};
 
 	public int score = 0;
+
+	public bool firstInGame = false;
 }

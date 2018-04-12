@@ -196,6 +196,7 @@ public class GameplayBase : MonoBehaviour {
 
 	IEnumerator WaitToTalk(float time){
 		yield return new WaitForSeconds (time);
+		timeInter = Random.Range (10, 20);
 		isTalk = false;
 		yield return null;
 	}
