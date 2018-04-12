@@ -9,6 +9,8 @@ public class TournamentManager : MonoBehaviour {
 	private GameObject findMatchPanel;
 	[SerializeField]
 	private GameObject boardGamePanel;
+	[SerializeField]
+	private GameObject resultPanel;
 
 	// Use this for initialization
 	void Start () 
@@ -19,18 +21,27 @@ public class TournamentManager : MonoBehaviour {
 		for (int i = 0; i < SaveManager.instance.state.listPlayerMatch.Length; i++)
 			Debug.Log ("Player " + i + " " + SaveManager.instance.state.listPlayerMatch [i]);
 		
-		if (SaveManager.instance.state.currentMatch == 7)
+		if (SaveManager.instance.state.currentMatch == 7) 
+		{
 			SaveManager.instance.state.currentMatch = 0;
+		}
 
 		if (SaveManager.instance.state.currentMatch == 0) 
 		{
 			findMatchPanel.SetActive (true);
 			boardGamePanel.SetActive (false);
+			SaveManager.instance.state.isLose = false;
 		} 
 		else 
 		{
 			findMatchPanel.SetActive (false);
 			boardGamePanel.SetActive (true);
+		}
+
+		if (SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.listPlayerMatch.Length-1] == 1) {
+			findMatchPanel.SetActive (false);
+			boardGamePanel.SetActive (false);
+			resultPanel.SetActive (true);
 		}
 	}
 	

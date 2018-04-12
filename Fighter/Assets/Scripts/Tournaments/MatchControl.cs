@@ -120,6 +120,13 @@ public class MatchControl : MonoBehaviour
 		SaveManager.instance.state.idAmorAI = Random.Range (0, 55);
 		SaveManager.instance.state.idWpAI = Random.Range (116, 124);
 
+		if (SaveManager.instance.state.idChar1 == -1) 
+		{
+			GameplayBase.hatPlayer1 = lstItems [SaveManager.instance.state.idHat1];
+			GameplayBase.amorPlayer1 = lstItems [SaveManager.instance.state.idAmor1];
+			GameplayBase.wpPlayer1 = lstItems [SaveManager.instance.state.idWp1];
+		}
+
 		GameplayBase.hatAI = lstItems[SaveManager.instance.state.idHatAI];
 		GameplayBase.amorAI = lstItems[SaveManager.instance.state.idAmorAI];
 		GameplayBase.wpAI = lstItems[SaveManager.instance.state.idWpAI];

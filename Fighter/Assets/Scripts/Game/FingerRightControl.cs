@@ -403,7 +403,7 @@ public class FingerRightControl : FingerBase {
 						LoadingScene.ggAdmobs.RequestInterstitial ();
 					} else if (SaveManager.instance.state.whatMode == 2) 
 					{
-						if (SaveManager.instance.state.currentMatch < 7) 
+						if (SaveManager.instance.state.currentMatch <= 7) 
 						{
 							SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.currentMatch + 7] = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2 + 1];
 							GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 

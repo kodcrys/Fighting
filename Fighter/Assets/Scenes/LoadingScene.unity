@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ggAdmob: {fileID: 0}
-  isTestGame: 1
+  isTestGame: 0
 --- !u!1 &712144943
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b6d11f8c5764d32975fbdd3aaa2e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isResetSave: 0
+  isResetSave: 1
 --- !u!4 &989678190
 Transform:
   m_ObjectHideFlags: 0

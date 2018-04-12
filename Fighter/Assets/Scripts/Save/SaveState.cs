@@ -71,7 +71,9 @@ public class SaveState {
 
 	public int currentMatch = 0;
 
-	public int[] listPlayerMatch = new int[14] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	public int[] listPlayerMatch = new int[15] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	public int randMap = 0;
+
+	public bool isLose;
 }
