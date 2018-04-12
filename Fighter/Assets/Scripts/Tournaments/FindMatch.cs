@@ -134,6 +134,13 @@ public class FindMatch : MonoBehaviour {
 			} 
 			else 
 			{
+				SaveManager.instance.state.currentMatch = 0;
+				for (int i = 0; i < SaveManager.instance.state.listPlayerMatch.Length; i++)
+					SaveManager.instance.state.listPlayerMatch [i] = 0;
+
+				for (int i = 0; i < 8; i++)
+					SaveManager.instance.state.listPlayerMatch [i] = i+1;
+				
 				for (int i = 1; i < 8; i++) 
 				{
 					SaveManager.instance.state.iconChar [i] = Random.Range (0, 61);

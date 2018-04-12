@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BoardGameControl : MonoBehaviour {
 
-	[Header("------Icon------")]
-	GameObject matchPanel;
+	[Header("------Panel------")]
+	[SerializeField]
+	private GameObject matchPanel;
 
 	[Header("------Icon------")]
 	[SerializeField]
@@ -21,6 +22,9 @@ public class BoardGameControl : MonoBehaviour {
 
 	public void OnSceneMatch ()
 	{
+		SaveManager.instance.state.currentMatch++;
+		SaveManager.instance.Save ();
+
 		gameObject.SetActive (false);
 		matchPanel.SetActive (true);
 	}

@@ -21,12 +21,37 @@ public class MatchControl : MonoBehaviour
 	[SerializeField]
 	private GameObject lock2btn;
 
+	[Header("------Animation------")]
+	[SerializeField]
+	private GameObject leftIcon;
+	[SerializeField]
+	private GameObject rightIcon;
+	[SerializeField]
+
+	[Header("------Icon------")]
+	private List<Sprite> listSpriteMask;
+	[SerializeField]
+	UnityEngine.UI.Image maskLeftIcon;
+	[SerializeField]
+	UnityEngine.UI.Image maskRightIcon;
+
+	[Header("------Fade------")]
+	[SerializeField]
+	FadeAni fadeAniForMatch;
+
 	private bool isMe, isReady, isView;
 	private float timeCount, timeAiReady;
 	// Use this for initialization
 	void OnEnable () 
 	{
-		isMe = false;
+		//SaveManager.instance.state.currentMatch++;
+		int numberIconLeft, numberIconRight;
+
+		if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2] == 1)
+			isMe = true;
+		else
+			isMe = false;
+		
 		isReady = false;
 		isView = false;
 
@@ -38,16 +63,22 @@ public class MatchControl : MonoBehaviour
 
 		if (isMe) 
 		{
+			maskLeftIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar[0]];
 			viewbtn.SetActive (false);
-			timeAiReady = Random.Range (3f, 5f);
+			timeAiReady = Random.Range (2f, 4f);
 		}
 		else 
 		{
+			numberIconLeft = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2];
+			maskLeftIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar[numberIconLeft-1]];
+
 			ready1btn.SetActive (false);
 			ready2btn.SetActive (false);
 			lock1btn.SetActive (false);
 			lock2btn.SetActive (false);
 		}
+		numberIconRight = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2 + 1];
+		maskRightIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar[numberIconRight-1]];
 
 		timeCount = 0f;
 	}
@@ -87,6 +118,7 @@ public class MatchControl : MonoBehaviour
 		SaveManager.instance.state.idWpAI = Random.Range (116, 124);
 
 		SaveManager.instance.Save ();
+		fadeAniForMatch.stateFade = FadeAni.State.Show;
 
 	}
 

@@ -181,10 +181,6 @@ public class ChooseCharControl : MonoBehaviour {
 	{
 		// zs AI
 		{
-			SaveManager.instance.state.player1AI = false;
-			SaveManager.instance.state.player2AI = true;
-			SaveManager.instance.Save ();
-
 			isTurnPlayer1 = true;
 
 			ready1.sprite = readySpr;
