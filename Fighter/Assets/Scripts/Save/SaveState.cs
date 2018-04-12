@@ -68,4 +68,8 @@ public class SaveState {
 	public int score = 0;
 
 	public bool firstInGame = false;
+
+	public int currentMatch = 0;
+
+	public int[] listPlayerMatch = new int[14] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 }

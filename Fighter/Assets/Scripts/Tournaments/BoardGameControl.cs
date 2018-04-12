@@ -5,6 +5,9 @@ using UnityEngine;
 public class BoardGameControl : MonoBehaviour {
 
 	[Header("------Icon------")]
+	GameObject matchPanel;
+
+	[Header("------Icon------")]
 	[SerializeField]
 	private List<Sprite> listSpriteMask;
 	[SerializeField]
@@ -15,7 +18,13 @@ public class BoardGameControl : MonoBehaviour {
 		for (int i = 0; i < maskIcons.Count; i++)
 			maskIcons [i].sprite = listSpriteMask [SaveManager.instance.state.iconChar [i]];
 	}
-	
+
+	public void OnSceneMatch ()
+	{
+		gameObject.SetActive (false);
+		matchPanel.SetActive (true);
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
