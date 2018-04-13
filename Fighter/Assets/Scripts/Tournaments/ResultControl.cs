@@ -16,14 +16,46 @@ public class ResultControl : MonoBehaviour {
 	private List<Sprite> listSpriteMask;
 	[SerializeField]
 	UnityEngine.UI.Image maskIcon;
+
+	[Header("------Text / Medal------")]
 	[SerializeField]
 	UnityEngine.UI.Text toptxt;
+	[SerializeField]
+	UnityEngine.UI.Text scoretxt;
+	[SerializeField]
+	private UnityEngine.UI.Image currentMedal;
+	[SerializeField]
+	private int[] listPointRank;
+	[SerializeField]
+	private List<Sprite> listSpriteMedal;
+
+	[Header("------Win / Lose------")]
+	[SerializeField]
+	private GameObject winObject;
+	[SerializeField]
+	private GameObject loseObject;
 
 	// Use this for initialization
 	void OnEnable () {
 		maskIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar[0]];
 		toptxt.text = "Top " + (8/Mathf.Pow (2f, (float)SaveManager.instance.state.countWinMatch)).ToString ();
-		SaveManager.instance.state.score = 2 * Mathf.Pow (2f, (float)SaveManager.instance.state.countWinMatch);
+
+		SaveManager.instance.state.score += 2 * Mathf.Pow (2f, (float)SaveManager.instance.state.countWinMatch);
+
+		if (SaveManager.instance.state.countWinMatch == 3) 
+		{
+			winObject.SetActive (true);
+			loseObject.SetActive (false);
+		} 
+		else 
+		{
+			winObject.SetActive (false);
+			loseObject.SetActive (true);
+		}
+
+		SaveManager.instance.Save ();
+
+		ShowScoreAndMedal ();
 	}
 	
 	// Update is called once per frame
@@ -35,5 +67,14 @@ public class ResultControl : MonoBehaviour {
 	{
 		resultPanel.SetActive (false);
 		findMatchPanel.SetActive (true);
+	}
+
+	void ShowScoreAndMedal ()
+	{
+		scoretxt.text = "Your score: " + SaveManager.instance.state.score.ToString ();
+
+		for (int i = 0; i < listPointRank.Length; i++)
+			if (SaveManager.instance.state.score >= listPointRank [i])
+				currentMedal.sprite = listSpriteMedal [i];
 	}
 }

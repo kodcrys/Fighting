@@ -13,11 +13,21 @@ public class BoardGameControl : MonoBehaviour {
 	private List<Sprite> listSpriteMask;
 	[SerializeField]
 	private List<UnityEngine.UI.Image> maskIcons;
+	[SerializeField]
+	private List<GameObject> showIcon;
 
 	// Use this for initialization
 	void OnEnable () {
-		for (int i = 0; i < maskIcons.Count; i++)
-			maskIcons [i].sprite = listSpriteMask [SaveManager.instance.state.iconChar [i]];
+		for (int i = 0; i < maskIcons.Count; i++) 
+		{
+			if (SaveManager.instance.state.listPlayerMatch [i] - 1 >= 0) 
+			{
+				maskIcons [i].sprite = listSpriteMask [SaveManager.instance.state.iconChar [SaveManager.instance.state.listPlayerMatch [i] - 1]];
+				showIcon [i].SetActive (false);
+			}
+			else
+				showIcon [i].SetActive (true);
+		}
 	}
 
 	public void OnSceneMatch ()
