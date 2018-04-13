@@ -257,8 +257,9 @@ public class ChooseCharManager : MonoBehaviour {
 		// tour
 		if (contentBtn.text == playMode [2]) {
 			SaveManager.instance.state.currentMatch = 0;
+			FadeAni.isReturnTournament = true;
 			fadeAni.stateFade = FadeAni.State.Show;
-			UnityEngine.SceneManagement.SceneManager.LoadScene ("Tournament");
+			//UnityEngine.SceneManagement.SceneManager.LoadScene ("Tournament");
 		}
 		// minigame
 		if (contentBtn.text == playMode [3]) {

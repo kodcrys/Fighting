@@ -21,6 +21,10 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	// when defining the Product Identifiers on the store. Except, for illustration purposes, the 
 	// kProductIDSubscription - it has custom Apple and Google identifiers. We declare their store-
 	// specific mapping to Unity Purchasing's AddProduct, below.
+
+	[SerializeField]
+	GoogleMobileAdsDemoScript ggAdmobs;
+
 	[Header("Get coin when user buy product")]
 	[SerializeField]
 	int coinConsumable1;
@@ -67,6 +71,7 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 	void Awake(){
 		if(intance == null)
 			intance = this;
+		ggAdmobs = GameObject.Find ("GGAmobs").GetComponent<GoogleMobileAdsDemoScript> ();
 	}
 
 	void Start()
@@ -423,7 +428,7 @@ public class Purchaser : MonoBehaviour, IStoreListener {
 		if (String.Equals(args.purchasedProduct.definition.id, kProductIDNonConsumable, StringComparison.Ordinal))
 		{
 			SaveManager.instance.state.isPurchaseRemoveAds = true;
-			//GoogleMobileAdsDemoScript.instance.HideBanner ();
+			ggAdmobs.HideBanner ();
 			SaveManager.instance.Save ();
 			Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
 			// TODO: The non-consumable item has been successfully purchased, grant this item to the player.

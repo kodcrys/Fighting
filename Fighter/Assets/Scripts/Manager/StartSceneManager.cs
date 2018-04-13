@@ -90,6 +90,8 @@ public class StartSceneManager : MonoBehaviour {
 
 	[SerializeField]
 	Transform canzas1;
+	[SerializeField]
+	Transform canzas2;
 
 	GoogleMobileAdsDemoScript ggAdmobs;
 
@@ -100,8 +102,10 @@ public class StartSceneManager : MonoBehaviour {
 
 		if (MultiResolution.device == "ipad") {
 			canzas1.localScale = new Vector3 (0.75f, 0.75f, 1);
+			canzas2.localScale = new Vector3 (0.75f, 0.75f, 1);
 		} else {
 			canzas1.localScale = new Vector3 (1, 1, 1);
+			canzas2.localScale = new Vector3 (0.75f, 0.75f, 1);
 		}
 
 		if (instance != null)
