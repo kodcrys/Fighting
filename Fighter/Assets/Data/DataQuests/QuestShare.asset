@@ -16,6 +16,6 @@ MonoBehaviour:
   content: Share the game
   requirement: 1
   doing: 0
-  rewardGold: 90
+  rewardGold: 50
   rewardExp: 45
   isDone: 0

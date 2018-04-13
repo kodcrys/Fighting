@@ -16,6 +16,6 @@ MonoBehaviour:
   content: Play any game 5 times
   requirement: 5
   doing: 0
-  rewardGold: 60
+  rewardGold: 20
   rewardExp: 30
   isDone: 0

@@ -16,6 +16,6 @@ MonoBehaviour:
   content: Win AI game 3 times
   requirement: 3
   doing: 0
-  rewardGold: 110
+  rewardGold: 30
   rewardExp: 55
   isDone: 0

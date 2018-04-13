@@ -16,6 +16,6 @@ MonoBehaviour:
   content: Play AI games 3 times
   requirement: 3
   doing: 0
-  rewardGold: 50
+  rewardGold: 10
   rewardExp: 25
   isDone: 0

@@ -16,6 +16,6 @@ MonoBehaviour:
   content: Play tournament game 1 time
   requirement: 1
   doing: 0
-  rewardGold: 100
+  rewardGold: 30
   rewardExp: 50
   isDone: 0
