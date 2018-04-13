@@ -20,13 +20,13 @@ public class TournamentManager : MonoBehaviour {
 	[SerializeField]
 	private Image Fade1;
 
-	public static bool runFade1In, runFade1Out;
+	public static bool runFade1In, runFade1Out, checkRun;
 	// Use this for initialization
 	void Start () 
 	{
 		runFade1In = false;
 		runFade1Out = false;
-
+		checkRun = false;
 		matchPanel.SetActive (false);
 
 		if (SaveManager.instance.state.currentMatch == 0) 
@@ -69,8 +69,10 @@ public class TournamentManager : MonoBehaviour {
 		{
 			Fade1.gameObject.SetActive (true);
 			Fade1.fillAmount += Time.deltaTime;
-			if (Fade1.fillAmount == 1)
+			if (Fade1.fillAmount == 1) 
+			{
 				runFade1In = false;
+			}
 			
 		}
 
@@ -79,7 +81,7 @@ public class TournamentManager : MonoBehaviour {
 			Fade1.fillAmount -= Time.deltaTime;
 			if (Fade1.fillAmount == 0) 
 			{
-				runFade1In = false;
+				runFade1Out = false;
 				Fade1.gameObject.SetActive (false);
 			}
 		}

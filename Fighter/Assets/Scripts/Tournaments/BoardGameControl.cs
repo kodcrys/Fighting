@@ -18,6 +18,7 @@ public class BoardGameControl : MonoBehaviour {
 
 	// Use this for initialization
 	void OnEnable () {
+		
 		for (int i = 0; i < maskIcons.Count; i++) 
 		{
 			if (SaveManager.instance.state.listPlayerMatch [i] - 1 >= 0) 
@@ -28,6 +29,9 @@ public class BoardGameControl : MonoBehaviour {
 			else
 				showIcon [i].SetActive (true);
 		}
+
+		TournamentManager.runFade1Out = true;
+		TournamentManager.checkRun = false;
 	}
 
 	public void OnSceneMatch ()
@@ -35,13 +39,21 @@ public class BoardGameControl : MonoBehaviour {
 		SaveManager.instance.state.currentMatch++;
 		SaveManager.instance.Save ();
 
-		gameObject.SetActive (false);
-		matchPanel.SetActive (true);
+		if (!TournamentManager.checkRun) 
+		{
+			TournamentManager.runFade1In = true;
+			TournamentManager.checkRun = true;
+		}
+
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if (TournamentManager.checkRun && !TournamentManager.runFade1In && !TournamentManager.runFade1Out) 
+		{
+			gameObject.SetActive (false);
+			matchPanel.SetActive (true);
+		}
 	}
 }

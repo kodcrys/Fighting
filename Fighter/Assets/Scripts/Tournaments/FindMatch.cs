@@ -58,10 +58,13 @@ public class FindMatch : MonoBehaviour {
 	private float timeCount;
 
 	// Use this for initialization
-	void Start () {
+	void OnEnable () {
 		isMoveOut = false;
 		isMoveIn = false;
 		timeCount = 0;
+
+		TournamentManager.runFade1Out = true;
+		TournamentManager.checkRun = false;
 	}
 	
 	// Update is called once per frame
@@ -134,7 +137,11 @@ public class FindMatch : MonoBehaviour {
 			} 
 			else 
 			{
-				TournamentManager.runFade1In = true;
+				if (!TournamentManager.checkRun) 
+				{
+					TournamentManager.runFade1In = true;
+					TournamentManager.checkRun = true;
+				}
 				SaveManager.instance.state.currentMatch = 0;
 				SaveManager.instance.state.countWinMatch = 0;
 				for (int i = 0; i < SaveManager.instance.state.listPlayerMatch.Length; i++)
@@ -149,12 +156,17 @@ public class FindMatch : MonoBehaviour {
 					SaveManager.instance.Save ();
 				}
 
-				chartPanel.SetActive (false);
-				rewardPanel.SetActive (false);
-				characterPanel.SetActive (false);
-				findMatchPanel.SetActive (false);
-				ChooseCharPanel.SetActive (true);
-				transform.gameObject.SetActive (false);
+				if (TournamentManager.runFade1In == false) 
+				{
+					chartPanel.SetActive (false);
+					rewardPanel.SetActive (false);
+					characterPanel.SetActive (false);
+					findMatchPanel.SetActive (false);
+					ChooseCharPanel.SetActive (true);
+					transform.gameObject.SetActive (false);
+					TournamentManager.runFade1Out = true;
+					TournamentManager.checkRun = false;
+				}
 			}
 		}
 			

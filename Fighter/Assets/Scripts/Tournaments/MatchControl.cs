@@ -84,6 +84,9 @@ public class MatchControl : MonoBehaviour
 		maskRightIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar[numberIconRight-1]];
 
 		timeCount = 0f;
+
+		TournamentManager.runFade1Out = true;
+		TournamentManager.checkRun = false;
 	}
 	
 	// Update is called once per frame

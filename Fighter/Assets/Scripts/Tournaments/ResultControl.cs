@@ -60,13 +60,21 @@ public class ResultControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (TournamentManager.checkRun && !TournamentManager.runFade1In && !TournamentManager.runFade1Out) 
+		{
+			resultPanel.SetActive (false);
+			findMatchPanel.SetActive (true);
+		}
 	}
 
 	public void OnNextButton ()
 	{
-		resultPanel.SetActive (false);
-		findMatchPanel.SetActive (true);
+		if (!TournamentManager.checkRun) 
+		{
+			TournamentManager.runFade1In = true;
+			TournamentManager.checkRun = true;
+		}
+		
 	}
 
 	void ShowScoreAndMedal ()

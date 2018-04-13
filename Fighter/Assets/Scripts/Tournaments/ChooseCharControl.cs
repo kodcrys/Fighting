@@ -125,6 +125,12 @@ public class ChooseCharControl : MonoBehaviour {
 			frameListChar.position = Vector3.MoveTowards (frameListChar.position, showPosFrame.position, 9 * Time.deltaTime);
 			readybtn.position = Vector3.MoveTowards (readybtn.position, showPosReady.position, 12 * Time.deltaTime);
 		}
+
+		if (TournamentManager.checkRun && !TournamentManager.runFade1In && !TournamentManager.runFade1Out) 
+		{
+			transform.gameObject.SetActive (false);
+			boardGamePanel.SetActive (true);
+		}
 	}
 
 	bool isShowTypeChar = true;
@@ -225,9 +231,13 @@ public class ChooseCharControl : MonoBehaviour {
 			else
 				GameplayBase.wpPlayer1 = null;
 		} 
-			
-		transform.gameObject.SetActive (false);
-		boardGamePanel.SetActive (true);
+
+		if (!TournamentManager.checkRun) 
+		{
+			TournamentManager.runFade1In = true;
+			TournamentManager.checkRun = true;
+		}
+
 	}
 
 	// choose character or equipment when click button in choose frame
