@@ -8,6 +8,9 @@ public class SettingControl : MonoBehaviour {
 	[SerializeField]
 	private GameObject settingPanel;
 
+	[SerializeField]
+	private FadeAni fadeAni;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -20,7 +23,9 @@ public class SettingControl : MonoBehaviour {
 
 	public void OnOkButton ()
 	{
-		UnityEngine.SceneManagement.SceneManager.LoadScene ("StartScene");
+		fadeAni.isChangeChooseChar = true;
+		fadeAni.stateFade = FadeAni.State.Show;
+		//UnityEngine.SceneManagement.SceneManager.LoadScene ("StartScene");
 	}
 
 	public void OnCancelButton ()

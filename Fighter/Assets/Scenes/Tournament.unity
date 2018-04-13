@@ -14387,7 +14387,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1496768605}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.3725495
+  m_Size: 0.37254953
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -122001,6 +122001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 2114465165}
+  fadeAni: {fileID: 1455465890}
 --- !u!1 &2114806153
 GameObject:
   m_ObjectHideFlags: 0
