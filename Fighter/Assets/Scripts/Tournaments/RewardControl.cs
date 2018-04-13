@@ -37,17 +37,6 @@ public class RewardControl : MonoBehaviour {
 		currentRank = -1;
 		isScale = false;
 		localScaleSize = 0;
-
-		for (int i = 0; i < listScore.Length; i++) 
-		{
-			if (SaveManager.instance.state.score >= listScore [i]) 
-			{
-				diamondtxt.text = listRecieveDiamond [i].ToString();
-				goldtxt.text = listRecieveGold [i].ToString();
-				currentRank = i;
-			}
-		}
-
 	}
 	
 	// Update is called once per frame
@@ -65,6 +54,17 @@ public class RewardControl : MonoBehaviour {
 	public void OnReceiveReward ()
 	{
 		isScale = true;
+
+		for (int i = 0; i < listScore.Length; i++) 
+		{
+			if (SaveManager.instance.state.score >= listScore [i]) 
+			{
+				diamondtxt.text = listRecieveDiamond [i].ToString();
+				goldtxt.text = listRecieveGold [i].ToString();
+				currentRank = i;
+			}
+		}
+
 		SaveManager.instance.state.TotalGold += listRecieveGold [currentRank];
 		SaveManager.instance.state.TotalDiamond += listRecieveGold [currentRank];
 	}

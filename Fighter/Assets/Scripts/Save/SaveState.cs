@@ -78,4 +78,6 @@ public class SaveState {
 	public bool isLose;
 
 	public int countWinMatch = 0;
+
+	public string weeklyTimeCountdown = null;
 }

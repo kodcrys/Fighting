@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 
 public class FindMatch : MonoBehaviour {
 	[Header("------Panel------")]
@@ -35,9 +35,6 @@ public class FindMatch : MonoBehaviour {
 	private GameObject cancelbtn;
 
 	[SerializeField]
-	private UnityEngine.UI.Text timeLefttxt;
-
-	[SerializeField]
 	private UnityEngine.UI.Text timetxt;
 
 	[SerializeField]
@@ -60,21 +57,77 @@ public class FindMatch : MonoBehaviour {
 	[SerializeField]
 	CointainData tournamentQuest;
 
+	[Header("------Gift------")]
+	[SerializeField]
+	private GameObject Giftbtn;
+	[SerializeField]
+	private UnityEngine.UI.Text timeLefttxt; 
+	[SerializeField]
+	private ulong msToWait = 604800000;
+
+	private ulong lastGiftOpen;
+
 	// Use this for initialization
 	void OnEnable () {
+		if (SaveManager.instance.state.weeklyTimeCountdown == null) 
+		{
+			SaveManager.instance.state.weeklyTimeCountdown = DateTime.Now.Ticks.ToString ();
+			SaveManager.instance.Save ();
+		}
+		
 		isMoveOut = false;
 		isMoveIn = false;
 		timeCount = 0;
 
 		TournamentManager.runFade1Out = true;
 		TournamentManager.checkRun = false;
+
+		lastGiftOpen = ulong.Parse (SaveManager.instance.state.weeklyTimeCountdown);
+
+		if (!IsCheatReady())
+			Giftbtn.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 		FindMatchControl ();
-		CountTimeLeft ();
+		//CountTimeLeft ();
 		ShowScoreAndMedal ();
+
+		if (!Giftbtn.activeInHierarchy) 
+		{
+			if (IsCheatReady ()) {
+				timeLefttxt.text = "0d 0h 0m";
+				Giftbtn.SetActive (true);
+				return;
+			} 
+
+			{
+				// Set the timer
+				ulong diff = ((ulong)DateTime.Now.Ticks - lastGiftOpen);
+
+				ulong m = diff / TimeSpan.TicksPerMillisecond;
+
+				float secondsLeft = (float)(msToWait - m) / 1000f;
+
+				string r = "";
+
+				// Days
+				r += ((int)secondsLeft / 86400).ToString () + "d ";
+				secondsLeft -= ((int)secondsLeft / 86400) * 86400;
+
+				// Hours
+				r+= ((int) secondsLeft / 3600).ToString () + "h ";
+				secondsLeft -= ((int)secondsLeft / 3600) * 3600;
+
+				// Minutes
+				r += ((int) secondsLeft/ 60).ToString ("00") + "m";
+
+				timeLefttxt.text = r;
+
+			}
+		}
 	}
 
 	public void OnChartPanel ()
@@ -93,7 +146,7 @@ public class FindMatch : MonoBehaviour {
 	{
 		isMoveOut = true;
 		timeCount = 0f;
-		timeJoinGame = Random.Range (2, 5);
+		timeJoinGame = UnityEngine.Random.Range (2, 5);
 		tournamentQuest.quest.doing += 1;
 		findMatchbtn.SetActive (false);
 		cancelbtn.SetActive (true);
@@ -156,7 +209,7 @@ public class FindMatch : MonoBehaviour {
 				
 				for (int i = 1; i < 8; i++) 
 				{
-					SaveManager.instance.state.iconChar [i] = Random.Range (0, 61);
+					SaveManager.instance.state.iconChar [i] = UnityEngine.Random.Range (0, 61);
 					SaveManager.instance.Save ();
 				}
 
@@ -188,12 +241,32 @@ public class FindMatch : MonoBehaviour {
 		}
 	}
 
-	void CountTimeLeft ()
+	public void CountTimeLeft ()
 	{
-		if (8 - (int)System.DateTime.Now.DayOfWeek <= 7)
+		lastGiftOpen = (ulong)DateTime.Now.Ticks;
+		SaveManager.instance.state.weeklyTimeCountdown = lastGiftOpen.ToString ();
+		Giftbtn.SetActive (false);
+		/*	if (8 - (int)System.DateTime.Now.DayOfWeek <= 7)
 			timeLefttxt.text = 8 - (int)System.DateTime.Now.DayOfWeek + (" Days left");
 		else
-			timeLefttxt.text = "1 Day left";
+			timeLefttxt.text = "1 Day left"; */
+
+	}
+
+	private bool IsCheatReady ()
+	{
+		ulong diff = ((ulong)DateTime.Now.Ticks - lastGiftOpen);
+
+		ulong m = diff / TimeSpan.TicksPerMillisecond;
+
+		float secondsLeft = (float)(msToWait - m) / 1000f;
+	
+		if (secondsLeft < 0)
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 	void ShowScoreAndMedal ()

@@ -63,7 +63,6 @@ public class TournamentManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("In " + runFade1In + " Out " + runFade1Out);
 
 		if (runFade1In) 
 		{
