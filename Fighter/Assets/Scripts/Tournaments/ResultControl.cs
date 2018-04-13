@@ -16,10 +16,14 @@ public class ResultControl : MonoBehaviour {
 	private List<Sprite> listSpriteMask;
 	[SerializeField]
 	UnityEngine.UI.Image maskIcon;
+	[SerializeField]
+	UnityEngine.UI.Text toptxt;
 
 	// Use this for initialization
 	void OnEnable () {
 		maskIcon.sprite = listSpriteMask [SaveManager.instance.state.iconChar[0]];
+		toptxt.text = "Top " + (8/Mathf.Pow (2f, (float)SaveManager.instance.state.countWinMatch)).ToString ();
+		SaveManager.instance.state.score = 2 * Mathf.Pow (2f, (float)SaveManager.instance.state.countWinMatch);
 	}
 	
 	// Update is called once per frame
