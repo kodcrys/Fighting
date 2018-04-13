@@ -31,6 +31,6 @@ public class MultiResolution : MonoBehaviour {
 		} else {
 			device = "iphone";
 		}
-		device = "ipad";
+		//device = "ipad";
 	}
 }
