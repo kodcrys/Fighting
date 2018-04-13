@@ -95,6 +95,12 @@ public class StartSceneManager : MonoBehaviour {
 		ggAdmobs = GameObject.Find ("GGAmobs").GetComponent<GoogleMobileAdsDemoScript> ();
 		ggAdmobs.startSceneManager = this;
 
+		if (MultiResolution.device == "ipad") {
+			topBar.transform.localScale = new Vector3 (0.75f, 0.75f, 1);
+			midBar.transform.localScale = new Vector3 (0.75f, 0.75f, 1);
+			botBar.transform.localScale = new Vector3 (0.75f, 0.75f, 1);
+		}
+
 		if (instance != null)
 			instance = this;
 
