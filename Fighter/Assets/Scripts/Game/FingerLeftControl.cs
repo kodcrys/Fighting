@@ -434,9 +434,11 @@ public class FingerLeftControl : FingerBase {
 						{
 							if (SaveManager.instance.state.currentMatch <= 7) 
 							{
-							SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.currentMatch + 7] = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2];
-							GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
-							FadeAni.isReturnTournament = true;
+								SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.currentMatch + 7] = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2];
+								if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2] == 1)
+									SaveManager.instance.state.countWinMatch++;
+								GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
+								FadeAni.isReturnTournament = true;
 							}
 						}
 					AnimationText.endRound = true;

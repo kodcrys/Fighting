@@ -406,6 +406,8 @@ public class FingerRightControl : FingerBase {
 						if (SaveManager.instance.state.currentMatch <= 7) 
 						{
 							SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.currentMatch + 7] = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2 + 1];
+							if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2] == 1)
+								SaveManager.instance.state.isLose = true;
 							GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
 							FadeAni.isReturnTournament = true;
 						}
