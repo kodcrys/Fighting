@@ -135,6 +135,7 @@ public class FindMatch : MonoBehaviour {
 			else 
 			{
 				SaveManager.instance.state.currentMatch = 0;
+				SaveManager.instance.state.countWinMatch = 0;
 				for (int i = 0; i < SaveManager.instance.state.listPlayerMatch.Length; i++)
 					SaveManager.instance.state.listPlayerMatch [i] = 0;
 
