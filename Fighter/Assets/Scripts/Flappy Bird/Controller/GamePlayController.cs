@@ -12,6 +12,9 @@ public class GamePlayController : MonoBehaviour {
 
 	public static DataItems hatAI, amorAI, wpAI;
 
+	[SerializeField]
+	FadeAni fadeAni;
+
 	public FingerAnim fingerItemPre;
 
 	/// <summary>
@@ -56,8 +59,10 @@ public class GamePlayController : MonoBehaviour {
 	/// <summary>
 	/// Home button.
 	/// </summary>
-	public void _MenuButton(){
-		Application.LoadLevel ("StartScene");
+	public void _MenuButton() {
+		fadeAni.isChangeChooseChar = true;
+		fadeAni.stateFade = FadeAni.State.Show;
+		//Application.LoadLevel ("StartScene");
 	}
 
 	/// <summary>

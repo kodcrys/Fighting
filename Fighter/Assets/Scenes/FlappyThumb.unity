@@ -4480,6 +4480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 614380842}
+  fadeAni: {fileID: 1067650807}
   fingerItemPre: {fileID: 605360435}
 --- !u!1 &1968766808
 GameObject:
