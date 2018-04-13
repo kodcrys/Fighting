@@ -8,6 +8,8 @@ public class TournamentManager : MonoBehaviour {
 	[SerializeField]
 	private GameObject findMatchPanel;
 	[SerializeField]
+	private GameObject chooseCharPanel;
+	[SerializeField]
 	private GameObject boardGamePanel;
 	[SerializeField]
 	private GameObject resultPanel;
@@ -20,27 +22,32 @@ public class TournamentManager : MonoBehaviour {
 		Debug.Log ("currentMatch" + " " + SaveManager.instance.state.currentMatch);
 		for (int i = 0; i < SaveManager.instance.state.listPlayerMatch.Length; i++)
 			Debug.Log ("Player " + i + " " + SaveManager.instance.state.listPlayerMatch [i]);
-		
-		if (SaveManager.instance.state.currentMatch == 7) 
-		{
-			SaveManager.instance.state.currentMatch = 0;
-		}
 
 		if (SaveManager.instance.state.currentMatch == 0) 
 		{
 			findMatchPanel.SetActive (true);
 			boardGamePanel.SetActive (false);
+			chooseCharPanel.SetActive (false);
 			SaveManager.instance.state.isLose = false;
 		} 
 		else 
 		{
-			findMatchPanel.SetActive (false);
-			boardGamePanel.SetActive (true);
+			if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2] == 1) {
+				findMatchPanel.SetActive (false);
+				chooseCharPanel.SetActive (true);
+				boardGamePanel.SetActive (false);
+			}
+			else 
+			{
+				findMatchPanel.SetActive (false);
+				chooseCharPanel.SetActive (false);
+				boardGamePanel.SetActive (true);
+			}
 		}
 
 		if (SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.listPlayerMatch.Length-1] == 1) {
 			findMatchPanel.SetActive (false);
-			boardGamePanel.SetActive (false);
+			chooseCharPanel.SetActive (false);
 			resultPanel.SetActive (true);
 		}
 	}
