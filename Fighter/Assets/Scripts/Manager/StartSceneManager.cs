@@ -88,6 +88,9 @@ public class StartSceneManager : MonoBehaviour {
 	[SerializeField]
 	Transform canvas;
 
+	[SerializeField]
+	Transform canzas1;
+
 	GoogleMobileAdsDemoScript ggAdmobs;
 
 	void Awake() {
@@ -96,9 +99,9 @@ public class StartSceneManager : MonoBehaviour {
 		ggAdmobs.startSceneManager = this;
 
 		if (MultiResolution.device == "ipad") {
-			topBar.transform.localScale = new Vector3 (0.75f, 0.75f, 1);
-			midBar.transform.localScale = new Vector3 (0.75f, 0.75f, 1);
-			botBar.transform.localScale = new Vector3 (0.75f, 0.75f, 1);
+			canzas1.localScale = new Vector3 (0.75f, 0.75f, 1);
+		} else {
+			canzas1.localScale = new Vector3 (1, 1, 1);
 		}
 
 		if (instance != null)
