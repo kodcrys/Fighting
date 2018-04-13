@@ -39191,6 +39191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   findMatchPanel: {fileID: 1688302027}
+  chooseCharPanel: {fileID: 671952287}
   boardGamePanel: {fileID: 1097038027}
   resultPanel: {fileID: 858728813}
 --- !u!4 &666281106
