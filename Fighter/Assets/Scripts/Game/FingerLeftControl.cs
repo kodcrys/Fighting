@@ -419,13 +419,13 @@ public class FingerLeftControl : FingerBase {
 				}
 			} else {
 				if (!AnimationText.endRound) {
-					if (levelStatManager != null) {
-						if (lvMain.level <= 19)
-							levelStatManager.IncreaseExp (50);
-						else
-							levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 20));
-					}
 					if (SaveManager.instance.state.whatMode == 1) {
+						if (levelStatManager != null) {
+							if (lvMain.level <= 19)
+								levelStatManager.IncreaseExp (50);
+							else
+								levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 20));
+						}
 						GameplayBase.instance.gameoverP1Panel.SetActive (true);
 						LoadingScene.ggAdmobs.ShowInterstitial ();
 						LoadingScene.ggAdmobs.RequestInterstitial ();
@@ -435,8 +435,17 @@ public class FingerLeftControl : FingerBase {
 							if (SaveManager.instance.state.currentMatch <= 7) 
 							{
 								SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.currentMatch + 7] = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2];
-								if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2] == 1)
+							if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2] == 1) 
+								{
 									SaveManager.instance.state.countWinMatch++;
+									if (levelStatManager != null) 
+									{
+										if (lvMain.level <= 19)
+											levelStatManager.IncreaseExp (50);
+										else
+											levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 20));
+									}
+								}
 								GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
 								FadeAni.isReturnTournament = true;
 							}

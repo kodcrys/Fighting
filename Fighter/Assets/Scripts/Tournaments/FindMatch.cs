@@ -134,6 +134,7 @@ public class FindMatch : MonoBehaviour {
 			} 
 			else 
 			{
+				TournamentManager.runFade1In = true;
 				SaveManager.instance.state.currentMatch = 0;
 				SaveManager.instance.state.countWinMatch = 0;
 				for (int i = 0; i < SaveManager.instance.state.listPlayerMatch.Length; i++)

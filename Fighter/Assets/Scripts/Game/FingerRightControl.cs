@@ -391,13 +391,14 @@ public class FingerRightControl : FingerBase {
 				}
 			} else {
 				if (!AnimationText.endRound) {
-					if (levelStatManager != null) {
-						if (lvMain.level <= 19)
-							levelStatManager.IncreaseExp (10);
-						else
-							levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 50));
-					}
+					
 					if (SaveManager.instance.state.whatMode == 1) {
+						if (levelStatManager != null) {
+							if (lvMain.level <= 19)
+								levelStatManager.IncreaseExp (10);
+							else
+								levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 50));
+						}
 						GameplayBase.instance.gameoverP2Panel.SetActive (true);
 						LoadingScene.ggAdmobs.ShowInterstitial ();
 						LoadingScene.ggAdmobs.RequestInterstitial ();
@@ -406,8 +407,16 @@ public class FingerRightControl : FingerBase {
 						if (SaveManager.instance.state.currentMatch <= 7) 
 						{
 							SaveManager.instance.state.listPlayerMatch [SaveManager.instance.state.currentMatch + 7] = SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2 + 1];
-							if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2] == 1)
+							if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2] == 1) 
+							{
 								SaveManager.instance.state.isLose = true;
+								if (levelStatManager != null) {
+									if (lvMain.level <= 19)
+										levelStatManager.IncreaseExp (10);
+									else
+										levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 50));
+								}
+							}
 							GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
 							FadeAni.isReturnTournament = true;
 						}

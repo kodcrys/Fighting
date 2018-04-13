@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class TournamentManager : MonoBehaviour {
 	
 	[Header("------Panel------")]
@@ -16,13 +16,16 @@ public class TournamentManager : MonoBehaviour {
 	[SerializeField]
 	private GameObject matchPanel;
 
+	[Header("------Anim------")]
+	[SerializeField]
+	private Image Fade1;
+
+	public static bool runFade1In, runFade1Out;
 	// Use this for initialization
 	void Start () 
 	{
-		//SaveManager.instance.state.currentMatch = 0;
-
-		Debug.Log ("count Win " + SaveManager.instance.state.countWinMatch + " " + SaveManager.instance.state.isLose);
-
+		runFade1In = false;
+		runFade1Out = false;
 
 		matchPanel.SetActive (false);
 
@@ -54,10 +57,31 @@ public class TournamentManager : MonoBehaviour {
 			boardGamePanel.SetActive (false);
 			resultPanel.SetActive (true);
 		}
+
+		Fade1.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Debug.Log ("In " + runFade1In + " Out " + runFade1Out);
+
+		if (runFade1In) 
+		{
+			Fade1.gameObject.SetActive (true);
+			Fade1.fillAmount += Time.deltaTime;
+			if (Fade1.fillAmount == 1)
+				runFade1In = false;
+			
+		}
+
+		if (runFade1Out) 
+		{
+			Fade1.fillAmount -= Time.deltaTime;
+			if (Fade1.fillAmount == 0) 
+			{
+				runFade1In = false;
+				Fade1.gameObject.SetActive (false);
+			}
+		}
 	}
 }

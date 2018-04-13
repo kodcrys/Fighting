@@ -144,11 +144,16 @@ public class ChooseCharManager : MonoBehaviour {
 		chooseSymbol.SetActive (false);
 	}
 
+	void OnEnable ()
+	{
+		TournamentManager.runFade1Out = true;
+	}
+
 	void Update() {
 		if(objFollow != null)
 			chooseSymbol.transform.position = objFollow.transform.position;
 	}
-
+		
 	bool isShowTypeChar = true;
 
 	// CHange type equipment choose or character choose
