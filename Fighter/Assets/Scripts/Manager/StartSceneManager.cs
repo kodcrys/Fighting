@@ -93,6 +93,9 @@ public class StartSceneManager : MonoBehaviour {
 	[SerializeField]
 	Transform canzas2;
 
+	[SerializeField]
+	CointainData rewardAds;
+
 	GoogleMobileAdsDemoScript ggAdmobs;
 
 	void Awake() {
@@ -286,6 +289,7 @@ public class StartSceneManager : MonoBehaviour {
 	}
 
 	public void ShowReward() {
+		rewardAds.quest.doing += 1;
 		LoadingScene.minutesLastClick = LoadingScene.minutesWait;
 		LoadingScene.ggAdmobs.ShowRewardBasedVideo ();
 		//AniMoveRewardAds ();
