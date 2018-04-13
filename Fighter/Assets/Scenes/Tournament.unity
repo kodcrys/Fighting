@@ -14103,7 +14103,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1496768605}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.3725495
+  m_Size: 0.37254953
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -71316,6 +71316,56 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1234353845}
+--- !u!1 &1234824049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1770904004143458, guid: a9374ece0291243d38686a14a2b397f0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1797826451}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1234824051}
+  - component: {fileID: 1234824050}
+  m_Layer: 0
+  m_Name: Tournament
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1234824050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114918159534192270, guid: a9374ece0291243d38686a14a2b397f0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1797826451}
+  m_GameObject: {fileID: 1234824049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9bc0245a03ba4ae79dadc884abb1fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataChar: {fileID: 0}
+  dataItem: {fileID: 0}
+  dataMap: {fileID: 0}
+  quest: {fileID: 11400000, guid: 1fd32887fe0064eab9a71069bc428960, type: 2}
+  isX1Gatcha: 0
+  smokeEffect: {fileID: 0}
+  charEquipManager: {fileID: 0}
+--- !u!4 &1234824051
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4014262937095472, guid: a9374ece0291243d38686a14a2b397f0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1797826451}
+  m_GameObject: {fileID: 1234824049}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235706291
 GameObject:
   m_ObjectHideFlags: 0
@@ -97149,6 +97199,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 912999b528e974be1ba22c4b74658a81, type: 3}
   - {fileID: 21300000, guid: d6ed4ca76ea1c4ecf8e179d57c61c138, type: 3}
   scoretxt: {fileID: 903571736}
+  tournamentQuest: {fileID: 1234824050}
 --- !u!1 &1690837083
 GameObject:
   m_ObjectHideFlags: 0
@@ -102461,6 +102512,58 @@ MonoBehaviour:
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
   charEquipManager: {fileID: 0}
+--- !u!1001 &1797826451
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4014262937095472, guid: a9374ece0291243d38686a14a2b397f0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014262937095472, guid: a9374ece0291243d38686a14a2b397f0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014262937095472, guid: a9374ece0291243d38686a14a2b397f0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014262937095472, guid: a9374ece0291243d38686a14a2b397f0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014262937095472, guid: a9374ece0291243d38686a14a2b397f0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014262937095472, guid: a9374ece0291243d38686a14a2b397f0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014262937095472, guid: a9374ece0291243d38686a14a2b397f0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4014262937095472, guid: a9374ece0291243d38686a14a2b397f0, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770904004143458, guid: a9374ece0291243d38686a14a2b397f0, type: 2}
+      propertyPath: m_Name
+      value: Tournament
+      objectReference: {fileID: 0}
+    - target: {fileID: 114918159534192270, guid: a9374ece0291243d38686a14a2b397f0,
+        type: 2}
+      propertyPath: quest
+      value: 
+      objectReference: {fileID: 11400000, guid: 1fd32887fe0064eab9a71069bc428960,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a9374ece0291243d38686a14a2b397f0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1797838628
 GameObject:
   m_ObjectHideFlags: 0

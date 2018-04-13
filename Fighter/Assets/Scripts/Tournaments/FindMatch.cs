@@ -57,6 +57,9 @@ public class FindMatch : MonoBehaviour {
 	private float timeJoinGame;
 	private float timeCount;
 
+	[SerializeField]
+	CointainData tournamentQuest;
+
 	// Use this for initialization
 	void OnEnable () {
 		isMoveOut = false;
@@ -91,6 +94,7 @@ public class FindMatch : MonoBehaviour {
 		isMoveOut = true;
 		timeCount = 0f;
 		timeJoinGame = Random.Range (2, 5);
+		tournamentQuest.quest.doing += 1;
 		findMatchbtn.SetActive (false);
 		cancelbtn.SetActive (true);
 	}
