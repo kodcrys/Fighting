@@ -109,6 +109,11 @@ public class ChooseCharControl : MonoBehaviour {
 		EnDisableLibraryCell ();
 	}
 
+	void OnEnable ()
+	{
+		ReadSave ();
+	}
+
 	// khi chọn vào char hoặc equipment thì sẽ có vòng tròn sáng màu vàng hiện ra ở chỗ chọn.
 	void Update() 
 	{

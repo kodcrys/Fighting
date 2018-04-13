@@ -76,4 +76,6 @@ public class SaveState {
 	public int randMap = 0;
 
 	public bool isLose;
+
+	public int countWinMatch = 0;
 }

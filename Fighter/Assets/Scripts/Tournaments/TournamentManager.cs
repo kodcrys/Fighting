@@ -32,7 +32,7 @@ public class TournamentManager : MonoBehaviour {
 		} 
 		else 
 		{
-			if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch - 1) * 2] == 1) {
+			if (SaveManager.instance.state.listPlayerMatch [(SaveManager.instance.state.currentMatch) * 2] == 1) {
 				findMatchPanel.SetActive (false);
 				chooseCharPanel.SetActive (true);
 				boardGamePanel.SetActive (false);
