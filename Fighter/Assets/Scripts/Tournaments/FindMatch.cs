@@ -64,7 +64,7 @@ public class FindMatch : MonoBehaviour {
 	private UnityEngine.UI.Text timeLefttxt; 
 	[SerializeField]
 	private ulong msToWait = 604800000;
-
+	float secondsLeft;
 	private ulong lastGiftOpen;
 
 	// Use this for initialization
@@ -83,9 +83,6 @@ public class FindMatch : MonoBehaviour {
 		TournamentManager.checkRun = false;
 
 		lastGiftOpen = ulong.Parse (SaveManager.instance.state.weeklyTimeCountdown);
-
-		if (!IsCheatReady())
-			Giftbtn.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -95,36 +92,51 @@ public class FindMatch : MonoBehaviour {
 		//CountTimeLeft ();
 		ShowScoreAndMedal ();
 
+
+		// Set the timer
+		ulong diff = ((ulong)DateTime.Now.Ticks - lastGiftOpen);
+
+		ulong m = diff / TimeSpan.TicksPerMillisecond;
+
+		secondsLeft = (float)(msToWait - m) / 1000f;
+
+		string r = "";
+
+		// Days
+		r += ((int)secondsLeft / 86400).ToString () + "d ";
+		secondsLeft -= ((int)secondsLeft / 86400) * 86400;
+
+		// Hours
+		r+= ((int) secondsLeft / 3600).ToString () + "h ";
+		secondsLeft -= ((int)secondsLeft / 3600) * 3600;
+
+		// Minutes
+		r += ((int) secondsLeft/ 60).ToString ("00") + "m";
+
+		timeLefttxt.text = r;
+
+		if (Mathf.RoundToInt (secondsLeft) <= 0) 
+		{
+			timeLefttxt.text = "0d 0h 0m";
+		}
 		if (!Giftbtn.activeInHierarchy) 
 		{
-			if (IsCheatReady ()) {
-				timeLefttxt.text = "0d 0h 0m";
-				Giftbtn.SetActive (true);
-				return;
-			} 
-
 			{
-				// Set the timer
-				ulong diff = ((ulong)DateTime.Now.Ticks - lastGiftOpen);
+				
 
-				ulong m = diff / TimeSpan.TicksPerMillisecond;
+				if (Mathf.RoundToInt (secondsLeft) > 0)
+					Giftbtn.SetActive (false);
+				Debug.Log (Mathf.RoundToInt(secondsLeft));
+				if (Mathf.RoundToInt(secondsLeft) <= 0) 
+				{
+					timeLefttxt.text = "0d 0h 0m";
+					if (SaveManager.instance.state.score >= 20)
+						Giftbtn.SetActive (true);
+					else
+						Giftbtn.SetActive (false);
+						CountTimeLeft ();
+				}
 
-				float secondsLeft = (float)(msToWait - m) / 1000f;
-
-				string r = "";
-
-				// Days
-				r += ((int)secondsLeft / 86400).ToString () + "d ";
-				secondsLeft -= ((int)secondsLeft / 86400) * 86400;
-
-				// Hours
-				r+= ((int) secondsLeft / 3600).ToString () + "h ";
-				secondsLeft -= ((int)secondsLeft / 3600) * 3600;
-
-				// Minutes
-				r += ((int) secondsLeft/ 60).ToString ("00") + "m";
-
-				timeLefttxt.text = r;
 
 			}
 		}
@@ -245,28 +257,11 @@ public class FindMatch : MonoBehaviour {
 	{
 		lastGiftOpen = (ulong)DateTime.Now.Ticks;
 		SaveManager.instance.state.weeklyTimeCountdown = lastGiftOpen.ToString ();
-		Giftbtn.SetActive (false);
 		/*	if (8 - (int)System.DateTime.Now.DayOfWeek <= 7)
 			timeLefttxt.text = 8 - (int)System.DateTime.Now.DayOfWeek + (" Days left");
 		else
 			timeLefttxt.text = "1 Day left"; */
 
-	}
-
-	private bool IsCheatReady ()
-	{
-		ulong diff = ((ulong)DateTime.Now.Ticks - lastGiftOpen);
-
-		ulong m = diff / TimeSpan.TicksPerMillisecond;
-
-		float secondsLeft = (float)(msToWait - m) / 1000f;
-	
-		if (secondsLeft < 0)
-		{
-			return true;
-		}
-
-		return false;
 	}
 
 	void ShowScoreAndMedal ()
