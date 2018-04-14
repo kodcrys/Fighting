@@ -252,7 +252,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'No: 2-3'
+  m_Text: Diamond
 --- !u!222 &5678780
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10292,7 +10292,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'No: 4- 10'
+  m_Text: platinum
 --- !u!222 &180813076
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38060,7 +38060,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d6ed4ca76ea1c4ecf8e179d57c61c138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a97236833d2d474681319a0d912b8ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -74285,7 +74285,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'No: 1'
+  m_Text: Master
 --- !u!222 &1275413965
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -80529,7 +80529,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'No: 51-500'
+  m_Text: Silver
 --- !u!222 &1380246759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -95077,7 +95077,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d6ed4ca76ea1c4ecf8e179d57c61c138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29d328932fd3c4664ba445633bf4df74, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -107507,7 +107507,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: No >500
+  m_Text: Bronze
 --- !u!222 &1870406655
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -110221,7 +110221,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'No: 11-50'
+  m_Text: Gold
 --- !u!222 &1925886429
 CanvasRenderer:
   m_ObjectHideFlags: 0

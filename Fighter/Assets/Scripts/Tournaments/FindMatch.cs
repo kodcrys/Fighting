@@ -126,7 +126,6 @@ public class FindMatch : MonoBehaviour {
 
 				if (Mathf.RoundToInt (secondsLeft) > 0)
 					Giftbtn.SetActive (false);
-				Debug.Log (Mathf.RoundToInt(secondsLeft));
 				if (Mathf.RoundToInt(secondsLeft) <= 0) 
 				{
 					timeLefttxt.text = "0d 0h 0m";
