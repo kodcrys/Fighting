@@ -400,8 +400,11 @@ public class FingerRightControl : FingerBase {
 								levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 50));
 						}
 						GameplayBase.instance.gameoverP2Panel.SetActive (true);
-						LoadingScene.ggAdmobs.ShowInterstitial ();
-						LoadingScene.ggAdmobs.RequestInterstitial ();
+
+						if (!SaveManager.instance.state.isPurchaseRemoveAds) {
+							LoadingScene.ggAdmobs.ShowInterstitial ();
+							LoadingScene.ggAdmobs.RequestInterstitial ();
+						}
 					} else if (SaveManager.instance.state.whatMode == 2) 
 					{
 						if (SaveManager.instance.state.currentMatch <= 7) 
