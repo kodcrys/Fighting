@@ -5,11 +5,11 @@ public class SaveState {
 
 	public bool isFirstOpenApp = true;
 
-	public int TotalGold = 10000;
+	public int TotalGold = 0;
 
 	public int CurExp = 0;
 
-	public int TotalDiamond = 10000;
+	public int TotalDiamond = 0;
 
 	public int TotalCardChar = 0;
 
