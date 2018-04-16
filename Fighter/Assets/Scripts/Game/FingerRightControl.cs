@@ -496,6 +496,8 @@ public class FingerRightControl : FingerBase {
 	void HideItems() {
 		hat.gameObject.SetActive (false);
 		amor.gameObject.SetActive (false);
+		amor1.gameObject.SetActive (false);
+		amor2.gameObject.SetActive (false);
 		weapon.gameObject.SetActive (false);
 	}
 
@@ -529,7 +531,12 @@ public class FingerRightControl : FingerBase {
 
 		if (GameplayBase.amorPlayer2 != null) {
 			FingerRightControl.instance.amor.sprite = GameplayBase.amorPlayer2.avatar;
+			FingerRightControl.instance.amor1.sprite = GameplayBase.amorPlayer2.avatar;
+			FingerRightControl.instance.amor2.sprite = GameplayBase.amorPlayer2.avatar;
+
 			FingerRightControl.instance.amor.gameObject.SetActive (true);
+			FingerRightControl.instance.amor1.gameObject.SetActive (true);
+			FingerRightControl.instance.amor2.gameObject.SetActive (true);
 
 			maxHealth += GameplayBase.hatPlayer1.HP;
 			atk += GameplayBase.hatPlayer1.ATK;
@@ -578,7 +585,12 @@ public class FingerRightControl : FingerBase {
 
 		if (GameplayBase.amorAI != null) {
 			amor.sprite = GameplayBase.amorAI.avatar;
+			amor1.sprite = GameplayBase.amorAI.avatar;
+			amor2.sprite = GameplayBase.amorAI.avatar;
+
 			amor.gameObject.SetActive (true);
+			amor1.gameObject.SetActive (true);
+			amor2.gameObject.SetActive (true);
 
 			if (SaveManager.instance.state.whatMode == 1) {
 				maxHealth += GameplayBase.amorPlayer1.HP;

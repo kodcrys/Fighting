@@ -64,6 +64,9 @@ public class QuestManager : MonoBehaviour {
 	[SerializeField]
 	private Text diaTxt;
 
+	[SerializeField]
+	LevelStatManager lvStatManager;
+
 	void Awake() {
 		if (Intance == null)
 			Intance = this;
@@ -278,7 +281,7 @@ public class QuestManager : MonoBehaviour {
 		SaveManager.instance.state.CurExp += quest.rewardExp;
 		SaveManager.instance.Save ();
 
-		LevelStatManager.intance.IncreaseExp (quest.rewardExp);
+		lvStatManager.IncreaseExp (quest.rewardExp);
 	}
 
 	void LoadStatusRewardBonus() {

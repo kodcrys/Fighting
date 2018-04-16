@@ -18,4 +18,4 @@ MonoBehaviour:
   ATK: 50
   DEF: 0
   HP: 0
-  isOwned: 0
+  isOwned: 1

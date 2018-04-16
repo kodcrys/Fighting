@@ -110,7 +110,9 @@ public class FingerAnim : BaseFinger {
 
 		if (GamePlayController.amorAI != null) {
 			amor.sprite = GamePlayController.amorAI.avatar;
+			amor1.sprite = GamePlayController.amorAI.avatar;
 			amor.gameObject.SetActive (true);
+			amor1.gameObject.SetActive (true);
 		}
 
 		if (GamePlayController.wpAI != null) {

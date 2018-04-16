@@ -12,6 +12,8 @@ public class FingerBase : MonoBehaviour {
 	public SpriteRenderer skin;
 	public SpriteRenderer hat;
 	public SpriteRenderer amor;
+	public SpriteRenderer amor1;
+	public SpriteRenderer amor2;
 	public SpriteRenderer weapon;
 
 	[Header("Skins & Items AtkDown")]

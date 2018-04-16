@@ -497,6 +497,8 @@ public class FingerLeftControl : FingerBase {
 	void HideItems() {
 		hat.gameObject.SetActive (false);
 		amor.gameObject.SetActive (false);
+		amor1.gameObject.SetActive (false);
+		amor2.gameObject.SetActive (false);
 		weapon.gameObject.SetActive (false);
 	}
 
@@ -535,7 +537,12 @@ public class FingerLeftControl : FingerBase {
 
 		if (GameplayBase.amorPlayer1 != null) {
 			FingerLeftControl.instance.amor.sprite = GameplayBase.amorPlayer1.avatar;
+			FingerLeftControl.instance.amor1.sprite = GameplayBase.amorPlayer1.avatar;
+			FingerLeftControl.instance.amor2.sprite = GameplayBase.amorPlayer1.avatar;
+
 			FingerLeftControl.instance.amor.gameObject.SetActive (true);
+			FingerLeftControl.instance.amor1.gameObject.SetActive (true);
+			FingerLeftControl.instance.amor2.gameObject.SetActive (true);
 
 			maxHealth += GameplayBase.amorPlayer1.HP;
 			atk += GameplayBase.amorPlayer1.ATK;

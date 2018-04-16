@@ -13,6 +13,7 @@ public class BaseFinger : MonoBehaviour {
 	[Header("Items Idle")]
 	public SpriteRenderer hat;
 	public SpriteRenderer amor;
+	public SpriteRenderer amor1;
 	public SpriteRenderer weapon;
 
 	[Header("Items AtkDown")]
