@@ -14176,7 +14176,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1496768605}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.37254953
+  m_Size: 0.3725495
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14521,7 +14521,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +1000
+  m_Text: +200
 --- !u!222 &260243858
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38702,7 +38702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +500
+  m_Text: +100
 --- !u!222 &665135542
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -53447,7 +53447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &947877416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89835,7 +89835,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +100
+  m_Text: +20
 --- !u!222 &1543475449
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -100099,7 +100099,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +200
+  m_Text: +40
 --- !u!222 &1717961351
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -113902,7 +113902,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +50
+  m_Text: +10
 --- !u!222 &1989924957
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -115627,7 +115627,7 @@ MonoBehaviour:
   rewardObj: {fileID: 827726916}
   fadeOpenReward: {fileID: 549381091}
   effReward: {fileID: 1006100046}
-  listRecieveGold: 3200000064000000c8000000f401000020030000e8030000
+  listRecieveGold: 0a000000140000002800000064000000a0000000c8000000
   listRecieveDiamond: 02000000050000000a0000000f0000001400000032000000
   listScore: 140000003200000064000000c8000000f4010000e8030000
   diamondtxt: {fileID: 1683295944}
@@ -123180,7 +123180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +800
+  m_Text: +160
 --- !u!222 &2132181279
 CanvasRenderer:
   m_ObjectHideFlags: 0
