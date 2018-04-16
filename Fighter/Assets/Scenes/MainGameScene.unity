@@ -45002,7 +45002,7 @@ MonoBehaviour:
   dataChar: {fileID: 0}
   dataItem: {fileID: 0}
   dataMap: {fileID: 0}
-  quest: {fileID: 11400000, guid: 028e02b23835d4a13ae7a77655043695, type: 2}
+  quest: {fileID: 11400000, guid: c39cf0f0ac4b145dd958a1cf4371b9f6, type: 2}
   isX1Gatcha: 0
   smokeEffect: {fileID: 0}
   charEquipManager: {fileID: 0}
