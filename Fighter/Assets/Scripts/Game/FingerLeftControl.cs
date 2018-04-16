@@ -286,12 +286,11 @@ public class FingerLeftControl : FingerBase {
 				//2 player
 				if (isMainGame && !questPlay2Player.isDone)
 					questPlay2Player.doing++;
-
-				if (isMainGame && !questWinAiTime.isDone)
-					questWinAiTime.doing++;
 			} else { // neu la AI
 				if (isMainGame && !questPlayAITime.isDone)
 					questPlayAITime.doing++;
+				if (isMainGame && !questWinAiTime.isDone)
+					questWinAiTime.doing++;
 			}
 			isDoneRound = true;
 		}
