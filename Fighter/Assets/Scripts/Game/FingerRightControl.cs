@@ -445,9 +445,9 @@ public class FingerRightControl : FingerBase {
 
 	public void ChangeCharPlayer() {
 
-		maxHealth = lvMain.hpBonus;
-		atk = lvMain.atkBonus;
-		defend = lvMain.defBonus;
+		maxHealth = lvMain.hpBonus + plusHP;
+		atk = lvMain.atkBonus + plusAtk;
+		defend = lvMain.defBonus + plusDef;
 
 		if (GameplayBase.dataPlayer2 != null) {
 			// skin Idle
@@ -469,9 +469,9 @@ public class FingerRightControl : FingerBase {
 
 	public void ChangeCharAI() {
 
-		maxHealth = lvMain.hpBonus;
-		atk = lvMain.atkBonus;
-		defend = lvMain.defBonus;
+		maxHealth = lvMain.hpBonus + plusHP;
+		atk = lvMain.atkBonus + plusAtk;
+		defend = lvMain.defBonus + plusDef;
 
 		if (GameplayBase.dataAI != null) {
 			// skin Idle

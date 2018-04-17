@@ -470,9 +470,9 @@ public class FingerLeftControl : FingerBase {
 
 	public void ChangeCharPlayer() {
 
-		maxHealth = lvMain.hpBonus;
-		atk = lvMain.atkBonus;
-		defend = lvMain.defBonus;
+		maxHealth = lvMain.hpBonus + plusHP;
+		atk = lvMain.atkBonus + plusAtk;
+		defend = lvMain.defBonus + plusDef;
 
 		if (GameplayBase.dataPlayer1 != null) {
 

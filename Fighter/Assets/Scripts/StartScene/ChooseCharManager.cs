@@ -9,6 +9,9 @@ public class ChooseCharManager : MonoBehaviour {
 
 	public static int indexMap;
 
+	[SerializeField]
+	bool isChooseMap;
+
 	[Header("Button change type choose")]
 	[SerializeField]
 	UnityEngine.UI.Button[] btnsChangeType;
@@ -142,6 +145,9 @@ public class ChooseCharManager : MonoBehaviour {
 	void Start () {
 		isTurnPlayer1 = true;
 		chooseSymbol.SetActive (false);
+		if (isChooseMap) {
+			PlusStat ();
+		}
 	}
 
 	void OnEnable ()
@@ -833,14 +839,15 @@ public class ChooseCharManager : MonoBehaviour {
 		} else if (SaveManager.instance.state.idHat2 == -1) {
 			hatMainR.gameObject.SetActive (false);
 
-			if (SaveManager.instance.state.idChar1 != -1) {
-				hatMainR.gameObject.SetActive (true);
-				hatSymbol.gameObject.SetActive (false);
-			}
-			else {
-				hatMainR.gameObject.SetActive (false);
+			//if (SaveManager.instance.state.idChar1 != -1) {
+				//hatMainR.gameObject.SetActive (true);
+				//hatSymbol.gameObject.SetActive (false);
+			//	hatSymbol.gameObject.SetActive (true);
+			//}
+			//else {
+				//hatMainR.gameObject.SetActive (false);
 				hatSymbol.gameObject.SetActive (true);
-			}
+			//}
 		}
 
 		if (SaveManager.instance.state.idAmor1 != -1) {
@@ -1046,5 +1053,19 @@ public class ChooseCharManager : MonoBehaviour {
 				maps [i].SetActive (false);
 
 		chooseSymbol.SetActive (false);
+	}
+
+	public void PlusStat() {
+		FingerBase.plusAtk = 0;
+		FingerBase.plusDef = 0;
+		FingerBase.plusHP = 0;
+
+		for (int i = 0; i < lstCharacters.Length; i++) {
+			if (lstCharacters [i].isOwned) {
+				FingerBase.plusAtk += lstCharacters [i].ATK;
+				FingerBase.plusDef += lstCharacters [i].DEF;
+				FingerBase.plusHP += lstCharacters [i].HP;
+			}
+		}
 	}
 }

@@ -8,6 +8,8 @@ public class FingerBase : MonoBehaviour {
 
 	public FingerState fingerAction = FingerState.Idel;
 
+	public static int plusAtk, plusDef, plusHP;
+
 	[Header("Skins & Items Idle")]
 	public SpriteRenderer skin;
 	public SpriteRenderer hat;
