@@ -157,7 +157,7 @@ public class FindMatch : MonoBehaviour {
 	{
 		isMoveOut = true;
 		timeCount = 0f;
-		timeJoinGame = UnityEngine.Random.Range (2, 5);
+		timeJoinGame = UnityEngine.Random.Range (5, 12);
 		tournamentQuest.quest.doing += 1;
 		findMatchbtn.SetActive (false);
 		cancelbtn.SetActive (true);

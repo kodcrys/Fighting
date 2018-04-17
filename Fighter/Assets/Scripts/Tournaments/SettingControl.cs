@@ -23,9 +23,9 @@ public class SettingControl : MonoBehaviour {
 
 	public void OnOkButton ()
 	{
-		fadeAni.isChangeChooseChar = true;
+		//fadeAni.isChangeChooseChar = true;
 		fadeAni.stateFade = FadeAni.State.Show;
-		//UnityEngine.SceneManagement.SceneManager.LoadScene ("StartScene");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("StartScene");
 	}
 
 	public void OnCancelButton ()
