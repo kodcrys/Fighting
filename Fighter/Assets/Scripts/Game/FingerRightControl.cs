@@ -420,8 +420,10 @@ public class FingerRightControl : FingerBase {
 										levelStatManager.IncreaseExp ((int)(lvMain.expLevelUp [lvMain.level] / 50));
 								}
 							}
-							GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
 							FadeAni.isReturnTournament = true;
+							FadeAni.isRunPlayGame = false;
+							FadeAni.isRunMiniGame = false;
+							GameplayBase.instance.aniFade.stateFade = FadeAni.State.Show; 
 						}
 					}
 					AnimationText.endRound = true;

@@ -269,6 +269,10 @@ public class ChooseCharManager : MonoBehaviour {
 		if (contentBtn.text == playMode [2]) {
 			SaveManager.instance.state.currentMatch = 0;
 			FadeAni.isReturnTournament = true;
+			aniFade.isChangeMap = false;
+			aniFade.isChangeChooseChar = false;
+			FadeAni.isRunPlayGame = false;
+			FadeAni.isRunMiniGame = false;
 			fadeAni.stateFade = FadeAni.State.Show;
 			//UnityEngine.SceneManagement.SceneManager.LoadScene ("Tournament");
 		}
@@ -276,6 +280,10 @@ public class ChooseCharManager : MonoBehaviour {
 		if (contentBtn.text == playMode [3]) {
 			fadeAni.stateFade = FadeAni.State.Show;
 			FadeAni.isRunMiniGame = true;
+			aniFade.isChangeMap = false;
+			aniFade.isChangeChooseChar = false;
+			FadeAni.isRunPlayGame = false;
+			FadeAni.isReturnTournament = false;
 			RandomMinigame ();
 
 		}
@@ -314,6 +322,10 @@ public class ChooseCharManager : MonoBehaviour {
 			if (contentBtn.text == playMode [1]) {
 				aniFade.stateFade = FadeAni.State.Show;
 				aniFade.isChangeMap = true;
+				aniFade.isChangeChooseChar = false;
+				FadeAni.isRunPlayGame = false;
+				FadeAni.isRunMiniGame = false;
+				FadeAni.isReturnTournament = false;
 				// Change mode AI afer play
 				PlayModeAI ();
 			}
@@ -345,6 +357,10 @@ public class ChooseCharManager : MonoBehaviour {
 				ready2.sprite = lockSpr;
 				aniFade.stateFade = FadeAni.State.Show;
 				aniFade.isChangeMap = true;
+				aniFade.isChangeChooseChar = false;
+				FadeAni.isRunPlayGame = false;
+				FadeAni.isRunMiniGame = false;
+				FadeAni.isReturnTournament = false;
 
 				if (SaveManager.instance.state.idChar2 != -1)
 					GameplayBase.dataPlayer2 = lstCharacters [SaveManager.instance.state.idChar2];
@@ -884,7 +900,7 @@ public class ChooseCharManager : MonoBehaviour {
 		aniFade.isChangeChooseChar = true;
 
 		// bien danh dau tu map ze choose char
-		FadeAni.isRunMapToChooseChar = true;
+		FadeAni.isRunMapToChooseChar = false;
 		FadeAni.isRunMapToHome = false;
 		FadeAni.isRunPlayGame = false;
 	}
@@ -892,15 +908,15 @@ public class ChooseCharManager : MonoBehaviour {
 	public void Home() {
 		aniFade.stateFade = FadeAni.State.Show;
 		aniFade.isChangeChooseChar = true;
-		FadeAni.isRunMapToChooseChar = true;
-		FadeAni.isRunMapToHome = true;
+		FadeAni.isRunMapToChooseChar = false;
+		FadeAni.isRunMapToHome = false;
 		FadeAni.isRunPlayGame = false;
 		//UnityEngine.SceneManagement.SceneManager.LoadScene ("StartScene");
 	}
 
 	public void PlayGame() {
 		aniFade.stateFade = FadeAni.State.Show;
-		aniFade.isChangeChooseChar = true;
+		aniFade.isChangeChooseChar = false;
 		FadeAni.isRunMapToChooseChar = false;
 		FadeAni.isRunMapToHome = false ;
 		FadeAni.isRunPlayGame = true;

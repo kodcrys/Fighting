@@ -12,6 +12,8 @@ public class LoadingScene : MonoBehaviour {
 
 	[SerializeField]
 	bool isTestGame;
+	 
+	public static float timeGame = 0;
 
 	// Use this for initialization
 	void Start () {

@@ -100,6 +100,8 @@ public class MatchControl : MonoBehaviour
 				{
 					fadeAniForMatch.stateFade = FadeAni.State.Show;
 					FadeAni.isRunPlayGame = true;
+					FadeAni.isRunMiniGame = false;
+					FadeAni.isReturnTournament = false;
 					matchPanel.SetActive (false);
 				}
 
@@ -187,6 +189,7 @@ public class MatchControl : MonoBehaviour
 
 		fadeAniForMatch.stateFade = FadeAni.State.Show;
 		FadeAni.isRunPlayGame = true;
-
+		FadeAni.isRunMiniGame = false;
+		FadeAni.isReturnTournament = false;
 	}
 }

@@ -151,6 +151,8 @@ public class StartSceneManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if(LoadingScene.timeGame <= 3)
+			LoadingScene.timeGame += Time.deltaTime;
 		// get list form questManager
 		lstQuest = QuestManager.Intance.CalculateTimeRefreshQuest (startTime, endTime, countDownRefresh, lstQuest);
 
@@ -301,5 +303,13 @@ public class StartSceneManager : MonoBehaviour {
 
 		foreach (Transform trans in transAni)
 			trans.GetComponent<MagnetField> ().isMove = true;
+	}
+
+	[SerializeField]
+	GameObject iapPanel;
+	public void ShowInApp() {
+		if (LoadingScene.timeGame > 3) {
+			iapPanel.SetActive (true);
+		}
 	}
 }
