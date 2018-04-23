@@ -234,9 +234,11 @@ public class UIAnimations : MonoBehaviour {
 		if (SaveManager.instance.state.isOnSound) {
 			SaveManager.instance.state.isOnSound = false;
 			imgTarget.sprite = sprChangeFrame2;
+			SoundManager.MuteSound ();
 		} else {
 			SaveManager.instance.state.isOnSound = true;
 			imgTarget.sprite = sprChangeFrame1;
+			SoundManager.DontMuteSound ();
 		}
 		SaveManager.instance.Save ();
 	}
@@ -246,9 +248,11 @@ public class UIAnimations : MonoBehaviour {
 		if (SaveManager.instance.state.isOnMusic) {
 			SaveManager.instance.state.isOnMusic = false;
 			imgTarget.sprite = sprChangeFrame2;
+			SoundManager.DontMuteBGM ();
 		} else {
 			SaveManager.instance.state.isOnMusic = true;
 			imgTarget.sprite = sprChangeFrame1;
+			SoundManager.DontMuteBGM ();
 		}
 		SaveManager.instance.Save ();
 	}
@@ -258,9 +262,11 @@ public class UIAnimations : MonoBehaviour {
 		if (SaveManager.instance.state.isOnVoice) {
 			SaveManager.instance.state.isOnVoice = false;
 			imgTarget.sprite = sprChangeFrame2;
+			SoundManager.MuteVoice ();
 		} else {
 			SaveManager.instance.state.isOnVoice = true;
 			imgTarget.sprite = sprChangeFrame1;
+			SoundManager.DontMuteVoice ();
 		}
 		SaveManager.instance.Save ();
 	}

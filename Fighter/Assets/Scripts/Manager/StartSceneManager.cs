@@ -96,6 +96,9 @@ public class StartSceneManager : MonoBehaviour {
 	[SerializeField]
 	CointainData rewardAds;
 
+	[SerializeField]
+	GameObject connectInternetPanel;
+
 	GoogleMobileAdsDemoScript ggAdmobs;
 
 	void Awake() {
@@ -309,7 +312,14 @@ public class StartSceneManager : MonoBehaviour {
 	GameObject iapPanel;
 	public void ShowInApp() {
 		if (LoadingScene.timeGame > 3) {
-			iapPanel.SetActive (true);
+			
+			if (Application.internetReachability == NetworkReachability.NotReachable) {
+				connectInternetPanel.SetActive (true);
+				iapPanel.SetActive (false);
+			} else {
+				connectInternetPanel.SetActive (false);
+				iapPanel.SetActive (true);
+			}
 		}
 	}
 }
