@@ -969,13 +969,15 @@ public class ChooseCharManager : MonoBehaviour {
 			SaveManager.instance.Save ();
 
 			// Open data char
-			GameplayBase.dataAI = lstCharacters[SaveManager.instance.state.idCharAI];
+			GameplayBase.dataAI = lstCharacters [SaveManager.instance.state.idCharAI];
 
 			// Close data items
 			GameplayBase.hatAI = null;
 			GameplayBase.amorAI = null;
 			GameplayBase.hatAI = null;
 
+		} else {
+			GameplayBase.dataAI = null;
 		}
 
 		// neu player chon equipment tuong ung thi AI se co equipment ung zs player
@@ -987,7 +989,9 @@ public class ChooseCharManager : MonoBehaviour {
 			GameplayBase.dataAI = null;
 
 			// Open data items
-			GameplayBase.hatAI = lstItems[SaveManager.instance.state.idHatAI];
+			GameplayBase.hatAI = lstItems [SaveManager.instance.state.idHatAI];
+		} else {
+			GameplayBase.hatAI = null;
 		}
 
 		if (SaveManager.instance.state.idAmor1 != -1) {
@@ -998,7 +1002,9 @@ public class ChooseCharManager : MonoBehaviour {
 			GameplayBase.dataAI = null;
 
 			// Open data items
-			GameplayBase.amorAI = lstItems[SaveManager.instance.state.idAmorAI];
+			GameplayBase.amorAI = lstItems [SaveManager.instance.state.idAmorAI];
+		} else {
+			GameplayBase.amorAI = null;
 		}
 
 		if (SaveManager.instance.state.idWp1 != -1) {
@@ -1009,7 +1015,9 @@ public class ChooseCharManager : MonoBehaviour {
 			GameplayBase.dataAI = null;
 
 			// Open data items
-			GameplayBase.wpAI = lstItems[SaveManager.instance.state.idWpAI];
+			GameplayBase.wpAI = lstItems [SaveManager.instance.state.idWpAI];
+		} else {
+			GameplayBase.wpAI = null;
 		}
 
 		if (modeAIText.text == modeAI [0].ToString ()) {

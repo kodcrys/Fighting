@@ -466,6 +466,8 @@ public class FingerRightControl : FingerBase {
 			skinAtkDownSpr.gameObject.SetActive (true);
 
 			HideItems ();
+		} else {
+			skin.gameObject.SetActive (false);
 		}
 	}
 
@@ -489,6 +491,8 @@ public class FingerRightControl : FingerBase {
 			skinAtkDownSpr.gameObject.SetActive (true);
 
 			HideItems ();
+		} else {
+			skin.gameObject.SetActive (false);
 		}
 	}
 
@@ -526,6 +530,8 @@ public class FingerRightControl : FingerBase {
 			defend += GameplayBase.hatPlayer2.DEF;
 
 			HideSkin ();
+		} else {
+			hat.gameObject.SetActive (false);
 		}
 
 		if (GameplayBase.amorPlayer2 != null) {
@@ -542,6 +548,10 @@ public class FingerRightControl : FingerBase {
 			defend += GameplayBase.amorPlayer2.DEF;
 
 			HideSkin ();
+		} else {
+			FingerRightControl.instance.amor.gameObject.SetActive (false);
+			FingerRightControl.instance.amor1.gameObject.SetActive (false);
+			FingerRightControl.instance.amor2.gameObject.SetActive (false);
 		}
 			
 		if (GameplayBase.wpPlayer2 != null) {
@@ -553,6 +563,8 @@ public class FingerRightControl : FingerBase {
 			defend += GameplayBase.wpPlayer2.DEF;
 
 			HideSkin ();
+		} else {
+			FingerRightControl.instance.weapon.gameObject.SetActive (false);
 		}
 	}
 
@@ -580,6 +592,8 @@ public class FingerRightControl : FingerBase {
 				defend += GameplayBase.hatAI.DEF;
 			}
 			HideSkin ();
+		} else {
+			hat.gameObject.SetActive (false);
 		}
 
 		if (GameplayBase.amorAI != null) {
@@ -601,6 +615,10 @@ public class FingerRightControl : FingerBase {
 				defend += GameplayBase.amorAI.DEF;
 			}
 			HideSkin ();
+		} else {
+			amor.gameObject.SetActive (false);
+			amor1.gameObject.SetActive (false);
+			amor2.gameObject.SetActive (false);
 		}
 
 		if (GameplayBase.wpAI != null) {
@@ -617,6 +635,8 @@ public class FingerRightControl : FingerBase {
 				defend += GameplayBase.wpAI.DEF;
 			}
 			HideSkin ();
+		} else {
+			weapon.gameObject.SetActive (false);
 		}
 	}
 

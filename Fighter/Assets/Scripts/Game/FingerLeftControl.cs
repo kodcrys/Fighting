@@ -491,6 +491,8 @@ public class FingerLeftControl : FingerBase {
 			skinAtkDownSpr.gameObject.SetActive (true);
 
 			HideItems ();
+		} else {
+			skin.gameObject.SetActive (false);
 		}
 	}
 
@@ -527,6 +529,8 @@ public class FingerLeftControl : FingerBase {
 			defend += GameplayBase.hatPlayer1.DEF;
 
 			HideSkin ();
+		} else {
+			hat.gameObject.SetActive (false);
 		}
 
 		if (GameplayBase.amorPlayer1 != null) {
@@ -543,6 +547,10 @@ public class FingerLeftControl : FingerBase {
 			defend += GameplayBase.amorPlayer1.DEF;
 
 			HideSkin ();
+		} else {
+			FingerLeftControl.instance.amor.gameObject.SetActive (false);
+			FingerLeftControl.instance.amor1.gameObject.SetActive (false);
+			FingerLeftControl.instance.amor2.gameObject.SetActive (false);
 		}
 
 		if (GameplayBase.wpPlayer1 != null) {
@@ -554,6 +562,8 @@ public class FingerLeftControl : FingerBase {
 			defend += GameplayBase.wpPlayer1.DEF;
 
 			HideSkin ();
+		} else {
+			FingerLeftControl.instance.weapon.gameObject.SetActive (false);
 		}
 	}
 
