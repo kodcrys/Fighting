@@ -248,7 +248,7 @@ public class UIAnimations : MonoBehaviour {
 		if (SaveManager.instance.state.isOnMusic) {
 			SaveManager.instance.state.isOnMusic = false;
 			imgTarget.sprite = sprChangeFrame2;
-			SoundManager.DontMuteBGM ();
+			SoundManager.MuteBGM ();
 		} else {
 			SaveManager.instance.state.isOnMusic = true;
 			imgTarget.sprite = sprChangeFrame1;
@@ -285,34 +285,48 @@ public class UIAnimations : MonoBehaviour {
 
 	public void CheckSound() {
 		Image imgTarget = target.gameObject.GetComponent<Image> ();
-		if (SaveManager.instance.state.isOnSound)
+		if (SaveManager.instance.state.isOnSound) {
 			imgTarget.sprite = sprChangeFrame1;
-		else
+			SoundManager.DontMuteSound ();
+		} else {
 			imgTarget.sprite = sprChangeFrame2;
+			SoundManager.MuteSound ();
+		}
 	}
 
 	public void CheckMusic() {
 		Image imgTarget = target.gameObject.GetComponent<Image> ();
-		if (SaveManager.instance.state.isOnMusic)
+		if (SaveManager.instance.state.isOnMusic) {
 			imgTarget.sprite = sprChangeFrame1;
-		else
+			SoundManager.DontMuteBGM ();
+		} else {
 			imgTarget.sprite = sprChangeFrame2;
+			SoundManager.MuteBGM ();
+		}
 	}
 
 	public void CheckVoice() {
 		Image imgTarget = target.gameObject.GetComponent<Image> ();
-		if (SaveManager.instance.state.isOnVoice)
+		if (SaveManager.instance.state.isOnVoice) {
 			imgTarget.sprite = sprChangeFrame1;
-		else
+			SoundManager.DontMuteVoice ();
+		} else {
 			imgTarget.sprite = sprChangeFrame2;
+			SoundManager.MuteVoice ();
+		}
 	}
 
 	public void CheckRing() {
 		Image imgTarget = target.gameObject.GetComponent<Image> ();
-		if (SaveManager.instance.state.isOnRing)
+		if (SaveManager.instance.state.isOnRing) {
 			imgTarget.sprite = sprChangeFrame1;
-		else
+			SaveManager.instance.state.isOnRing = true;
+		}
+		else {
 			imgTarget.sprite = sprChangeFrame2;
+			SaveManager.instance.state.isOnRing = false;
+		}
+		SaveManager.instance.Save ();
 	}
 
 	void ChangeColor() {

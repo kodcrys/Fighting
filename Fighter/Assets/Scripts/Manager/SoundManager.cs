@@ -36,6 +36,7 @@ public class SoundManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		DontDestroyOnLoad (gameObject);
 	
 		BGMs = BGM;
@@ -101,5 +102,39 @@ public class SoundManager : MonoBehaviour {
 		Miss1s.mute = false;
 		Miss2s.mute = false;
 		Hits.mute = false;
+	}
+
+	public void CheckSound() {
+		if (SaveManager.instance.state.isOnSound) {
+			SoundManager.DontMuteSound ();
+		} else {
+			SoundManager.MuteSound ();
+		}
+	}
+
+	public void CheckMusic() {
+		if (SaveManager.instance.state.isOnMusic) {
+			SoundManager.DontMuteBGM ();
+		} else {
+			SoundManager.MuteBGM ();
+		}
+	}
+
+	public void CheckVoice() {
+		if (SaveManager.instance.state.isOnVoice) {
+			SoundManager.DontMuteVoice ();
+		} else {
+			SoundManager.MuteVoice ();
+		}
+	}
+
+	public void CheckRing() {
+		if (SaveManager.instance.state.isOnRing) {
+			SaveManager.instance.state.isOnRing = true;
+		}
+		else {
+			SaveManager.instance.state.isOnRing = false;
+		}
+		SaveManager.instance.Save ();
 	}
 }

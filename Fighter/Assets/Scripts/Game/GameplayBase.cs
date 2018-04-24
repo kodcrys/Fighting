@@ -39,6 +39,14 @@ public class GameplayBase : MonoBehaviour {
 	[SerializeField]
 	GameObject player1, player2;
 
+	[SerializeField]
+	private UIAnimations soundUI;
+	[SerializeField]
+	private UIAnimations musicUI;
+	[SerializeField]
+	private UIAnimations voiceUI;
+	[SerializeField]
+	private UIAnimations ringUI;
 
 	public FadeAni aniFade;
 
@@ -57,6 +65,11 @@ public class GameplayBase : MonoBehaviour {
 	bool wasTalk;
 	bool waitToTalk;
 
+	[SerializeField]
+	GameObject emojiLeft;
+	[SerializeField]
+	GameObject emojiRight;
+
 	public void Start() {
 		instance = this;
 		gamePause = false;
@@ -66,7 +79,20 @@ public class GameplayBase : MonoBehaviour {
 		timeInter = Random.Range (10, 20);
 		CheckAI ();
 		zoomCamera = false;
+
+		CheckSetting ();
+
 		SoundManager.Bangs.Play ();
+
+		if (MultiResolution.device == "ipad") {
+			emojiLeft.transform.localPosition = new Vector3 (-1.56f, 5.63f, 0);
+			emojiRight.transform.localPosition = new Vector3 (1.56f, 5.63f, 0);
+		}
+		else {
+			emojiLeft.transform.localPosition = new Vector3 (-3.5f, 5, 0);
+			emojiRight.transform.localPosition = new Vector3 (3.5f, 5, 0);
+		}
+
 		if (SaveManager.instance.state.whatMode == 1) {
 			for (int i = 0; i < maps.Length; i++) {
 				if (i == ChooseCharManager.indexMap)
@@ -178,6 +204,13 @@ public class GameplayBase : MonoBehaviour {
 		}
 
 		CheckWin ();
+	}
+
+	void CheckSetting() {
+		soundUI.CheckSound ();
+		musicUI.CheckMusic ();
+		voiceUI.CheckVoice ();
+		ringUI.CheckRing ();
 	}
 
 	void CheckAI(){
